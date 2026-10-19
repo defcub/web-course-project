@@ -1,0 +1,618 @@
+/* =========================================
+   ЗАГАЛЬНІ СТИЛІ ПІДПОРЯДКОВАНИХ СТОРІНОК
+   ========================================= */
+
+.inner-page {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.inner-page .main-header {
+    background-color: var(--bg-dark);
+}
+
+.inner-page .menu-icon {
+    background: transparent;
+    border: none;
+    color: var(--text-white);
+    font-family: inherit;
+    font-size: 32px;
+    line-height: 1;
+    padding: 8px;
+}
+
+.inner-page .main-menu {
+    gap: 28px;
+}
+
+.inner-page .main-menu a.active {
+    color: #a5a5ff;
+}
+
+.inner-page .current-contact {
+    border-color: #a5a5ff;
+    color: #a5a5ff;
+}
+
+.mobile-contact-link {
+    display: block;
+}
+
+.page-heading {
+    padding: 160px 0 50px;
+}
+
+.page-label {
+    color: #a5a5ff;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.page-title {
+    font-family: 'Graphik', sans-serif;
+    font-size: 40px;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    overflow-wrap: break-word;
+}
+
+.page-description {
+    max-width: 700px;
+    color: var(--text-gray);
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.page-section {
+    padding: 40px 0;
+}
+
+.page-section-title {
+    font-family: 'Graphik', sans-serif;
+    font-size: 30px;
+    line-height: 1.3;
+    margin-bottom: 24px;
+}
+
+.page-text {
+    color: var(--text-gray);
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.page-text + .page-text {
+    margin-top: 20px;
+}
+
+.page-link {
+    display: inline-block;
+    color: #a5a5ff;
+    font-weight: 700;
+    line-height: 1.6;
+    margin-top: 24px;
+}
+
+.page-link:hover {
+    text-decoration: underline;
+}
+
+.inner-page a:focus-visible,
+.inner-page button:focus-visible,
+.inner-page summary:focus-visible {
+    outline: 2px solid #a5a5ff;
+    outline-offset: 5px;
+}
+
+.inner-page .footer-inner {
+    gap: 30px;
+}
+
+.inner-page .footer-nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.inner-page .copyright {
+    line-height: 1.6;
+}
+
+/* =========================================
+   SERVICES
+   ========================================= */
+
+.service-details {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+    padding: 40px 0;
+    border-bottom: 1px solid #38383e;
+}
+
+.service-deliverables {
+    padding: 28px;
+    background-color: #232328;
+    border-radius: 12px;
+}
+
+.service-deliverables img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.service-deliverables h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.feature-list li {
+    color: var(--text-gray);
+    line-height: 1.6;
+    padding: 12px 0;
+    border-bottom: 1px solid #38383e;
+}
+
+.feature-list li:last-child {
+    border-bottom: none;
+}
+
+/* ЕТАПИ РОБОТИ */
+
+.process-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+    margin-top: 35px;
+}
+
+.process-card {
+    padding-top: 24px;
+    border-top: 1px solid #484850;
+}
+
+.step-number {
+    display: inline-block;
+    color: #a5a5ff;
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.process-card h3,
+.value-card h3,
+.studio-role h3,
+.contact-tip h3 {
+    font-size: 22px;
+    line-height: 1.4;
+    margin-bottom: 14px;
+}
+
+.process-card p,
+.value-card p,
+.studio-role p,
+.contact-tip p {
+    color: var(--text-gray);
+    line-height: 1.8;
+}
+
+/* ПОШИРЕНІ ЗАПИТАННЯ */
+
+.faq-list {
+    max-width: 850px;
+}
+
+.faq-item {
+    padding: 24px 0;
+    border-bottom: 1px solid #38383e;
+}
+
+.faq-item summary {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.faq-item p {
+    color: var(--text-gray);
+    line-height: 1.8;
+    margin-top: 18px;
+}
+
+/* =========================================
+   PROJECTS
+   ========================================= */
+
+.project-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    padding: 12px 22px;
+    border: 1px solid #484850;
+    border-radius: 30px;
+    background: transparent;
+    color: var(--text-white);
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: #30303c;
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.project-list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.project-case {
+    background-color: #232328;
+    border: 1px solid #38383e;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.project-case[hidden] {
+    display: none;
+}
+
+.project-preview {
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+    background-color: #2c2c38;
+}
+
+.project-preview img {
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    object-fit: contain;
+}
+
+.project-content {
+    padding: 26px;
+}
+
+.project-description-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    margin-top: 28px;
+}
+
+.project-description-grid h3,
+.project-result h3 {
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.project-description-grid p,
+.project-result p {
+    color: var(--text-gray);
+    line-height: 1.8;
+}
+
+.project-result {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid #41414a;
+}
+
+/* =========================================
+   ABOUT
+   ========================================= */
+
+.about-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 35px;
+    align-items: center;
+}
+
+.about-photo {
+    margin: 0;
+}
+
+.about-photo img {
+    display: block;
+    width: 100%;
+    border-radius: 12px;
+}
+
+.about-photo figcaption {
+    color: var(--text-gray);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 14px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    margin-top: 35px;
+}
+
+.value-card {
+    padding: 30px;
+    border: 1px solid #38383e;
+    border-radius: 12px;
+}
+
+.studio-role {
+    padding: 24px 0;
+    border-bottom: 1px solid #38383e;
+}
+
+.page-banner {
+    padding: 30px;
+    background-color: #252532;
+    border-left: 4px solid var(--primary-color);
+    border-radius: 6px;
+}
+
+.page-banner .btn {
+    margin-top: 24px;
+}
+
+/* =========================================
+   CONTACT
+   ========================================= */
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+    align-items: start;
+}
+
+.contact-tip {
+    margin-top: 30px;
+}
+
+.form-notice {
+    margin-top: 35px;
+    padding: 24px;
+    border: 1px solid #484850;
+    border-radius: 8px;
+}
+
+.form-notice h3 {
+    margin-bottom: 12px;
+}
+
+.form-notice p {
+    color: var(--text-gray);
+    line-height: 1.7;
+}
+
+.project-form {
+    min-width: 0;
+    padding: 24px;
+    background-color: #232328;
+    border: 1px solid #38383e;
+    border-radius: 12px;
+}
+
+.project-form h2 {
+    font-size: 28px;
+    margin-bottom: 14px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 24px;
+    min-width: 0;
+}
+
+.form-group label {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 14px;
+    background-color: var(--bg-dark);
+    border: 1px solid #555560;
+    border-radius: 6px;
+    color: var(--text-white);
+    font-family: inherit;
+    font-size: 16px;
+    color-scheme: dark;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: 2px solid #a5a5ff;
+    outline-offset: 2px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.message-counter {
+    color: var(--text-gray);
+    font-size: 13px;
+    text-align: right;
+}
+
+.form-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 24px;
+    color: var(--text-gray);
+    line-height: 1.6;
+    cursor: pointer;
+}
+
+.form-checkbox input {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 4px;
+    accent-color: var(--primary-color);
+}
+
+.form-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 28px;
+}
+
+.form-message {
+    color: #b8edc8;
+    line-height: 1.7;
+    margin-top: 20px;
+}
+
+/* =========================================
+   ПЛАНШЕТНА ВЕРСІЯ
+   ========================================= */
+
+@media screen and (min-width: 789px) {
+    .mobile-contact-link {
+        display: none;
+    }
+
+    .page-heading {
+        padding-top: 190px;
+        padding-bottom: 65px;
+    }
+
+    .page-title {
+        font-size: 58px;
+    }
+
+    .page-section {
+        padding: 55px 0;
+    }
+
+    .page-section-title {
+        font-size: 36px;
+    }
+
+    .service-details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 45px;
+        align-items: center;
+    }
+
+    .process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-description-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 35px;
+    }
+
+    .project-content {
+        padding: 40px;
+    }
+
+    .project-preview {
+        padding: 40px;
+    }
+
+    .about-layout {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 45px;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .value-card {
+        padding: 24px;
+    }
+
+    .form-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .page-banner {
+        padding: 45px;
+    }
+}
+
+/* =========================================
+   ДЕСКТОПНА ВЕРСІЯ
+   ========================================= */
+
+@media screen and (min-width: 1025px) {
+    .page-title {
+        font-size: 72px;
+    }
+
+    .page-section-title {
+        font-size: 42px;
+    }
+
+    .service-details {
+        gap: 90px;
+        padding: 55px 0;
+    }
+
+    .process-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .contact-process-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .contact-layout {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+        gap: 70px;
+    }
+
+    .project-form {
+        padding: 36px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .inner-page *,
+    .inner-page *::before,
+    .inner-page *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
