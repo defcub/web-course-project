@@ -1449,7 +1449,43 @@ body.modal-open {
 }
 
 
+/* ПОШУК І СОРТУВАННЯ ПРОЄКТІВ */
 
+.project-tools {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.project-tools .form-group {
+    margin-top: 0;
+}
+
+.project-tools .btn {
+    min-height: 50px;
+}
+
+.project-empty {
+    margin-top: 28px;
+    padding: 24px;
+    color: var(--text-gray);
+    background-color: #232328;
+    border: 1px solid #38383e;
+    border-radius: 12px;
+    line-height: 1.7;
+}
+
+.project-empty[hidden] {
+    display: none;
+}
+
+@media screen and (min-width: 789px) {
+    .project-tools {
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) auto;
+        align-items: end;
+    }
+}
 
 
 

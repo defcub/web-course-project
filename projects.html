@@ -119,6 +119,27 @@
             <!-- ФІЛЬТРИ ТА ПРОЄКТИ -->
             <section class="page-section">
                 <div class="content-wrap">
+                    
+                    <div class="project-tools">
+                        <div class="form-group">
+                            <label for="projectSearch">Search projects</label>
+                            <input type="search" id="projectSearch" placeholder="Enter a title or description" maxlength="100">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="projectSort">Sort projects</label>
+
+                            <select id="projectSort">
+                                <option value="default">Default order</option>
+                                <option value="az">Title: A–Z</option>
+                                <option value="za">Title: Z–A</option>
+                            </select>
+                        </div>
+
+                        <button type="button" class="btn btn-outline" id="resetProjects">
+                            Reset
+                        </button>
+                    </div>
 
                     <div class="project-filters" role="group"
                         aria-label="Filter projects">
@@ -142,6 +163,10 @@
 
                     <p id="projectCount" class="page-text" role="status">
                         Showing 3 projects
+                    </p>
+
+                    <p id="projectEmpty" class="project-empty" hidden>
+                        No projects found. Try another search or category.
                     </p>
 
                     <div class="project-list">

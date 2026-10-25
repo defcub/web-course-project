@@ -1,61 +1,129 @@
-// =========================================
-// ФІЛЬТРАЦІЯ ПРОЄКТІВ
-// =========================================
+// ПОШУК, ФІЛЬТРАЦІЯ ТА СОРТУВАННЯ ПРОЄКТІВ
 
-const filterButtons = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-case');
+const projectList = document.querySelector('.project-list');
+const projectSearch = document.getElementById('projectSearch');
+const projectSort = document.getElementById('projectSort');
+const resetProjects = document.getElementById('resetProjects');
 const projectCount = document.getElementById('projectCount');
+const projectEmpty = document.getElementById('projectEmpty');
+const filterButtons = document.querySelectorAll('.filter-btn');
 
-function updateProjectCount() {
-    if (!projectCount) {
-        return;
+if (
+    projectList &&
+    projectSearch &&
+    projectSort &&
+    resetProjects &&
+    projectCount &&
+    projectEmpty
+) {
+    const projectCards = Array.from(
+        projectList.querySelectorAll('.project-case')
+    );
+
+    let selectedCategory = 'all';
+
+    function normalizeText(text) {
+        return text.trim().toLocaleLowerCase().replace(/\s+/g, ' ');
     }
 
-    let visibleProjects = 0;
+    function getProjectTitle(card) {
+        return card.querySelector('.page-section-title').textContent.trim();
+    }
 
-    projectCards.forEach((card) => {
-        if (!card.hidden) {
-            visibleProjects++;
+    function updateProjects() {
+        const searchText = normalizeText(projectSearch.value);
+        const language = document.documentElement.lang;
+        const sortedCards = [...projectCards];
+
+        if (projectSort.value !== 'default') {
+            sortedCards.sort((firstCard, secondCard) => {
+                const firstTitle = getProjectTitle(firstCard);
+                const secondTitle = getProjectTitle(secondCard);
+
+                const result = firstTitle.localeCompare(
+                    secondTitle,
+                    language,
+                    { sensitivity: 'base' }
+                );
+
+                return projectSort.value === 'az' ? result : -result;
+            });
         }
-    });
 
-    projectCount.textContent = siteLanguage.text(
-        'projectCount',
-        {
-            count: visibleProjects
-        }
-    );
-}
+        let visibleCount = 0;
 
-filterButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-        const selectedCategory = button.dataset.filter;
+        sortedCards.forEach((card) => {
+            const title = getProjectTitle(card);
+            const description = card.querySelector(
+                '.project-content > .page-text'
+            ).textContent;
 
-        filterButtons.forEach((item) => {
-            const isActive = item === button;
+            const searchableText = normalizeText(
+                `${title} ${description}`
+            );
 
-            item.classList.toggle('active', isActive);
-            item.setAttribute('aria-pressed', String(isActive));
-        });
-
-        projectCards.forEach((card) => {
-            const shouldShow =
+            const matchesCategory =
                 selectedCategory === 'all' ||
-                selectedCategory === card.dataset.category;
+                card.dataset.category === selectedCategory;
 
-            card.hidden = !shouldShow;
+            const matchesSearch = searchableText.includes(searchText);
+            const isVisible = matchesCategory && matchesSearch;
+
+            card.hidden = !isVisible;
+
+            if (isVisible) {
+                visibleCount++;
+            }
+
+            projectList.append(card);
         });
 
-        updateProjectCount();
+        filterButtons.forEach((button) => {
+            const isActive = button.dataset.filter === selectedCategory;
+
+            button.classList.toggle('active', isActive);
+            button.setAttribute('aria-pressed', String(isActive));
+        });
+
+        projectCount.textContent = siteLanguage.text(
+            'projectCount',
+            { count: visibleCount }
+        );
+
+        projectEmpty.hidden = visibleCount !== 0;
+    }
+
+    filterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            selectedCategory = button.dataset.filter;
+            updateProjects();
+        });
     });
-});
 
-document.addEventListener(
-    'siteLanguageChange',
-    updateProjectCount
-);
+    projectSearch.addEventListener('input', updateProjects);
+    projectSort.addEventListener('change', updateProjects);
 
-updateProjectCount();
+    resetProjects.addEventListener('click', () => {
+        selectedCategory = 'all';
+        projectSearch.value = '';
+        projectSort.value = 'default';
+
+        updateProjects();
+        projectSearch.focus();
+    });
+
+    // Повертаємо початковий порядок перед перекладом.
+    document.addEventListener('beforeSiteLanguageChange', () => {
+        projectCards.forEach((card) => {
+            projectList.append(card);
+        });
+    });
+
+    // Після перекладу знову застосовуємо пошук і сортування.
+    document.addEventListener('siteLanguageChange', updateProjects);
+
+    updateProjects();
+}
 
 
 // =========================================

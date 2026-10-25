@@ -537,6 +537,49 @@ const pageTranslations = {
     ],
 
     'projects.html': [
+
+                [
+            'label[for="projectSearch"]',
+            'Search projects',
+            'Пошук проєктів'
+        ],
+        [
+            '#projectSearch',
+            'Enter a title or description',
+            'Введи назву або опис',
+            'placeholder'
+        ],
+        [
+            'label[for="projectSort"]',
+            'Sort projects',
+            'Сортування проєктів'
+        ],
+        [
+            '#projectSort option[value="default"]',
+            'Default order',
+            'Початковий порядок'
+        ],
+        [
+            '#projectSort option[value="az"]',
+            'Title: A–Z',
+            'Назва: А–Я'
+        ],
+        [
+            '#projectSort option[value="za"]',
+            'Title: Z–A',
+            'Назва: Я–А'
+        ],
+        [
+            '#resetProjects',
+            'Reset',
+            'Скинути'
+        ],
+        [
+            '#projectEmpty',
+            'No projects found. Try another search or category.',
+            'Проєктів не знайдено. Спробуй інший запит або категорію.'
+        ],
+
         [
             'title',
             'Our Projects — Enver',
@@ -1189,6 +1232,8 @@ function setSiteLanguage(language, saveChoice = true) {
     document.documentElement.lang = currentLanguage;
 
     const pageName = document.body.dataset.page || window.location.pathname.split('/').pop() || 'index.html';
+
+    document.dispatchEvent(new Event('beforeSiteLanguageChange'));
 
     applyTranslations(commonTranslations);
     applyTranslations(pageTranslations[pageName] || []);
