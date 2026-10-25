@@ -1,0 +1,378 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Наші проєкти - Enver</title>
+        <meta name="description"
+        content="Портфоліо Enver: концепції вебсайтів і мобільних застосунків. Переглянь проєкти, їхні завдання та запропоновані дизайнерські рішення.">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/pages.css">
+        <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
+    </head>
+    <body class="inner-page">
+
+        <!-- HEADER -->
+        <header class="main-header" id="header">
+            <div class="navbar content-wrap d-flex item-center space-between">
+
+                <a href="index.html" class="logo d-flex item-center">
+                    <img src="assets/images/logo-icon.png" alt="">
+                    <span class="logo-text">Enver</span>
+                </a>
+
+                <nav class="nav-menu" aria-label="Main navigation">
+                    <ul id="mainMenu" class="main-menu d-flex">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li>
+                            <a href="projects.html" class="active"
+                            aria-current="page">Our Project</a>
+                        </li>
+                        <li><a href="about.html">About us</a></li>
+                        <li class="mobile-contact-link">
+                            <a href="contact.html">Contact us</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+
+                <div class="language-switcher"
+                    role="group"
+                    aria-label="Website language">
+
+                    <button type="button"
+                            class="language-btn"
+                            data-language="en"
+                            lang="en"
+                            aria-label="English"
+                            aria-pressed="false">
+                        EN
+                    </button>
+
+                    <button type="button"
+                            class="language-btn"
+                            data-language="uk"
+                            lang="uk"
+                            aria-label="Українська"
+                            aria-pressed="false">
+                        UA
+                    </button>
+
+                </div>
+
+                <a href="contact.html"
+                class="btn btn-outline d-none-mobile">
+                    Contact us
+                </a>
+
+                <button type="button"
+                        id="iconBlock"
+                        class="menu-icon d-mobile-only"
+                        aria-label="Open navigation"
+                        aria-expanded="false"
+                        aria-controls="mainMenu">
+
+                    <img src="assets/images/icons/burger-icon.svg"
+                        id="iconOpen"
+                        alt="">
+
+                    <span id="iconClose"
+                        class="d-none"
+                        aria-hidden="true">
+                        ×
+                    </span>
+
+                </button>
+
+</div>
+
+            </div>
+        </header>
+
+        <main>
+            <!-- ЗАГОЛОВОК СТОРІНКИ -->
+            <section class="page-heading">
+                <div class="content-wrap">
+                    <p class="page-label">OUR PROJECTS</p>
+
+                    <h1 class="page-title">
+                        Explore the Thinking<br>Behind Our Work
+                    </h1>
+
+                    <p class="page-description">
+                        Explore a movie discovery app, a furniture store
+                        and a creative agency website. These illustrative
+                        case studies describe design ideas based on
+                        the portfolio visuals.
+                    </p>
+                </div>
+            </section>
+
+            <!-- ФІЛЬТРИ ТА ПРОЄКТИ -->
+            <section class="page-section">
+                <div class="content-wrap">
+
+                    <div class="project-filters" role="group"
+                        aria-label="Filter projects">
+
+                        <button type="button" class="filter-btn active"
+                                data-filter="all" aria-pressed="true">
+                            All Projects
+                        </button>
+
+                        <button type="button" class="filter-btn"
+                                data-filter="website" aria-pressed="false">
+                            Websites
+                        </button>
+
+                        <button type="button" class="filter-btn"
+                                data-filter="application" aria-pressed="false">
+                            Applications
+                        </button>
+
+                    </div>
+
+                    <p id="projectCount" class="page-text" role="status">
+                        Showing 3 projects
+                    </p>
+
+                    <div class="project-list">
+
+                        <!-- ПРОЄКТ 1: ЗАСТОСУНОК ІЗ ФІЛЬМАМИ -->
+                        <article class="project-case" data-category="application">
+                            <div class="project-preview">
+                                <img
+                                    src="assets/images/portfolio-imgs/portfolio-img1.png"
+                                    alt="Dark mobile movie app with film posters and a title details screen"
+                                    loading="lazy">
+                            </div>
+
+                            <div class="project-content">
+                                <p class="page-label">
+                                    APPLICATION / CONCEPT STUDY
+                                </p>
+
+                                <h2 class="page-section-title">
+                                    Movie Discovery App
+                                </h2>
+
+                                <p class="page-text">
+                                    A mobile interface concept for discovering
+                                    movies and series. Film posters, featured
+                                    titles and dedicated detail screens help
+                                    users explore what to watch next.
+                                </p>
+
+                                <div class="project-description-grid">
+                                    <div>
+                                        <h3>The Challenge</h3>
+                                        <p>
+                                            A movie catalogue contains many titles
+                                            competing for attention. The design
+                                            challenge is to make browsing comfortable
+                                            on a small screen while keeping useful
+                                            information easy to find.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h3>The Approach</h3>
+                                        <p>
+                                            Use a dark background to emphasise
+                                            colourful posters and organise titles
+                                            into clear groups. Give featured content
+                                            more space and use a separate screen
+                                            for the selected title and its details.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="project-result">
+                                    <h3>Design Focus</h3>
+                                    <p>
+                                        Mobile navigation, poster-based browsing,
+                                        title details and consistent visual
+                                        hierarchy across application screens.
+                                    </p>
+                                </div>
+
+                                <a href="contact.html" class="page-link">
+                                    Discuss an application design ↗
+                                </a>
+                            </div>
+                        </article>
+
+                        <!-- ПРОЄКТ 2: МАГАЗИН МЕБЛІВ -->
+                        <article class="project-case" data-category="website">
+                            <div class="project-preview">
+                                <img
+                                    src="assets/images/portfolio-imgs/portfolio-img2.png"
+                                    alt="Furniture store website with a living room image and a chair catalogue"
+                                    loading="lazy">
+                            </div>
+
+                            <div class="project-content">
+                                <p class="page-label">
+                                    WEBSITE / CONCEPT STUDY
+                                </p>
+
+                                <h2 class="page-section-title">
+                                    Furniture Store Website
+                                </h2>
+
+                                <p class="page-text">
+                                    An online furniture store concept combining
+                                    interior inspiration with product browsing.
+                                    Large room photography introduces the style,
+                                    while a clean catalogue keeps individual
+                                    products easy to explore.
+                                </p>
+
+                                <div class="project-description-grid">
+                                    <div>
+                                        <h3>The Challenge</h3>
+                                        <p>
+                                            Furniture shoppers need both inspiration
+                                            and a clear view of the products.
+                                            The page should show how furniture
+                                            can look in a home while helping
+                                            visitors move towards the catalogue.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h3>The Approach</h3>
+                                        <p>
+                                            Combine a large interior photograph
+                                            with a simple headline and clear
+                                            navigation. Use a light background,
+                                            generous spacing and consistent
+                                            product images to make the catalogue
+                                            comfortable to scan.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="project-result">
+                                    <h3>Design Focus</h3>
+                                    <p>
+                                        An interior-led homepage, product
+                                        presentation, catalogue organisation
+                                        and a consistent shopping interface.
+                                    </p>
+                                </div>
+
+                                <a href="contact.html" class="page-link">
+                                    Discuss an online store design ↗
+                                </a>
+                            </div>
+                        </article>
+
+                        <!-- ПРОЄКТ 3: САЙТ ТВОРЧОЇ АГЕНЦІЇ -->
+                        <article class="project-case" data-category="website">
+                            <div class="project-preview">
+                                <img
+                                    src="assets/images/portfolio-imgs/portfolio-img3.png"
+                                    alt="Creative agency website with bold typography, project previews and yellow accents"
+                                    loading="lazy">
+                            </div>
+
+                            <div class="project-content">
+                                <p class="page-label">
+                                    WEBSITE / CONCEPT STUDY
+                                </p>
+
+                                <h2 class="page-section-title">
+                                    Creative Agency Website
+                                </h2>
+
+                                <p class="page-text">
+                                    A portfolio website concept for a creative
+                                    agency. Bold typography, contrasting sections
+                                    and selected project previews introduce
+                                    the agency's personality and its work.
+                                </p>
+
+                                <div class="project-description-grid">
+                                    <div>
+                                        <h3>The Challenge</h3>
+                                        <p>
+                                            An agency website needs to communicate
+                                            its character and give potential clients
+                                            a reason to explore further. Strong
+                                            visual expression should support
+                                            the work without distracting from it.
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <h3>The Approach</h3>
+                                        <p>
+                                            Lead with a confident headline,
+                                            use project imagery as visual evidence
+                                            and highlight key actions with yellow
+                                            accents. Alternate dark and light
+                                            sections to separate the introduction,
+                                            studio information and portfolio.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="project-result">
+                                    <h3>Design Focus</h3>
+                                    <p>
+                                        Agency positioning, expressive typography,
+                                        selected work presentation and clear
+                                        paths towards a project enquiry.
+                                    </p>
+                                </div>
+
+                                <a href="contact.html" class="page-link">
+                                    Discuss an agency website ↗
+                                </a>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="main-footer">
+            <div class="content-wrap">
+                <div class="footer-inner d-flex">
+
+                    <a href="index.html" class="logo d-flex item-center">
+                        <img src="assets/images/logo-icon.png" alt="">
+                        <span class="logo-text">Enver</span>
+                    </a>
+
+                    <nav class="footer-nav" aria-label="Footer navigation">
+                        <ul class="d-flex">
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="projects.html">Projects</a></li>
+                            <li><a href="about.html">About us</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+
+                    <p class="copyright">© 2026 Enver. Student project.</p>
+
+                </div>
+            </div>
+        </footer>
+
+    <script src="assets/js/language.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/pages.js"></script>
+    </body>
+    </html>

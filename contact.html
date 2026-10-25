@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Контакти та заявка на проєкт - Enver</title>
+    <meta name="description"
+    content="Розкажи студії Enver про свій проєкт. Обери потрібну послугу, опиши завдання та підготуй короткий проєктний бриф.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
+    <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
+</head>
+<body class="inner-page">
+
+    <!-- HEADER -->
+    <header class="main-header" id="header">
+        <div class="navbar content-wrap d-flex item-center space-between">
+
+            <a href="index.html" class="logo d-flex item-center">
+                <img src="assets/images/logo-icon.png" alt="">
+                <span class="logo-text">Enver</span>
+            </a>
+
+            <nav class="nav-menu" aria-label="Main navigation">
+                <ul id="mainMenu" class="main-menu d-flex">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Our Project</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li class="mobile-contact-link">
+                        <a href="contact.html">Contact us</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+
+            <div class="language-switcher"
+                role="group"
+                aria-label="Website language">
+
+                <button type="button"
+                        class="language-btn"
+                        data-language="en"
+                        lang="en"
+                        aria-label="English"
+                        aria-pressed="false">
+                    EN
+                </button>
+
+                <button type="button"
+                        class="language-btn"
+                        data-language="uk"
+                        lang="uk"
+                        aria-label="Українська"
+                        aria-pressed="false">
+                    UA
+                </button>
+
+            </div>
+
+            <a href="contact.html"
+            class="btn btn-outline d-none-mobile current-contact"
+            aria-current="page">
+                Contact us
+            </a>
+
+            <button type="button"
+                    id="iconBlock"
+                    class="menu-icon d-mobile-only"
+                    aria-label="Open navigation"
+                    aria-expanded="false"
+                    aria-controls="mainMenu">
+
+                <img src="assets/images/icons/burger-icon.svg"
+                    id="iconOpen"
+                    alt="">
+
+                <span id="iconClose"
+                    class="d-none"
+                    aria-hidden="true">
+                    ×
+                </span>
+
+            </button>
+
+        </div>
+
+        </div>
+    </header>
+
+    <main>
+        <!-- ЗАГОЛОВОК СТОРІНКИ -->
+        <section class="page-heading">
+            <div class="content-wrap">
+                <p class="page-label">CONTACT US</p>
+
+                <h1 class="page-title">
+                    Tell Us About<br>Your Next Project
+                </h1>
+
+                <p class="page-description">
+                    Start with your idea, your audience and what you want
+                    to achieve. Use this form to prepare a project brief.
+                </p>
+            </div>
+        </section>
+
+        <!-- ПОРАДИ ТА ФОРМА -->
+        <section class="page-section">
+            <div class="content-wrap">
+                <div class="contact-layout">
+
+                    <div class="contact-information">
+                        <h2 class="page-section-title">Where to Start?</h2>
+
+                        <p class="page-text">
+                            You do not need a complete specification.
+                            A few important details will help explain your idea.
+                        </p>
+
+                        <div class="contact-tip">
+                            <span class="step-number">01</span>
+                            <h3>Describe Your Goal</h3>
+                            <p>
+                                What problem should the website
+                                or design solve?
+                            </p>
+                        </div>
+
+                        <div class="contact-tip">
+                            <span class="step-number">02</span>
+                            <h3>Introduce Your Audience</h3>
+                            <p>
+                                Who will use the product
+                                and what do they need?
+                            </p>
+                        </div>
+
+                        <div class="contact-tip">
+                            <span class="step-number">03</span>
+                            <h3>Define the Scope</h3>
+                            <p>
+                                List the pages, features or visual materials
+                                you would like to create.
+                            </p>
+                        </div>
+
+                        <div class="form-notice">
+                            <h3>Demo Form</h3>
+                            <p>
+                                This form saves a draft in your browser.
+                                It does not send an email or contact a server.
+                            </p>
+                        </div>
+                    </div>
+
+                    <form id="contactForm" class="project-form">
+                        <h2>Project Brief</h2>
+
+                        <p class="page-text">
+                            Fields marked * are required.
+                        </p>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="userName">Your Name *</label>
+
+                                <input
+                                    type="text"
+                                    id="userName"
+                                    name="userName"
+                                    autocomplete="name"
+                                    maxlength="80"
+                                    placeholder="Your name"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userEmail">Email Address *</label>
+
+                                <input
+                                    type="email"
+                                    id="userEmail"
+                                    name="userEmail"
+                                    autocomplete="email"
+                                    maxlength="120"
+                                    placeholder="you@example.com"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="projectService">Service *</label>
+
+                            <select id="projectService"
+                                    name="projectService" required>
+                                <option value="">Choose a service</option>
+                                <option value="design">UI/UX Design</option>
+                                <option value="development">
+                                    Web Development
+                                </option>
+                                <option value="branding">
+                                    Branding & Motion
+                                </option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="projectMessage">
+                                About Your Project *
+                            </label>
+
+                            <textarea
+                                id="projectMessage"
+                                name="projectMessage"
+                                rows="7"
+                                minlength="20"
+                                maxlength="2000"
+                                aria-describedby="messageCounter"
+                                placeholder="Describe your idea in at least 20 characters"
+                                required></textarea>
+
+                            <span id="messageCounter" class="message-counter">
+                                0 / 2000
+                            </span>
+                        </div>
+
+                        <label class="form-checkbox">
+                            <input type="checkbox" id="saveConsent" required>
+
+                            <span>
+                                I agree to save this draft on this device. *
+                            </span>
+                        </label>
+
+                        <div class="form-buttons">
+                            <button type="submit" class="btn btn-primary">
+                                Save Draft
+                            </button>
+
+                            <button type="button" id="clearDraft"
+                                    class="btn btn-outline">
+                                Clear Draft
+                            </button>
+                        </div>
+
+                        <p id="formMessage" class="form-message"
+                           role="status" aria-live="polite"></p>
+                    </form>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- НАСТУПНІ ЕТАПИ -->
+        <section class="page-section">
+            <div class="content-wrap">
+                <p class="page-label">THE NEXT STEPS</p>
+
+                <h2 class="page-section-title">
+                    What Happens in a Real Project?
+                </h2>
+
+                <div class="process-grid contact-process-grid">
+                    <article class="process-card">
+                        <span class="step-number">01</span>
+                        <h3>Review the Brief</h3>
+                        <p>
+                            Clarify the goals, audience and
+                            main project requirements.
+                        </p>
+                    </article>
+
+                    <article class="process-card">
+                        <span class="step-number">02</span>
+                        <h3>Define the Scope</h3>
+                        <p>
+                            Agree on deliverables, milestones
+                            and responsibilities.
+                        </p>
+                    </article>
+
+                    <article class="process-card">
+                        <span class="step-number">03</span>
+                        <h3>Start Creating</h3>
+                        <p>
+                            Move into research and explore
+                            the first design direction.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="content-wrap">
+            <div class="footer-inner d-flex">
+
+                <a href="index.html" class="logo d-flex item-center">
+                    <img src="assets/images/logo-icon.png" alt="">
+                    <span class="logo-text">Enver</span>
+                </a>
+
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <ul class="d-flex">
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <p class="copyright">© 2026 Enver. Student project.</p>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/language.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/pages.js"></script>
+</body>
+</html>

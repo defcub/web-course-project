@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enver - Digital Studio</title>
+    <title>Enver - студія цифрового дизайну та розробки</title>
+    <meta name="description"
+    content="Студія Enver: розробка сайтів, UI/UX-дизайн, брендинг та анімація. Переглянь наші послуги й проєкти та розкажи про свою ідею.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
 </head>
 <body>
     <header class="main-header" id="header">
@@ -24,19 +27,65 @@
             
             <nav class="nav-menu">
                 <ul id="mainMenu" class="main-menu d-flex">
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Our Project</a></li>
-                    <li><a href="#">About us</a></li>
-                </ul> 
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Our Project</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="contact.html">Contact us</a></li>
+                </ul>
             </nav>
 
-            <button class="btn btn-outline d-none-mobile">Contact us</button>
+            <div class="header-actions">
 
-            <div id="iconBlock" class="menu-icon d-mobile-only">
-                <img src="assets/images/icons/burger-icon.svg" id="iconOpen" alt="Menu">
-                <i id="iconClose" class="fa-solid fa-xmark d-none"></i>
+            <div class="language-switcher"
+                role="group"
+                aria-label="Website language">
+
+                <button type="button"
+                        class="language-btn"
+                        data-language="en"
+                        lang="en"
+                        aria-label="English"
+                        aria-pressed="false">
+                    EN
+                </button>
+
+                <button type="button"
+                        class="language-btn"
+                        data-language="uk"
+                        lang="uk"
+                        aria-label="Українська"
+                        aria-pressed="false">
+                    UA
+                </button>
+
             </div>
+
+            <a href="contact.html"
+            class="btn btn-outline d-none-mobile">
+                Contact us
+            </a>
+
+            <button type="button"
+                    id="iconBlock"
+                    class="menu-icon d-mobile-only"
+                    aria-label="Open navigation"
+                    aria-expanded="false"
+                    aria-controls="mainMenu">
+
+                <img src="assets/images/icons/burger-icon.svg"
+                    id="iconOpen"
+                    alt="">
+
+                <span id="iconClose"
+                    class="d-none"
+                    aria-hidden="true">
+                    ×
+                </span>
+
+            </button>
+
+        </div>
             
         </div>
     </header>
@@ -55,10 +104,10 @@
                     <p class="hero-subtitle">
                         Enver studio is a digital studio that offers several services such as UI/UX Design to developers, we will provide the best service for those of you who use our services.
                     </p>
-                    <button class="btn btn-primary">
-                        Our Services
-                        <img src="assets/images/icons/arrow-up.svg" alt="arrow-up-icon">
-                    </button>
+                    <a href="services.html" class="btn btn-primary">
+                        <span class="hero-button-text">Our Services</span>
+                        <img src="assets/images/icons/arrow-up.svg" alt="">
+                    </a>
                 </div>
 
                 <div class="hero-visual">
@@ -221,28 +270,45 @@
     </main>
 
                                                  <!-- FOOTER -->
+    <!-- FOOTER -->
     <footer class="main-footer">
         <div class="content-wrap">
-            <div class="footer-inner d-flex animate-on-scroll">
+            <div class="footer-inner d-flex">
 
-                <div class="logo d-flex item-center">
-                    <img src="assets/images/logo-icon.png" alt="Enver Logo">
+                <a href="index.html" class="logo d-flex item-center">
+                    <img src="assets/images/logo-icon.png" alt="">
                     <span class="logo-text">Enver</span>
-                </div>
+                </a>
 
-                <nav class="footer-nav">
+                <nav class="footer-nav" aria-label="Footer navigation">
                     <ul class="d-flex">
-                        <li><a href="#">Support</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms and Conditions</a></li>
+                        <li>
+                            <a href="services.html">Services</a>
+                        </li>
+
+                        <li>
+                            <a href="projects.html">Projects</a>
+                        </li>
+
+                        <li>
+                            <a href="about.html">About us</a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html">Contact us</a>
+                        </li>
                     </ul>
                 </nav>
-                <p class="copyright">© 2020 Enver, All right reserved</p>
-                
+
+                <p class="copyright">
+                    © 2026 Enver. Student project.
+                </p>
+
             </div>
         </div>
     </footer>
 
+    <script src="assets/js/language.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>
