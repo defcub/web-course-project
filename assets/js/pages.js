@@ -264,10 +264,7 @@ if (contactForm) {
     });
 }
 
-
-// =========================================
 // МОДАЛЬНЕ ВІКНО
-// =========================================
 
 const requestModal = document.getElementById('requestModal');
 const openRequestModal = document.getElementById('openRequestModal');
@@ -352,7 +349,7 @@ if (
         pointerStartedOutside = false;
     });
 
-    // Спрацьовує також після закриття клавішею Escape
+    // Спрацьовує після закриття Escape
     requestModal.addEventListener('close', () => {
         document.body.classList.remove('modal-open');
 

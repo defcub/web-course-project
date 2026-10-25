@@ -109,6 +109,9 @@
                     Start with your idea, your audience and what you want
                     to achieve. Use this form to prepare a project brief.
                 </p>
+                <button type="button" class="btn btn-primary request-button" id="openRequestModal">
+                    Discuss a Project
+                </button>
             </div>
         </section>
 
@@ -325,6 +328,63 @@
             </div>
         </div>
     </footer>
+
+
+
+        <!-- МОДАЛЬНЕ ВІКНО -->
+    <dialog class="request-modal" id="requestModal" aria-labelledby="requestModalTitle" aria-describedby="requestModalDescription">
+        <button type="button" class="modal-close" id="closeRequestModal" aria-label="Close form">
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+        <h2 id="requestModalTitle">Let’s Discuss Your Project</h2>
+
+        <p class="page-text" id="requestModalDescription">
+            Complete this short form. At this stage, the data is validated without being sent to a server.
+        </p>
+
+        <form id="requestModalForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="requestClientName">Your Name *</label>
+                    <input type="text" id="requestClientName" name="name" autocomplete="name" minlength="2" maxlength="80" placeholder="Your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="requestClientEmail">Email Address *</label>
+                    <input type="email" id="requestClientEmail" name="email" autocomplete="email" maxlength="120" placeholder="you@example.com" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="requestServiceType">Service *</label>
+
+                <select id="requestServiceType" name="service" required>
+                    <option value="">Choose a service</option>
+                    <option value="design">UI/UX Design</option>
+                    <option value="development">Web Development</option>
+                    <option value="branding">Branding & Motion</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="requestProjectDescription">About Your Project *</label>
+                <textarea id="requestProjectDescription" name="message" rows="4" minlength="20" maxlength="2000" placeholder="Describe your idea in at least 20 characters" required></textarea>
+            </div>
+
+            <label class="form-checkbox">
+                <input type="checkbox" id="requestDemoAgreement" name="agreement" required>
+                <span>I understand that this version of the form does not send data. *</span>
+            </label>
+
+            <div class="form-buttons">
+                <button type="submit" class="btn btn-primary">Check Request</button>
+            </div>
+
+            <p class="form-message" id="requestModalStatus" role="status" aria-live="polite"></p>
+        </form>
+    </dialog>
+
 
     <script src="assets/js/language.js"></script>
     <script src="assets/js/main.js"></script>
