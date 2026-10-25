@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>404 — Page Not Found | Enver</title>
+    <meta name="description" content="The page could not be found. Return to the Enver homepage or explore our projects.">
+    <meta name="robots" content="noindex">
+
+    <base href="/web-course-project/">
+
+    <script>
+        const localHosts = ['localhost', '127.0.0.1', '[::1]'];
+
+        if (localHosts.includes(window.location.hostname)) {
+            document.querySelector('base').setAttribute('href', '/');
+        }
+    </script>
+
+    <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="inner-page error-page" data-page="404.html">
+
+    <!-- HEADER -->
+    <header class="main-header" id="header">
+        <div class="navbar content-wrap d-flex item-center space-between">
+
+            <a href="index.html" class="logo d-flex item-center" aria-label="Enver home">
+                <img src="assets/images/logo-icon.png" alt="">
+                <span class="logo-text">Enver</span>
+            </a>
+
+            <div class="header-actions">
+                <div class="language-switcher" role="group" aria-label="Website language">
+
+                    <button type="button" class="language-btn" data-language="en" lang="en" aria-label="English" aria-pressed="false">
+                        EN
+                    </button>
+
+                    <button type="button" class="language-btn" data-language="uk" lang="uk" aria-label="Українська" aria-pressed="false">
+                        UA
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- СТОРІНКА ПОМИЛКИ -->
+    <main>
+        <section class="error-section" aria-labelledby="errorTitle">
+            <div class="content-wrap">
+                <div class="error-content">
+
+                    <p class="error-code">404</p>
+
+                    <h1 class="error-title" id="errorTitle">Page not found</h1>
+
+                    <p class="error-description">
+                        The page may have been moved, deleted, or the address may contain a mistake.
+                        You can return to the homepage or explore our projects.
+                    </p>
+
+                    <div class="error-actions">
+                        <a href="index.html" class="btn btn-primary error-home-link">Back to Home</a>
+                        <a href="projects.html" class="btn btn-outline error-projects-link">View Projects</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="content-wrap">
+            <p class="copyright">© 2026 Enver. Student project.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/language.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -155,6 +155,39 @@ const commonTranslations = [
 // ПЕРЕКЛАДИ СТОРІНОК
 
 const pageTranslations = {
+    '404.html': [
+        [
+            'title',
+            '404 — Page Not Found | Enver',
+            '404 — Сторінку не знайдено | Enver'
+        ],
+        [
+            'meta[name="description"]',
+            'The page could not be found. Return to the Enver homepage or explore our projects.',
+            'Сторінку не знайдено. Повернися на головну сторінку Enver або переглянь наші проєкти.',
+            'content'
+        ],
+        [
+            '.error-title',
+            'Page not found',
+            'Сторінку не знайдено'
+        ],
+        [
+            '.error-description',
+            'The page may have been moved, deleted, or the address may contain a mistake. You can return to the homepage or explore our projects.',
+            'Можливо, сторінку перемістили чи видалили, або в адресі є помилка. Ти можеш повернутися на головну або переглянути наші проєкти.'
+        ],
+        [
+            '.error-home-link',
+            'Back to Home',
+            'На головну'
+        ],
+        [
+            '.error-projects-link',
+            'View Projects',
+            'Переглянути проєкти'
+        ]
+    ],
     'index.html': [
         [
             'title',
@@ -1155,8 +1188,7 @@ function setSiteLanguage(language, saveChoice = true) {
 
     document.documentElement.lang = currentLanguage;
 
-    const pageName =
-        window.location.pathname.split('/').pop() || 'index.html';
+    const pageName = document.body.dataset.page || window.location.pathname.split('/').pop() || 'index.html';
 
     applyTranslations(commonTranslations);
     applyTranslations(pageTranslations[pageName] || []);
