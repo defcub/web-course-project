@@ -627,128 +627,6 @@ const pageTranslations = {
             'Applications',
             'Застосунки'
         ],
-        [
-            '.project-preview img',
-            [
-                'Dark mobile movie app with film posters and a title details screen',
-                'Furniture store website with a living room image and a chair catalogue',
-                'Creative agency website with bold typography, project previews and yellow accents'
-            ],
-            [
-                'Темний інтерфейс застосунку з постерами фільмів та екраном опису',
-                'Сайт магазину меблів із фотографією вітальні та каталогом крісел',
-                'Сайт творчої агенції з виразною типографікою, проєктами та жовтими акцентами'
-            ],
-            'alt'
-        ],
-        [
-            '.project-content > .page-label',
-            [
-                'APPLICATION / CONCEPT STUDY',
-                'WEBSITE / CONCEPT STUDY',
-                'WEBSITE / CONCEPT STUDY'
-            ],
-            [
-                'ЗАСТОСУНОК / КОНЦЕПЦІЯ',
-                'ВЕБСАЙТ / КОНЦЕПЦІЯ',
-                'ВЕБСАЙТ / КОНЦЕПЦІЯ'
-            ]
-        ],
-        [
-            '.project-content > .page-section-title',
-            [
-                'Movie Discovery App',
-                'Furniture Store Website',
-                'Creative Agency Website'
-            ],
-            [
-                'Застосунок для пошуку фільмів',
-                'Інтернет-магазин меблів',
-                'Сайт творчої агенції'
-            ]
-        ],
-        [
-            '.project-content > .page-text',
-            [
-                'A mobile interface concept for discovering movies and series. Film posters, featured titles and dedicated detail screens help users explore what to watch next.',
-                'An online furniture store concept combining interior inspiration with product browsing. Large room photography introduces the style, while a clean catalogue keeps individual products easy to explore.',
-                'A portfolio website concept for a creative agency. Bold typography, contrasting sections and selected project previews introduce the agency’s personality and its work.'
-            ],
-            [
-                'Концепція мобільного інтерфейсу для пошуку фільмів і серіалів. Постери, рекомендовані добірки та окремі екрани опису допомагають обрати, що подивитися.',
-                'Концепція інтернет-магазину меблів, яка поєднує ідеї для інтер’єру з переглядом товарів. Великі фотографії кімнат передають стиль, а зрозумілий каталог допомагає досліджувати товари.',
-                'Концепція сайту-портфоліо творчої агенції. Виразна типографіка, контрастні секції та вибрані роботи знайомлять відвідувачів із характером агенції.'
-            ]
-        ],
-        [
-            '.project-description-grid h3',
-            [
-                'The Challenge',
-                'The Approach',
-                'The Challenge',
-                'The Approach',
-                'The Challenge',
-                'The Approach'
-            ],
-            [
-                'Завдання',
-                'Підхід',
-                'Завдання',
-                'Підхід',
-                'Завдання',
-                'Підхід'
-            ]
-        ],
-        [
-            '.project-description-grid p',
-            [
-                'A movie catalogue contains many titles competing for attention. The design challenge is to make browsing comfortable on a small screen while keeping useful information easy to find.',
-                'Use a dark background to emphasise colourful posters and organise titles into clear groups. Give featured content more space and use a separate screen for the selected title and its details.',
-                'Furniture shoppers need both inspiration and a clear view of the products. The page should show how furniture can look in a home while helping visitors move towards the catalogue.',
-                'Combine a large interior photograph with a simple headline and clear navigation. Use a light background, generous spacing and consistent product images to make the catalogue comfortable to scan.',
-                'An agency website needs to communicate its character and give potential clients a reason to explore further. Strong visual expression should support the work without distracting from it.',
-                'Lead with a confident headline, use project imagery as visual evidence and highlight key actions with yellow accents. Alternate dark and light sections to separate the introduction, studio information and portfolio.'
-            ],
-            [
-                'Каталог фільмів містить багато назв, які змагаються за увагу. Завдання дизайну — зробити перегляд зручним на невеликому екрані та забезпечити швидкий доступ до потрібної інформації.',
-                'Темне тло підкреслює яскраві постери, а зрозумілі групи впорядковують фільми. Рекомендований контент отримує більше простору, а опис вибраного фільму відкривається на окремому екрані.',
-                'Покупцям меблів потрібні і натхнення, і зрозуміле представлення товарів. Сторінка має показувати меблі в інтер’єрі та допомагати переходити до каталогу.',
-                'Велика фотографія інтер’єру поєднується з простим заголовком і зрозумілою навігацією. Світле тло, достатні відступи та узгоджені зображення спрощують перегляд каталогу.',
-                'Сайт агенції має передавати її характер і заохочувати потенційних клієнтів до подальшого перегляду. Виразний дизайн повинен підтримувати презентацію робіт.',
-                'Виразний заголовок знайомить з агенцією, зображення демонструють роботи, а жовті акценти виділяють основні дії. Чергування темних і світлих секцій відокремлює вступ, інформацію про студію та портфоліо.'
-            ]
-        ],
-        [
-            '.project-result h3',
-            'Design Focus',
-            'На чому зосереджено дизайн'
-        ],
-        [
-            '.project-result p',
-            [
-                'Mobile navigation, poster-based browsing, title details and consistent visual hierarchy across application screens.',
-                'An interior-led homepage, product presentation, catalogue organisation and a consistent shopping interface.',
-                'Agency positioning, expressive typography, selected work presentation and clear paths towards a project enquiry.'
-            ],
-            [
-                'Мобільна навігація, перегляд за постерами, інформація про фільми та послідовна візуальна ієрархія екранів.',
-                'Головна сторінка з акцентом на інтер’єр, презентація товарів, структура каталогу та узгоджений інтерфейс магазину.',
-                'Позиціювання агенції, виразна типографіка, презентація вибраних робіт і зрозумілий перехід до обговорення проєкту.'
-            ]
-        ],
-        [
-            '.project-content > .page-link',
-            [
-                'Discuss an application design ↗',
-                'Discuss an online store design ↗',
-                'Discuss an agency website ↗'
-            ],
-            [
-                'Обговорити дизайн застосунку ↗',
-                'Обговорити дизайн інтернет-магазину ↗',
-                'Обговорити сайт агенції ↗'
-            ]
-        ]
     ],
 
     'about.html': [
@@ -1232,8 +1110,6 @@ function setSiteLanguage(language, saveChoice = true) {
     document.documentElement.lang = currentLanguage;
 
     const pageName = document.body.dataset.page || window.location.pathname.split('/').pop() || 'index.html';
-
-    document.dispatchEvent(new Event('beforeSiteLanguageChange'));
 
     applyTranslations(commonTranslations);
     applyTranslations(pageTranslations[pageName] || []);
