@@ -17,7 +17,8 @@ async function getDatabaseProjects() {
         headers: {
             apikey: databaseKey,
             Accept: 'application/json'
-        }
+        },
+        signal: AbortSignal.timeout(15000)
     });
 
     if (!response.ok) {

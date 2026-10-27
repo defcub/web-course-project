@@ -1488,7 +1488,23 @@ body.modal-open {
 }
 
 
+/* СТАН ЗАВАНТАЖЕННЯ КАТАЛОГУ */
 
+#projectStatus {
+    margin-top: 24px;
+}
+
+#projectStatus:empty {
+    display: none;
+}
+
+#retryProjects {
+    margin-top: 16px;
+}
+
+#retryProjects[hidden] {
+    display: none;
+}
 
 
 
