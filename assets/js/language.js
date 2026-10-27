@@ -148,7 +148,8 @@ const commonTranslations = [
         '',
         '',
         'alt'
-    ]
+    ],
+    ['.account-nav-link', 'Account', 'Обліковий запис'],
 ];
 
 

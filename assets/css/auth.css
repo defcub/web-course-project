@@ -1,0 +1,155 @@
+.account-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 28px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.account-logo {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.account-main {
+    padding: 32px 20px 80px;
+}
+
+.account-card {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 28px 20px;
+    color: #fff;
+    background: #232328;
+    border: 1px solid #38383e;
+    border-radius: 16px;
+}
+
+.account-card h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.account-description {
+    margin: 12px 0 28px;
+    color: #c6c6ce;
+    line-height: 1.6;
+}
+
+.account-switcher {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.account-switcher button {
+    flex: 1;
+    padding: 12px;
+    color: #fff;
+    background: transparent;
+    border: 1px solid #64646e;
+    border-radius: 6px;
+    font: inherit;
+    cursor: pointer;
+}
+
+.account-switcher button[aria-pressed="true"] {
+    background: #5454d4;
+    border-color: #5454d4;
+}
+
+.account-card fieldset {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.account-field {
+    margin-bottom: 20px;
+}
+
+.account-field label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.account-field input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 14px;
+    color: #fff;
+    background: #19191d;
+    border: 1px solid #64646e;
+    border-radius: 6px;
+    font: inherit;
+}
+
+.account-card input:focus-visible,
+.account-card button:focus-visible,
+.account-card a:focus-visible {
+    outline: 2px solid #a5a5ff;
+    outline-offset: 4px;
+}
+
+.account-hint {
+    margin: 0 0 20px;
+    color: #c6c6ce;
+    line-height: 1.5;
+}
+
+.account-submit {
+    width: 100%;
+}
+
+.account-card button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.account-message {
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.account-message:empty {
+    display: none;
+}
+
+.account-message[data-type="error"] {
+    color: #ffb4b4;
+}
+
+.account-message[data-type="success"] {
+    color: #a5e6b8;
+}
+
+.account-email {
+    margin: 12px 0 24px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.account-home {
+    display: inline-block;
+    margin-top: 28px;
+    color: #c1c1ff;
+}
+
+.account-card [hidden] {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .account-main {
+        padding-top: 64px;
+    }
+
+    .account-card {
+        padding: 40px;
+    }
+}
