@@ -62,44 +62,52 @@ if (
     }
 
     // Перевіряє дані, отримані з бази
-    function validateProjects(data) {
-        const fields = [
-            'title',
-            'description',
-            'challenge',
-            'approach',
-            'result',
-            'link',
-            'alt'
-        ];
+function validateProjects(data) {
+    const fields = [
+        'title',
+        'description',
+        'challenge',
+        'approach',
+        'result',
+        'link',
+        'alt'
+    ];
 
-        const isValid = Array.isArray(data) && data.every((project) => {
-            if (
-                !project ||
-                typeof project.image_path !== 'string' ||
-                !project.categories ||
-                typeof project.categories.slug !== 'string' ||
-                typeof project.categories.name_en !== 'string' ||
-                typeof project.categories.name_uk !== 'string'
-            ) {
-                return false;
-            }
-
-            return ['content_en', 'content_uk'].every((language) => {
-                const content = project[language];
-
-                return content && fields.every((field) => {
-                    return typeof content[field] === 'string';
-                });
+    function isCompleteContent(content) {
+        return content &&
+            typeof content === 'object' &&
+            !Array.isArray(content) &&
+            fields.every(field => {
+                return typeof content[field] === 'string' &&
+                    content[field].trim().length > 0;
             });
-        });
+    }
 
-        if (!isValid) {
-            throw new Error('Некоректна структура даних проєктів.');
+    if (!Array.isArray(data)) {
+        throw new Error('Некоректний список проєктів.');
+    }
+
+    return data.map(project => {
+        if (
+            !project ||
+            typeof project.image_path !== 'string' ||
+            !project.categories ||
+            typeof project.categories.slug !== 'string' ||
+            typeof project.categories.name_en !== 'string' ||
+            typeof project.categories.name_uk !== 'string' ||
+            !isCompleteContent(project.content_uk)
+        ) {
+            throw new Error('Некоректна структура даних проєкту.');
         }
 
-        return data;
-    }
+        return {
+            ...project,
+            content_en: isCompleteContent(project.content_en)
+                ? project.content_en
+                : project.content_uk
+        };
+    });
+}
 
     // Створення однієї картки
     function createProjectCard(project, language) {

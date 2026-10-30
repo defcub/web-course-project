@@ -36,10 +36,67 @@
             <div class="admin-heading">
                 <h2 id="adminProjectsTitle" data-admin-text="projects">Projects</h2>
 
-                <button type="button" class="btn btn-outline" id="adminRefresh" data-admin-text="refresh">
-                    Refresh list
-                </button>
+                <div class="admin-project-actions">
+                    <button type="button" class="btn btn-primary" id="adminAdd" data-admin-text="add">
+                        Add project
+                    </button>
+
+                    <button type="button" class="btn btn-outline" id="adminRefresh" data-admin-text="refresh">
+                        Refresh list
+                    </button>
+                </div>
             </div>
+
+            <form id="adminProjectForm" class="admin-form" novalidate hidden>
+                <h2 id="adminFormTitle">Add project</h2>
+
+                <fieldset id="adminFormFields">
+                    <div class="admin-form-grid">
+                        <div class="admin-field">
+                            <label for="projectSlug" data-admin-text="slug">Project identifier</label>
+                            <input type="text" id="projectSlug" name="slug" maxlength="100" pattern="[a-z0-9]+(-[a-z0-9]+)*" placeholder="my-new-project" required>
+                        </div>
+
+                        <div class="admin-field">
+                            <label for="projectCategory" data-admin-text="category">Category</label>
+                            <select id="projectCategory" name="category_id" required></select>
+                        </div>
+
+                        <div class="admin-field">
+                            <label for="projectImage" data-admin-text="image">Image path</label>
+                            <input type="text" id="projectImage" name="image_path" maxlength="300" placeholder="assets/images/portfolio-imgs/portfolio-img1.png" required>
+                        </div>
+
+                        <div class="admin-field">
+                            <label for="projectOrder" data-admin-text="order">Display order</label>
+                            <input type="number" id="projectOrder" name="sort_order" min="0" max="100000" step="1" value="0" required>
+                        </div>
+                    </div>
+
+                    <p class="admin-form-hint" data-admin-text="imageHint">
+                        Enter the path to an image that already exists in the project.
+                    </p>
+
+                    <section aria-labelledby="ukrainianContentTitle">
+                        <h3 id="ukrainianContentTitle" data-admin-text="ukrainian">
+                            Ukrainian content
+                        </h3>
+
+                        <div id="adminUkrainianFields"></div>
+                    </section>
+
+                    <div class="admin-project-actions">
+                        <button type="submit" class="btn btn-primary" id="adminSave" data-admin-text="save">
+                            Save project
+                        </button>
+
+                        <button type="button" class="btn btn-outline" id="adminCancel" data-admin-text="cancel">
+                            Cancel
+                        </button>
+                    </div>
+                </fieldset>
+            </form>
+
             <p id="adminActionMessage" class="admin-status" role="status" aria-live="polite"></p>
             <div id="adminProjectList" class="admin-project-list"></div>
         </section>
