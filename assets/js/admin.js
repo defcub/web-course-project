@@ -46,7 +46,10 @@ const adminTexts = {
         invalid: 'Check the value and its length.',
         slugInvalid: 'Use lowercase Latin letters, numbers and hyphens between words.',
         imageInvalid: 'Use a path inside assets/images/ ending in .png, .jpg, .jpeg, .webp, .gif, .avif or .svg.',
-        noCategories: 'No categories are available. Add categories in Supabase first.'
+        noCategories: 'No categories are available. Add categories in Supabase first.',
+        optionalEnglish: 'Add / edit English translation',
+        translationHint: 'Translation is optional. Leave all seven fields empty or complete them all. To remove a translation, clear all its fields.',
+        translationReview: 'You changed the Ukrainian text, but the English translation is unchanged. It may be outdated. Save anyway?',
     },
     uk: {
         title: 'Керування проєктами',
@@ -95,7 +98,10 @@ const adminTexts = {
         invalid: 'Перевір значення та його довжину.',
         slugInvalid: 'Використовуй малі латинські літери, цифри та дефіси між словами.',
         imageInvalid: 'Вкажи шлях усередині assets/images/ із розширенням .png, .jpg, .jpeg, .webp, .gif, .avif або .svg.',
-        noCategories: 'Немає доступних категорій. Спочатку додай категорії в Supabase.'
+        noCategories: 'Немає доступних категорій. Спочатку додай категорії в Supabase.',
+        optionalEnglish: 'Додати / редагувати англійський переклад',
+        translationHint: 'Переклад необов’язковий. Залиш усі сім полів порожніми або заповни їх усі. Щоб видалити переклад, очисти всі його поля.',
+        translationReview: 'Ти змінив український текст, але англійський переклад залишився попереднім. Він може бути застарілим. Усе одно зберегти?',
     }
 };
 
@@ -147,34 +153,39 @@ function getFormField(name) {
 
 // Створюємо однакові поля для двох мов
 function createContentFields() {
-    const container = document.getElementById('adminUkrainianFields');
+    const containers = {
+        uk: document.getElementById('adminUkrainianFields'),
+        en: document.getElementById('adminEnglishFields')
+    };
 
-    contentFields.forEach(field => {
-        const name = field.name + '_uk';
+    Object.entries(containers).forEach(([language, container]) => {
+        contentFields.forEach(field => {
+            const name = field.name + '_' + language;
 
-        const wrapper = document.createElement('div');
-        wrapper.className = 'admin-field';
+            const wrapper = document.createElement('div');
+            wrapper.className = 'admin-field';
 
-        const label = document.createElement('label');
-        label.htmlFor = name;
-        label.dataset.adminText = field.label;
+            const label = document.createElement('label');
+            label.htmlFor = name;
+            label.dataset.adminText = field.label;
 
-        const input = document.createElement(
-            field.multiline ? 'textarea' : 'input'
-        );
+            const input = document.createElement(
+                field.multiline ? 'textarea' : 'input'
+            );
 
-        input.id = name;
-        input.name = name;
-        input.lang = 'uk';
-        input.required = true;
-        input.maxLength = field.max;
+            input.id = name;
+            input.name = name;
+            input.lang = language;
+            input.required = language === 'uk';
+            input.maxLength = field.max;
 
-        if (!field.multiline) {
-            input.type = 'text';
-        }
+            if (!field.multiline) {
+                input.type = 'text';
+            }
 
-        wrapper.append(label, input);
-        container.append(wrapper);
+            wrapper.append(label, input);
+            container.append(wrapper);
+        });
     });
 }
 
@@ -196,6 +207,19 @@ function renderCategories() {
     if (adminCategories.some(category => String(category.id) === selected)) {
         projectCategory.value = selected;
     }
+}
+
+function getAdminProjectContent(project) {
+    const english = project.content_en;
+
+    const hasEnglish = english && contentFields.every(field => {
+        return typeof english[field.name] === 'string' &&
+            english[field.name].trim() !== '';
+    });
+
+    return getAdminLanguage() === 'en' && hasEnglish
+        ? project.content_en
+        : project.content_uk;
 }
 
 function renderAdmin() {
@@ -252,7 +276,7 @@ function renderAdmin() {
     const fragment = document.createDocumentFragment();
 
     adminProjects.forEach(project => {
-        const content = project.content_uk;
+        const content = getAdminProjectContent(project);
 
         const card = document.createElement('article');
         card.className = 'admin-project';
@@ -265,6 +289,10 @@ function renderAdmin() {
 
         const description = document.createElement('p');
         description.textContent = content.description;
+
+        const contentLanguage = content === project.content_en ? 'en' : 'uk';
+        title.lang = contentLanguage;
+        description.lang = contentLanguage;
 
         const slug = document.createElement('p');
         slug.className = 'admin-project-slug';
@@ -338,19 +366,31 @@ function openProjectForm(project = null) {
         getFormField('image_path').value = project.image_path;
         getFormField('sort_order').value = project.sort_order;
 
-        contentFields.forEach(field => {
-            getFormField(field.name + '_uk').value =
-                project.content_uk[field.name];
+        ['uk', 'en'].forEach(language => {
+            const content = project['content_' + language] || {};
+
+            contentFields.forEach(field => {
+                getFormField(field.name + '_' + language).value =
+                    content[field.name] || '';
+            });
         });
     }
 
     adminForm.hidden = false;
     renderAdmin();
     getFormField('slug').focus();
+    document.getElementById('englishTranslation').open = false;
 }
 
 function validateProjectForm() {
     clearFormValidation();
+    const hasEnglish = contentFields.some(field => {
+        return getFormField(field.name + '_en').value.trim() !== '';
+    });
+
+    contentFields.forEach(field => {
+        getFormField(field.name + '_en').required = hasEnglish;
+    });
 
     adminForm.querySelectorAll('input, select, textarea').forEach(field => {
         field.value = field.value.trim();
@@ -384,28 +424,38 @@ function validateProjectForm() {
     ) {
         image.setCustomValidity(getAdminText('imageInvalid'));
     }
+    const invalidEnglish = contentFields.some(field => {
+        return !getFormField(field.name + '_en').validity.valid;
+    });
 
+    if (invalidEnglish) {
+        document.getElementById('englishTranslation').open = true;
+    }
     return adminForm.reportValidity();
 }
 
 function collectProjectData() {
-    const content = {};
-
-    contentFields.forEach(field => {
-        content[field.name] = getFormField(field.name + '_uk').value.trim();
-    });
-
     const project = {
         slug: getFormField('slug').value,
         category_id: Number(getFormField('category_id').value),
         image_path: getFormField('image_path').value,
         sort_order: Number(getFormField('sort_order').value),
-        content_uk: content
+        content_uk: {},
+        content_en: {}
     };
 
-    if (editingProjectId === null) {
-        project.content_en = {};
-    }
+    ['uk', 'en'].forEach(language => {
+        const content = {};
+
+        contentFields.forEach(field => {
+            content[field.name] =
+                getFormField(field.name + '_' + language).value.trim();
+        });
+
+        const hasText = Object.values(content).some(value => value !== '');
+
+        project['content_' + language] = hasText ? content : {};
+    });
 
     return project;
 }
@@ -508,6 +558,26 @@ async function saveAdminProject(event) {
     const project = collectProjectData();
     const projectId = editingProjectId;
 
+    const original = adminProjects.find(item => item.id === projectId);
+    if (original && Object.keys(project.content_en).length > 0) {
+        const ukrainianChanged = contentFields.some(field => {
+            return project.content_uk[field.name] !== original.content_uk[field.name];
+        });
+
+        const englishUnchanged = contentFields.every(field => {
+            return project.content_en[field.name] === original.content_en?.[field.name];
+        });
+
+        if (
+            ukrainianChanged &&
+            englishUnchanged &&
+            !window.confirm(getAdminText('translationReview'))
+        ) {
+            document.getElementById('englishTranslation').open = true;
+            return;
+        }
+    }
+
     adminBusy = true;
     adminAction = 'saving';
     renderAdmin();
@@ -566,7 +636,7 @@ async function deleteAdminProject(project) {
         return;
     }
 
-    const title = project.content_uk.title;
+    const title = getAdminProjectContent(project).title;
 
     if (!window.confirm(getAdminText('deleteConfirm') + '\n\n' + title)) {
         return;

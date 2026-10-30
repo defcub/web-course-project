@@ -100,11 +100,11 @@ function validateProjects(data) {
             throw new Error('Некоректна структура даних проєкту.');
         }
 
+        const hasEnglish = isCompleteContent(project.content_en);
         return {
             ...project,
-            content_en: isCompleteContent(project.content_en)
-                ? project.content_en
-                : project.content_uk
+            hasEnglish: hasEnglish,
+            content_en: hasEnglish ? project.content_en : project.content_uk
         };
     });
 }
@@ -117,6 +117,17 @@ function validateProjects(data) {
 
         const text = project[`content_${language}`];
         const labels = projectLabels[language];
+
+        const contentLanguage = language === 'en' && project.hasEnglish? 'en': 'uk';
+        if (language === 'en' && !project.hasEnglish) {
+            const notice = document.createElement('p');
+
+            notice.className = 'page-text';
+            notice.lang = 'en';
+            notice.textContent = 'English translation is not available yet. Original Ukrainian text is shown.';
+
+            fragment.querySelector('.project-content').prepend(notice);
+        }
 
         card.dataset.id = project.id;
         card.dataset.category = project.categories.slug;
@@ -138,7 +149,11 @@ function validateProjects(data) {
         };
 
         card.querySelectorAll('[data-field]').forEach((element) => {
-            element.textContent = fields[element.dataset.field];
+            const field = element.dataset.field;
+            element.textContent = fields[field];
+            if (['title', 'description', 'challenge', 'approach', 'result', 'link'].includes(field)) {
+                element.lang = contentLanguage;
+            }
         });
 
         return fragment;
