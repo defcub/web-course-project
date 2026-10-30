@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Enver project administration.">
+    <meta name="robots" content="noindex">
+    <title>Administration — Enver</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+    <header class="account-header">
+        <a href="index.html" class="account-logo">Enver</a>
+
+        <div class="language-switcher" role="group" aria-label="Website language">
+            <button type="button" class="language-btn" data-language="en" lang="en" aria-pressed="false">EN</button>
+            <button type="button" class="language-btn" data-language="uk" lang="uk" aria-pressed="false">UA</button>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <h1 data-admin-text="title">Project administration</h1>
+
+        <p id="adminStatus" class="admin-status" role="status" aria-live="polite"></p>
+
+        <button type="button" class="btn btn-outline" id="adminRetry" data-admin-text="retry" hidden>
+            Try again
+        </button>
+
+        <section id="adminPanel" aria-labelledby="adminProjectsTitle" hidden>
+            <p id="adminEmail" class="admin-email"></p>
+
+            <div class="admin-heading">
+                <h2 id="adminProjectsTitle" data-admin-text="projects">Projects</h2>
+
+                <button type="button" class="btn btn-outline" id="adminRefresh" data-admin-text="refresh">
+                    Refresh list
+                </button>
+            </div>
+
+            <div id="adminProjectList" class="admin-project-list"></div>
+        </section>
+
+        <nav class="admin-links" aria-label="Page navigation">
+            <a href="auth.html" data-admin-text="account">Your account</a>
+            <a href="projects.html" data-admin-text="catalogue">View catalogue</a>
+            <a href="index.html" data-admin-text="home">Back to home</a>
+        </nav>
+
+        <noscript>
+            Enable JavaScript to use this page. Увімкни JavaScript для роботи зі сторінкою.
+        </noscript>
+    </main>
+
+    <script src="assets/js/language.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/database.js"></script>
+    <script src="assets/js/admin.js"></script>
+</body>
+</html>
