@@ -105,3 +105,29 @@
         justify-content: space-between;
     }
 }
+
+
+.admin-project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.admin-delete {
+    padding: 10px 18px;
+    color: #ffb4b4;
+    background: transparent;
+    border: 1px solid #b85858;
+    border-radius: 6px;
+    font: inherit;
+    cursor: pointer;
+}
+
+.admin-delete:hover {
+    background: #41292d;
+}
+
+#adminActionMessage:empty {
+    display: none;
+}

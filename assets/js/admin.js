@@ -1,6 +1,12 @@
 const adminTexts = {
     en: {
         title: 'Project administration',
+        delete: 'Delete',
+        deleteConfirm: 'Delete this project permanently?',
+        deleting: 'Deleting the project...',
+        deleted: 'The project has been deleted.',
+        deleteFailed: 'Could not confirm deletion. Refresh the list to check the result.',
+        deleteDenied: 'The project was not deleted. It may already be removed or your account may not have permission.',
         projects: 'Projects',
         refresh: 'Refresh list',
         retry: 'Try again',
@@ -17,6 +23,12 @@ const adminTexts = {
     },
     uk: {
         title: 'Керування проєктами',
+        delete: 'Видалити',
+        deleteConfirm: 'Назавжди видалити цей проєкт?',
+        deleting: 'Видаляємо проєкт...',
+        deleted: 'Проєкт видалено.',
+        deleteFailed: 'Не вдалося підтвердити видалення. Онови список, щоб перевірити результат.',
+        deleteDenied: 'Проєкт не видалено. Можливо, його вже видалили або твій обліковий запис не має дозволу.',
         projects: 'Проєкти',
         refresh: 'Оновити список',
         retry: 'Спробувати ще раз',
@@ -39,12 +51,15 @@ const adminEmail = document.getElementById('adminEmail');
 const adminProjectList = document.getElementById('adminProjectList');
 const adminRefresh = document.getElementById('adminRefresh');
 const adminRetry = document.getElementById('adminRetry');
+const adminActionMessage = document.getElementById('adminActionMessage');
 
 let adminClient;
 let adminProjects = [];
 let adminState = 'loading';
 let adminUserEmail = '';
 let adminRequest = 0;
+let adminDeleting = false;
+let adminAction = '';
 
 function getAdminLanguage() {
     return document.documentElement.lang === 'uk' ? 'uk' : 'en';
@@ -70,7 +85,13 @@ function renderAdmin() {
 
     adminPanel.hidden = adminState !== 'ready';
     adminRetry.hidden = adminState !== 'error';
-    adminRefresh.disabled = adminState === 'loading';
+    adminRefresh.disabled = adminState === 'loading' || adminDeleting;
+    adminActionMessage.textContent = adminAction
+        ? getAdminText(adminAction)
+        : '';
+    adminActionMessage.dataset.error = String(
+        adminAction === 'deleteFailed' || adminAction === 'deleteDenied'
+    );
 
     adminProjectList.setAttribute(
         'aria-busy',
@@ -114,7 +135,22 @@ function renderAdmin() {
         slug.className = 'admin-project-slug';
         slug.textContent = project.slug;
 
-        card.append(title, category, description, slug);
+        const actions = document.createElement('div');
+        actions.className = 'admin-project-actions';
+
+        const deleteButton = document.createElement('button');
+        deleteButton.type = 'button';
+        deleteButton.className = 'admin-delete';
+        deleteButton.textContent = getAdminText('delete');
+        deleteButton.disabled = adminDeleting;
+
+        deleteButton.addEventListener('click', () => {
+            deleteAdminProject(project);
+        });
+
+        actions.append(deleteButton);
+
+        card.append(title, category, description, slug, actions);
         fragment.append(card);
     });
 
@@ -122,6 +158,12 @@ function renderAdmin() {
 }
 
 async function loadAdminPage() {
+    if (adminDeleting) {
+        return;
+    }
+
+    adminAction = '';
+
     const request = ++adminRequest;
 
     adminState = 'loading';
@@ -202,6 +244,56 @@ async function loadAdminPage() {
     }
 }
 
+async function deleteAdminProject(project) {
+    if (adminDeleting || adminState !== 'ready') {
+        return;
+    }
+    const language = getAdminLanguage();
+    const title = project['content_' + language].title;
+    const confirmed = window.confirm(
+        getAdminText('deleteConfirm') + '\n\n' + title
+    );
+
+    if (!confirmed) {
+        return;
+    }
+    const request = adminRequest;
+    adminDeleting = true;
+    adminAction = 'deleting';
+    renderAdmin();
+    try {
+        const result = await adminClient
+            .from('projects')
+            .delete()
+            .eq('id', project.id)
+            .select('id');
+        if (request !== adminRequest) {
+            return;
+        }
+        if (result.error) {
+            throw result.error;
+        }
+        if (!result.data || result.data.length !== 1) {
+            adminAction = 'deleteDenied';
+            return;
+        }
+        adminProjects = adminProjects.filter(item => {
+            return item.id !== project.id;
+        });
+        adminAction = 'deleted';
+    } catch (error) {
+        if (request !== adminRequest) {
+            return;
+        }
+
+        adminAction = 'deleteFailed';
+        console.warn('Delete project:', error.message);
+    } finally {
+        adminDeleting = false;
+        renderAdmin();
+    }
+}
+
 adminRefresh.addEventListener('click', loadAdminPage);
 adminRetry.addEventListener('click', loadAdminPage);
 
@@ -215,6 +307,7 @@ try {
     adminClient.auth.onAuthStateChange((event) => {
         if (event === 'SIGNED_OUT') {
             adminRequest++;
+            adminAction = '';
             adminProjects = [];
             adminUserEmail = '';
             adminState = 'loginRequired';
