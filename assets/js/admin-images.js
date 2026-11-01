@@ -1,16 +1,18 @@
 const imageTexts = {
     en: {
         label: 'Project image',
-        drop: 'Drop an image here or choose a file',
-        hint: 'JPEG, PNG or WebP. Maximum 5 MB.',
+        drop: 'Drop an image here',
+        choose: 'Choose image',
+        hint: 'JPEG, PNG or WebP · Up to 5 MB',
         required: 'Choose a project image.',
         invalid: 'Choose one JPEG, PNG or WebP image up to 5 MB.',
         uploadFailed: 'Could not upload the image. Check your connection and try again.'
     },
     uk: {
         label: 'Зображення проєкту',
-        drop: 'Перетягни зображення сюди або вибери файл',
-        hint: 'JPEG, PNG або WebP. Максимум 5 МБ.',
+        drop: 'Перетягни зображення сюди',
+        choose: 'Вибрати зображення',
+        hint: 'JPEG, PNG або WebP · До 5 МБ',
         required: 'Вибери зображення проєкту.',
         invalid: 'Вибери одне зображення JPEG, PNG або WebP до 5 МБ.',
         uploadFailed: 'Не вдалося завантажити зображення. Перевір з’єднання та спробуй ще раз.'
@@ -22,6 +24,7 @@ const imagePathInput = document.getElementById('projectImage');
 const imageDropZone = document.getElementById('imageDropZone');
 const imagePreview = document.getElementById('projectImagePreview');
 const imageMessage = document.getElementById('imageUploadMessage');
+const chooseImageButton = document.getElementById('chooseProjectImage');
 
 const imageExtensions = {
     'image/jpeg': 'jpg',
@@ -111,7 +114,7 @@ function selectProjectImage(files) {
 function validateProjectImage() {
     if (!selectedImageFile && !imagePathInput.value) {
         showImageMessage('required');
-        imageFileInput.focus();
+        chooseImageButton.focus();
         return false;
     }
 
@@ -146,6 +149,14 @@ async function uploadProjectImage() {
 
     return data.publicUrl;
 }
+
+chooseImageButton.addEventListener('click', () => {
+    if (adminBusy || adminState !== 'ready') {
+        return;
+    }
+
+    imageFileInput.click();
+});
 
 imageFileInput.addEventListener('change', () => {
     selectProjectImage(imageFileInput.files);
