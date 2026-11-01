@@ -339,6 +339,7 @@ function closeProjectForm() {
     adminForm.hidden = true;
     editingProjectId = null;
     adminForm.reset();
+    resetImagePicker();
     clearFormValidation();
 }
 
@@ -364,6 +365,7 @@ function openProjectForm(project = null) {
         getFormField('slug').value = project.slug;
         getFormField('category_id').value = project.category_id;
         getFormField('image_path').value = project.image_path;
+        showImagePreview(project.image_path);
         getFormField('sort_order').value = project.sort_order;
 
         ['uk', 'en'].forEach(language => {
@@ -393,6 +395,9 @@ function validateProjectForm() {
     });
 
     adminForm.querySelectorAll('input, select, textarea').forEach(field => {
+        if (field.type === 'file') {
+            return;
+        }
         field.value = field.value.trim();
 
         if (field.required && !field.value) {
@@ -411,19 +416,6 @@ function validateProjectForm() {
         slug.setCustomValidity(getAdminText('slugInvalid'));
     }
 
-    const image = getFormField('image_path');
-
-    if (
-        image.value &&
-        (
-            !image.value.startsWith('assets/images/') ||
-            image.value.includes('..') ||
-            image.value.includes('\\') ||
-            !/\.(png|jpe?g|webp|gif|avif|svg)$/i.test(image.value)
-        )
-    ) {
-        image.setCustomValidity(getAdminText('imageInvalid'));
-    }
     const invalidEnglish = contentFields.some(field => {
         return !getFormField(field.name + '_en').validity.valid;
     });
@@ -431,7 +423,11 @@ function validateProjectForm() {
     if (invalidEnglish) {
         document.getElementById('englishTranslation').open = true;
     }
-    return adminForm.reportValidity();
+    if (!adminForm.reportValidity()) {
+    return false;
+    }
+
+    return validateProjectImage();
 }
 
 function collectProjectData() {
@@ -583,6 +579,19 @@ async function saveAdminProject(event) {
     renderAdmin();
 
     try {
+        project.image_path = await uploadProjectImage();
+
+        if (request !== adminRequest) {
+            return;
+        }
+
+        imagePathInput.value = project.image_path;
+        selectedImageFile = null;
+        imageFileInput.value = '';
+
+        showImagePreview(project.image_path);
+        showImageMessage('');
+
         let query;
 
         if (projectId === null) {
@@ -616,7 +625,10 @@ async function saveAdminProject(event) {
     } catch (error) {
         if (request !== adminRequest) return;
 
-        if (error.code === '23505') {
+        if (error.code === 'IMAGE_UPLOAD_FAILED') {
+            showImageMessage('uploadFailed');
+            adminAction = 'actionFailed';
+        } else if (error.code === '23505') {
             adminAction = 'duplicate';
         } else if (error.code === '42501' || error.code === 'PGRST116') {
             adminAction = 'noAccess';

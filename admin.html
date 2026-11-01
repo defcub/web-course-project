@@ -64,8 +64,31 @@
                         </div>
 
                         <div class="admin-field">
-                            <label for="projectImage" data-admin-text="image">Image path</label>
-                            <input type="text" id="projectImage" name="image_path" maxlength="300" placeholder="assets/images/portfolio-imgs/portfolio-img1.png" required>
+                            <label for="projectImageFile" data-image-text="label">
+                                Project image
+                            </label>
+                            <input type="hidden"
+                                id="projectImage"
+                                name="image_path">
+                            <div class="image-drop-zone" id="imageDropZone">
+                                <p data-image-text="drop">
+                                    Drop an image here or choose a file
+                                </p>
+                                <input type="file"
+                                    id="projectImageFile"
+                                    accept="image/jpeg,image/png,image/webp"
+                                    aria-describedby="imageUploadHint imageUploadMessage">
+                                <p id="imageUploadHint" data-image-text="hint">
+                                    JPEG, PNG or WebP. Maximum 5 MB.
+                                </p>
+                            </div>
+                            <img id="projectImagePreview"
+                                class="admin-image-preview"
+                                alt=""
+                                hidden>
+                            <p id="imageUploadMessage"
+                            class="image-upload-message"
+                            role="status"></p>
                         </div>
 
                         <div class="admin-field">
@@ -73,10 +96,6 @@
                             <input type="number" id="projectOrder" name="sort_order" min="0" max="100000" step="1" value="0" required>
                         </div>
                     </div>
-
-                    <p class="admin-form-hint" data-admin-text="imageHint">
-                        Enter the path to an image that already exists in the project.
-                    </p>
 
                     <section aria-labelledby="ukrainianContentTitle">
                         <h3 id="ukrainianContentTitle" data-admin-text="ukrainian">
@@ -128,6 +147,8 @@
     <script src="assets/js/language.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="assets/js/database.js"></script>
+    <script src="assets/js/admin-images.js"></script>
+    <script src="assets/js/admin.js"></script>
     <script src="assets/js/admin.js"></script>
 </body>
 </html>

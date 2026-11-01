@@ -229,3 +229,72 @@
     outline: 2px solid #a5a5ff;
     outline-offset: 4px;
 }
+
+.image-drop-zone {
+    padding: 20px;
+    border: 2px dashed #64646e;
+    border-radius: 8px;
+    background: #19191d;
+    text-align: center;
+}
+
+.image-drop-zone.is-dragging {
+    border-color: #a5a5ff;
+    background: #2b2945;
+}
+
+.image-drop-zone:focus-within {
+    border-color: #a5a5ff;
+}
+
+.image-drop-zone p {
+    margin: 0 0 12px;
+    line-height: 1.5;
+}
+
+.image-drop-zone input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    font: inherit;
+}
+
+.image-drop-zone input[type="file"]::file-selector-button {
+    margin-right: 12px;
+    padding: 10px 14px;
+    border: 0;
+    border-radius: 4px;
+    background: #5454d4;
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+}
+
+.image-drop-zone #imageUploadHint {
+    margin: 12px 0 0;
+    color: #c6c6ce;
+    font-size: 14px;
+}
+
+.admin-image-preview {
+    display: block;
+    width: 100%;
+    max-height: 260px;
+    margin-top: 16px;
+    border-radius: 8px;
+    object-fit: contain;
+    background: #19191d;
+}
+
+.admin-image-preview[hidden] {
+    display: none;
+}
+
+.image-upload-message {
+    margin-top: 12px;
+    color: #ffb4b4;
+    line-height: 1.5;
+}
+
+.image-upload-message:empty {
+    display: none;
+}
