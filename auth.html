@@ -60,16 +60,23 @@
                 <p data-auth-text="signedIn">You are signed in as:</p>
                 <p id="accountEmail" class="account-email"></p>
 
-                <a href="admin.html"
+                <div class="account-actions">
+                    <a href="admin.html"
                     id="adminLink"
-                    class="btn btn-primary account-admin-link"
+                    class="btn btn-primary"
                     data-auth-text="admin"
                     hidden>
-                    Manage projects
-                </a>
-                
-                <button type="button" class="btn btn-outline" id="logoutButton" data-auth-text="logout">Sign out</button>
-            </div>
+                        Manage projects
+                    </a>
+
+                    <button type="button"
+                            id="logoutButton"
+                            class="btn btn-outline"
+                            data-auth-text="logout">
+                        Sign out
+                    </button>
+                </div>
+            </div>  
 
             <p id="authMessage" class="account-message" role="status" aria-live="polite"></p>
 
