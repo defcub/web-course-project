@@ -51,7 +51,7 @@
 }
 
 .page-title {
-    font-family: 'Graphik', sans-serif;
+    font-family: 'Graphik', 'Nunito Sans', sans-serif;
     font-size: 40px;
     line-height: 1.2;
     margin-bottom: 24px;
@@ -499,9 +499,7 @@
     margin-top: 20px;
 }
 
-/* =========================================
-   ПЛАНШЕТНА ВЕРСІЯ
-   ========================================= */
+/* ПЛАНШЕТНА ВЕРСІЯ */
 
 @media screen and (min-width: 789px) {
     .mobile-contact-link {
