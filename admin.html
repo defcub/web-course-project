@@ -54,98 +54,37 @@
                 <fieldset id="adminFormFields">
                    <div class="admin-form-grid">
                         <div class="admin-field">
-                            <label for="projectSlug" data-admin-text="slug">
-                                Project identifier
-                            </label>
-
-                            <input type="text"
-                                id="projectSlug"
-                                name="slug"
-                                maxlength="100"
-                                pattern="[a-z0-9]+(-[a-z0-9]+)*"
-                                placeholder="my-new-project"
-                                required>
+                            <label for="projectSlug" data-admin-text="slug">Project identifier</label>
+                            <input type="text" id="projectSlug" name="slug" maxlength="100" pattern="[a-z0-9]+(-[a-z0-9]+)*" placeholder="my-new-project" required>
                         </div>
 
                         <div class="admin-field">
-                            <label for="projectCategory" data-admin-text="category">
-                                Category
-                            </label>
-
-                            <select id="projectCategory"
-                                    name="category_id"
-                                    required></select>
+                            <label for="projectCategory" data-admin-text="category">Category</label>
+                            <select id="projectCategory" name="category_id" required></select>
                         </div>
-
-                        <div class="admin-field">
-                            <label for="projectOrder" data-admin-text="order">
-                                Display order
-                            </label>
-
-                            <input type="number"
-                                id="projectOrder"
-                                name="sort_order"
-                                min="0"
-                                max="100000"
-                                step="1"
-                                value="0"
-                                required>
-                        </div>
-
-                        <div class="admin-field admin-image-field">
-                            <p id="projectImageLabel"
-                            class="admin-field-label"
-                            data-image-text="label">
-                                Project image
-                            </p>
-
-                            <input type="hidden"
-                                id="projectImage"
-                                name="image_path">
-
-                            <input type="file"
-                                id="projectImageFile"
-                                accept="image/jpeg,image/png,image/webp"
-                                hidden>
-
-                            <div class="image-drop-zone"
-                                id="imageDropZone"
-                                role="group"
-                                aria-labelledby="projectImageLabel">
-
-                                <img id="projectImagePreview"
-                                    class="admin-image-preview"
-                                    alt=""
-                                    hidden>
-
-                                <div class="image-upload-controls">
-                                    <p class="image-drop-title" data-image-text="drop">
-                                        Drop an image here
-                                    </p>
-
-                                    <button type="button"
-                                            id="chooseProjectImage"
-                                            class="btn btn-outline"
-                                            data-image-text="choose"
-                                            aria-describedby="imageUploadHint imageUploadMessage">
-                                        Choose image
-                                    </button>
-
-                                    <p id="imageUploadHint" data-image-text="hint">
-                                        JPEG, PNG or WebP · Up to 5 MB
-                                    </p>
-                                </div>
-                            </div>
-
-                            <p id="imageUploadMessage"
-                            class="image-upload-message"
-                            role="status"></p>
-                        </div>
-                    </div>
 
                         <div class="admin-field">
                             <label for="projectOrder" data-admin-text="order">Display order</label>
                             <input type="number" id="projectOrder" name="sort_order" min="0" max="100000" step="1" value="0" required>
+                        </div>
+
+                        <div class="admin-field admin-image-field">
+                            <p id="projectImageLabel" class="admin-field-label" data-image-text="label">Project image</p>
+
+                            <input type="hidden" id="projectImage" name="image_path">
+                            <input type="file" id="projectImageFile" accept="image/jpeg,image/png,image/webp" hidden>
+
+                            <div class="image-drop-zone" id="imageDropZone" role="group" aria-labelledby="projectImageLabel">
+                                <img id="projectImagePreview" class="admin-image-preview" alt="" hidden>
+
+                                <div class="image-upload-controls">
+                                    <p class="image-drop-title" data-image-text="drop">Drop an image here</p>
+                                    <button type="button" id="chooseProjectImage" class="btn btn-outline" data-image-text="choose" aria-describedby="imageUploadHint imageUploadMessage">Choose image</button>
+                                    <p id="imageUploadHint" data-image-text="hint">JPEG, PNG or WebP · Up to 5 MB</p>
+                                </div>
+                            </div>
+
+                            <p id="imageUploadMessage" class="image-upload-message" role="status"></p>
                         </div>
                     </div>
 
