@@ -11,6 +11,7 @@ const authTexts = {
         signedIn: 'You are signed in as:',
         logout: 'Sign out',
         home: 'Back to home',
+        admin: 'Manage projects',
         loading: 'Please wait...',
         loginSuccess: 'You have signed in successfully.',
         registerSuccess: 'Your account has been created.',
@@ -40,6 +41,7 @@ const authTexts = {
         signedIn: 'Ти увійшов як:',
         logout: 'Вийти',
         home: 'На головну',
+        admin: 'Керування проєктами',
         loading: 'Зачекай...',
         loginSuccess: 'Ти успішно увійшов.',
         registerSuccess: 'Обліковий запис створено.',
@@ -74,6 +76,8 @@ const authUser = document.getElementById('authUser');
 const accountEmail = document.getElementById('accountEmail');
 const logoutButton = document.getElementById('logoutButton');
 const authMessage = document.getElementById('authMessage');
+const adminLink = document.getElementById('adminLink');
+let adminCheckNumber = 0;
 
 let supabaseClient;
 let authMode = 'login';
@@ -188,10 +192,48 @@ function getAuthErrorKey(error) {
     return errors[error.code] || 'requestError';
 }
 
+async function checkAdminAccess(user, checkNumber) {
+    try {
+        const { data, error } = await supabaseClient
+            .from('admin_users')
+            .select('user_id')
+            .eq('user_id', user.id)
+            .maybeSingle();
+
+        if (checkNumber !== adminCheckNumber) {
+            return;
+        }
+
+        if (error) {
+            throw error;
+        }
+
+        adminLink.hidden = !data;
+    } catch (error) {
+        if (checkNumber !== adminCheckNumber) {
+            return;
+        }
+
+        adminLink.hidden = true;
+        console.warn('Could not check administrator access:', error);
+    }
+}
+
 function showAuthUser(user) {
     authGuest.hidden = Boolean(user);
     authUser.hidden = !user;
     accountEmail.textContent = user ? user.email : '';
+    adminLink.hidden = true;
+    adminCheckNumber += 1;
+    const checkNumber = adminCheckNumber;
+    if (!user) {
+        return;
+    }
+    setTimeout(() => {
+        if (checkNumber === adminCheckNumber) {
+            checkAdminAccess(user, checkNumber);
+        }
+    }, 0);
 }
 
 loginMode.addEventListener('click', () => {

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sign in or create an Enver account.">
     <title>Account — Enver</title>
-
+    <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/auth.css">
 </head>
@@ -59,6 +59,10 @@
             <div id="authUser" hidden>
                 <p data-auth-text="signedIn">You are signed in as:</p>
                 <p id="accountEmail" class="account-email"></p>
+
+                <a href="admin.html"id="adminLink"class="btn btn-primary account-admin-link"data-auth-text="admin"hidden>
+                    Manage projects
+                </a>
 
                 <button type="button" class="btn btn-outline" id="logoutButton" data-auth-text="logout">Sign out</button>
             </div>
