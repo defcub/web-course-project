@@ -1,2 +1,2 @@
-[functions.submit-request]
+[functions.super-action]
 verify_jwt = false

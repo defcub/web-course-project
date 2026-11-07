@@ -307,17 +307,60 @@ if (
         'siteLanguageChange',
         updateRequestMessage
     );
+    
 
-    // Перевірка форми
-    requestModalForm.addEventListener('submit', (event) => {
+    // Надсилання заявки
+    const sendButton = requestModalForm.querySelector('button[type="submit"]');
+
+    requestModalForm.addEventListener('submit', async (event) => {
         event.preventDefault();
+
+        if (sendButton.disabled) return;
 
         validateRequestForm();
 
-        if (!requestModalForm.reportValidity()) {
-            return;
-        }
+        if (!requestModalForm.reportValidity()) return;
 
-        showRequestMessage('requestValid');
+        const fields = requestModalForm.elements;
+
+        const projectRequest = {
+            name: fields.namedItem('name').value.trim(),
+            email: fields.namedItem('email').value.trim(),
+            service: fields.namedItem('service').value,
+            message: fields.namedItem('message').value.trim(),
+            agreement: fields.namedItem('agreement').checked
+        };
+
+        sendButton.disabled = true;
+        showRequestMessage('requestSending');
+
+        try {
+            const response = await fetch(`${databaseUrl}/functions/v1/super-action`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(projectRequest)
+            });
+
+            if (response.status === 400) {
+                showRequestMessage('requestInvalid');
+                return;
+            }
+
+            if (!response.ok) throw new Error('Request failed');
+
+            const result = await response.json();
+
+            if (result.success !== true) throw new Error('Request not confirmed');
+
+            requestModalForm.reset();
+            showRequestMessage('requestSent');
+        } catch {
+            console.error('Помилка надсилання:', error);
+            showRequestMessage('requestFailed');
+        } finally {
+            sendButton.disabled = false;
+        }
     });
 }

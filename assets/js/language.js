@@ -44,9 +44,24 @@ const languageMessages = {
         'Не вдалося видалити збережену чернетку.'
     ],
 
-    requestValid: [
-        'The form is valid. Sending data to a server is not connected yet.',
-        'Дані заповнені правильно. Надсилання на сервер ще не підключено.'
+    requestSending: [
+    'Sending your request…',
+    'Надсилаємо заявку…'
+    ],
+
+    requestSent: [
+        'Thank you! We received your request.',
+        'Дякуємо! Ми отримали твою заявку.'
+    ],
+
+    requestInvalid: [
+        'Please check your details, including your email address.',
+        'Перевір введені дані, зокрема адресу електронної пошти.'
+    ],
+
+    requestFailed: [
+        'We could not confirm that your request was saved. Your text is still here.',
+        'Не вдалося підтвердити збереження заявки. Твій текст залишився у формі.'
     ],
 
     fieldRequired: [
@@ -993,8 +1008,8 @@ const pageTranslations = {
         ],
         [
             '#requestModalDescription',
-            'Complete this short form. At this stage, the data is validated without being sent to a server.',
-            'Заповни коротку форму. На цьому етапі дані перевіряються без надсилання на сервер.'
+            'Tell us about your project and leave an email so we can reply.',
+            'Опиши свій проєкт і залиш email, щоб ми могли відповісти.'
         ],
         [
             '#closeRequestModal',
@@ -1004,13 +1019,13 @@ const pageTranslations = {
         ],
         [
             '#requestModalForm .form-checkbox span',
-            'I understand that this version of the form does not send data. *',
-            'Розумію, що ця версія форми не надсилає дані. *'
+            'I agree to be contacted about this request. *',
+            'Погоджуюся, щоб зі мною зв’язалися щодо цієї заявки. *'
         ],
         [
             '#requestModalForm button[type="submit"]',
-            'Check Request',
-            'Перевірити заявку'
+            'Send request',
+            'Надіслати заявку'
         ]
     ]
 };
