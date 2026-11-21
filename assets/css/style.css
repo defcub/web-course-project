@@ -454,8 +454,8 @@ ul {
             ========================================= */
 .services-section {
     position: relative;
+    isolation: isolate;
     padding-top: 140px;
-    padding-bottom: 60px;
 }
 
 /* --- ГРАДІЄНТ --- */
@@ -972,7 +972,7 @@ ul {
     .services-section {
         position: relative;
         isolation: isolate;
-        padding-top: 88px;
+        padding-top: 150px;
     }
 
     .services-section .section-title {
@@ -1559,4 +1559,12 @@ body.modal-open {
         padding: 10px 24px;
         font-size: 16px;
     }
+}
+
+.account-magic {
+    width: 100%;
+    margin-top: 12px;
+    padding: 14px 16px;
+    line-height: 1.4;
+    text-align: center;
 }

@@ -27,6 +27,9 @@ const authTexts = {
         weakPassword: 'This password does not meet the security requirements.',
         rateLimit: 'Too many attempts. Please try again later.',
         requestError: 'The request failed. Check your connection and try again.',
+        magicLink: 'Send a sign-in link',
+        magicSent: 'If this account exists, check your email for a sign-in link.',
+        emailDeliveryError: 'Email delivery is unavailable. Please try again later.',
         setupError: 'Could not start authentication. Reload the page.'
     },
     uk: {
@@ -57,6 +60,9 @@ const authTexts = {
         weakPassword: 'Цей пароль не відповідає вимогам безпеки.',
         rateLimit: 'Забагато спроб. Спробуй пізніше.',
         requestError: 'Запит не виконано. Перевір з’єднання та спробуй ще раз.',
+        magicLink: 'Отримати посилання для входу',
+        magicSent: 'Якщо обліковий запис існує, перевір пошту — там буде посилання для входу.',
+        emailDeliveryError: 'Надсилання листів недоступне. Спробуй пізніше.',
         setupError: 'Не вдалося запустити авторизацію. Онови сторінку.'
     }
 };
@@ -69,6 +75,7 @@ const authPasswordRepeat = document.getElementById('authPasswordRepeat');
 const passwordRepeatGroup = document.getElementById('passwordRepeatGroup');
 const passwordHint = document.getElementById('passwordHint');
 const authSubmit = document.getElementById('authSubmit');
+const magicLogin = document.getElementById('magicLogin');
 const loginMode = document.getElementById('loginMode');
 const registerMode = document.getElementById('registerMode');
 const authGuest = document.getElementById('authGuest');
@@ -86,6 +93,10 @@ let authReady = false;
 let messageKey = '';
 let messageType = '';
 
+function getAuthRedirectUrl() {
+    return new URL('auth.html', window.location.href).href;
+}
+
 function getAuthText(key) {
     const language = document.documentElement.lang === 'uk' ? 'uk' : 'en';
 
@@ -98,6 +109,9 @@ function renderAuth() {
     });
 
     const isRegister = authMode === 'register';
+
+    magicLogin.hidden = isRegister;
+    magicLogin.disabled = authBusy || !authReady;
 
     loginMode.setAttribute('aria-pressed', String(!isRegister));
     registerMode.setAttribute('aria-pressed', String(isRegister));
@@ -186,7 +200,8 @@ function getAuthErrorKey(error) {
         email_exists: 'emailExists',
         weak_password: 'weakPassword',
         over_request_rate_limit: 'rateLimit',
-        over_email_send_rate_limit: 'rateLimit'
+        over_email_send_rate_limit: 'rateLimit',
+        email_address_not_authorized: 'emailDeliveryError'
     };
 
     return errors[error.code] || 'requestError';
@@ -276,7 +291,13 @@ authForm.addEventListener('submit', async event => {
         let result;
 
         if (authMode === 'register') {
-            result = await supabaseClient.auth.signUp(credentials);
+            result = await supabaseClient.auth.signUp({
+                email: credentials.email,
+                password: credentials.password,
+                options: {
+                    emailRedirectTo: getAuthRedirectUrl()
+                }
+            });
         } else {
             result = await supabaseClient.auth.signInWithPassword(credentials);
         }
@@ -298,6 +319,53 @@ authForm.addEventListener('submit', async event => {
                 'success'
             );
         }
+    } catch (error) {
+        showAuthMessage(getAuthErrorKey(error), 'error');
+    } finally {
+        authBusy = false;
+        renderAuth();
+    }
+});
+
+magicLogin.addEventListener('click', async () => {
+    if (!authReady || authBusy || authMode !== 'login') {
+        return;
+    }
+
+    clearValidation();
+
+    authEmail.value = authEmail.value.trim();
+
+    if (!authEmail.value) {
+        authEmail.setCustomValidity(getAuthText('required'));
+    } else if (authEmail.validity.typeMismatch) {
+        authEmail.setCustomValidity(getAuthText('invalidEmail'));
+    }
+
+    if (!authEmail.reportValidity()) {
+        return;
+    }
+
+    authBusy = true;
+    showAuthMessage('loading');
+
+    try {
+        const { error } = await supabaseClient.auth.signInWithOtp({
+            email: authEmail.value,
+            options: {
+                shouldCreateUser: false,
+                emailRedirectTo: getAuthRedirectUrl()
+            }
+        });
+
+        if (error) {
+            throw error;
+        }
+
+        authPassword.value = '';
+        authPasswordRepeat.value = '';
+
+        showAuthMessage('magicSent', 'success');
     } catch (error) {
         showAuthMessage(getAuthErrorKey(error), 'error');
     } finally {
