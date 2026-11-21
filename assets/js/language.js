@@ -267,8 +267,8 @@ const pageTranslations = {
         ],
         [
             '.services-section .section-title',
-            'The Services We\nProvide For You',
-            'Послуги для\nтвого проєкту'
+            'The Services We Provide For You',
+            'Послуги для твого проєкту'
         ],
         [
             '.service-card .card-title',
@@ -316,8 +316,8 @@ const pageTranslations = {
         ],
         [
             '.portfolio-title',
-            'Our Awesome\nPortfolio',
-            'Наші\nпроєкти'
+            'Our Awesome Portfolio',
+            'Наші проєкти'
         ],
         [
             '.portfolio-slide',
@@ -333,6 +333,22 @@ const pageTranslations = {
             ],
             'alt'
         ],
+
+        [
+            '.portfolio-pagination .dot',
+            [
+                'Show the movie app first',
+                'Show the furniture store first',
+                'Show the agency website first'
+            ],
+            [
+                'Показати кінозастосунок першим',
+                'Показати магазин меблів першим',
+                'Показати сайт агенції першим'
+            ],
+            'aria-label'
+        ],
+
         [
             '#btnPrev',
             'Previous project',

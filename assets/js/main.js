@@ -132,22 +132,32 @@ if (track && slides.length > 0 && btnPrev && btnNext) {
 
     function goToSlide(index) {
         currentIndex = index;
+        const desktop = window.matchMedia(
+            '(min-width: 1025px)'
+        ).matches;
 
-        const gap = parseInt(window.getComputedStyle(track).gap) || 0;
-        const slideWidth = slides[0].clientWidth;
+        if (desktop) {
+            track.style.transform = '';
+            slides.forEach((slide, i) => {
+                const position = (i - index + slides.length) % slides.length;
 
-        track.style.transform =
-            `translateX(-${index * (slideWidth + gap)}px)`;
+                slide.style.order = position;
+                slide.dataset.position = position;
+            });
+        } else {
+            slides.forEach((slide) => {slide.style.order = '';});
+            const offset = slides[index].offsetLeft - slides[0].offsetLeft;
+            track.style.transform = `translateX(-${offset}px)`;
+        }
 
         dots.forEach((dot, i) => {
             dot.classList.toggle('active', i === index);
+            dot.setAttribute('aria-pressed', String(i === index));
         });
 
         btnPrev.style.opacity = index === 0 ? '0.5' : '1';
-
         btnNext.style.opacity =
             index === slides.length - 1 ? '0.5' : '1';
-
         btnPrev.disabled = index === 0;
         btnNext.disabled = index === slides.length - 1;
     }
@@ -173,7 +183,7 @@ if (track && slides.length > 0 && btnPrev && btnNext) {
     });
 
     window.addEventListener('resize', () => {
-        goToSlide(0);
+        goToSlide(currentIndex);
     });
 
     window.addEventListener('load', () => {
