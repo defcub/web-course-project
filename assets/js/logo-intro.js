@@ -83,7 +83,7 @@ if (logoIntro && logoIntroVideo) {
 
         document.addEventListener('keydown', handleIntroKey);
 
-        logoIntroVideo.src = 'assets/videos/logo-icon_2.mp4';
+        logoIntroVideo.src = 'assets/videos/logo.webm';
         logoIntro.hidden = false;
 
         // Захист від зависання завантаження або відтворення.

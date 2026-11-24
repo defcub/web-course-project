@@ -1922,3 +1922,14 @@ body.modal-open {
         left: auto;
     }
 }
+
+html[lang="uk"] {
+    --main-font: 'Manrope', 'Nunito Sans', sans-serif;
+}
+html[lang="uk"] body h1,
+html[lang="uk"] body h2,
+html[lang="uk"] body h3 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+}
