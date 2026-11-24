@@ -1589,3 +1589,44 @@ body.modal-open {
         height: 104px;
     }
 }
+
+/* ВСТУПНА АНІМАЦІЯ ЛОГОТИПУ */
+
+.logo-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-dark);
+}
+
+.logo-intro[hidden] {
+    display: none;
+}
+
+.logo-intro-video {
+    display: block;
+    width: min(70vw, 360px);
+    max-height: 60vh;
+    object-fit: contain;
+}
+
+/* ПЛАВНЕ ЗНИКНЕННЯ ЗАСТАВКИ */
+
+.logo-intro {
+    opacity: 1;
+    transition: opacity 450ms ease;
+}
+
+.logo-intro.is-hiding {
+    opacity: 0;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .logo-intro {
+        transition: none;
+    }
+}

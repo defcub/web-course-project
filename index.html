@@ -16,7 +16,20 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
 </head>
-<body>
+    <body>
+        <!-- ВСТУПНА АНІМАЦІЯ ЛОГОТИПУ -->
+    <div class="logo-intro" id="logoIntro" hidden>
+        <video
+            class="logo-intro-video"
+            id="logoIntroVideo"
+            muted
+            playsinline
+            preload="none"
+            aria-hidden="true">
+        </video>
+    </div>
+    <script src="assets/js/logo-intro.js"></script>
+
     <header class="main-header" id="header">
         <div class="navbar content-wrap d-flex item-center space-between">
             
