@@ -1655,3 +1655,19 @@
         gap: 56px;
     }
 }
+
+/* ВХІД ЧЕРЕЗ GOOGLE */
+
+.account-google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 48px;
+    margin-bottom: 24px;
+    padding: 12px 16px;
+    font: inherit;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: center;
+}

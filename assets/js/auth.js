@@ -27,6 +27,9 @@ const authTexts = {
         weakPassword: 'This password does not meet the security requirements.',
         rateLimit: 'Too many attempts. Please try again later.',
         requestError: 'The request failed. Check your connection and try again.',
+        googleLogin: 'Continue with Google',
+        googleLoading: 'Opening Google...',
+        googleError: 'Could not sign in with Google. Please try again or use email.',
         magicLink: 'Send a sign-in link',
         magicSent: 'If this account exists, check your email for a sign-in link.',
         emailDeliveryError: 'Email delivery is unavailable. Please try again later.',
@@ -60,6 +63,9 @@ const authTexts = {
         weakPassword: 'Цей пароль не відповідає вимогам безпеки.',
         rateLimit: 'Забагато спроб. Спробуй пізніше.',
         requestError: 'Запит не виконано. Перевір з’єднання та спробуй ще раз.',
+        googleLogin: 'Продовжити з Google',
+        googleLoading: 'Відкриваємо Google...',
+        googleError: 'Не вдалося увійти через Google. Спробуй ще раз або скористайся поштою.',
         magicLink: 'Отримати посилання для входу',
         magicSent: 'Якщо обліковий запис існує, перевір пошту — там буде посилання для входу.',
         emailDeliveryError: 'Надсилання листів недоступне. Спробуй пізніше.',
@@ -76,6 +82,7 @@ const passwordRepeatGroup = document.getElementById('passwordRepeatGroup');
 const passwordHint = document.getElementById('passwordHint');
 const authSubmit = document.getElementById('authSubmit');
 const magicLogin = document.getElementById('magicLogin');
+const googleLogin = document.getElementById('googleLogin');
 const loginMode = document.getElementById('loginMode');
 const registerMode = document.getElementById('registerMode');
 const authGuest = document.getElementById('authGuest');
@@ -92,6 +99,7 @@ let authBusy = false;
 let authReady = false;
 let messageKey = '';
 let messageType = '';
+const googleReturnError = new URLSearchParams(window.location.hash.slice(1)).has('error') || new URLSearchParams(window.location.search).has('error');
 
 function getAuthRedirectUrl() {
     return new URL('auth.html', window.location.href).href;
@@ -110,6 +118,7 @@ function renderAuth() {
 
     const isRegister = authMode === 'register';
 
+    googleLogin.disabled = authBusy || !authReady;
     magicLogin.hidden = isRegister;
     magicLogin.disabled = authBusy || !authReady;
 
@@ -327,6 +336,35 @@ authForm.addEventListener('submit', async event => {
     }
 });
 
+googleLogin.addEventListener('click', async () => {
+    if (!authReady || authBusy) {
+        return;
+    }
+    authBusy = true;
+    showAuthMessage('googleLoading');
+
+    try {
+        const { data, error } = await supabaseClient.auth.signInWithOAuth({
+            provider: 'google',
+            options: {
+                redirectTo: getAuthRedirectUrl(),
+                skipBrowserRedirect: true,
+                queryParams: {
+                    prompt: 'select_account'
+                }
+            }
+        });
+
+        if (error || !data?.url) {
+            throw error || new Error('Missing Google sign-in URL');
+        }
+        window.location.assign(data.url);
+    } catch (error) {
+        authBusy = false;
+        showAuthMessage('googleError', 'error');
+    }
+});
+
 magicLogin.addEventListener('click', async () => {
     if (!authReady || authBusy || authMode !== 'login') {
         return;
@@ -414,8 +452,9 @@ try {
         showAuthUser(session ? session.user : null);
 
         if (!authBusy) {
-            messageKey = '';
-            messageType = '';
+            const failedRedirect = event === 'INITIAL_SESSION' && !session && googleReturnError;
+            messageKey = failedRedirect ? 'googleError' : '';
+            messageType = failedRedirect ? 'error' : '';
         }
 
         renderAuth();
