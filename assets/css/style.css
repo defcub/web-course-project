@@ -1595,7 +1595,12 @@ body.modal-open {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
     background-color: var(--bg-dark);
+    opacity: 1;
+    transition: opacity 450ms ease;
 }
 
 .logo-intro[hidden] {
@@ -1606,7 +1611,15 @@ body.modal-open {
     display: block;
     width: min(70vw, 360px);
     max-height: 60vh;
+    max-height: 60dvh;
     object-fit: contain;
+}
+
+@media screen and (max-width: 788px) {
+    .logo-intro-video {
+        transform: translateY(-8vh);
+        transform: translateY(-8dvh);
+    }
 }
 
 /* ПЛАВНЕ ЗНИКНЕННЯ ЗАСТАВКИ */
