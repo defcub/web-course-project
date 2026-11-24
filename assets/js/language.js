@@ -818,13 +818,13 @@ const pageTranslations = {
     'contact.html': [
         [
             'title',
-            'Contact and Project Brief — Enver',
-            'Контакти та заявка на проєкт — Enver'
+            'Contact — Enver',
+            'Контакти — Enver'
         ],
         [
             'meta[name="description"]',
-            'Prepare a project brief for Enver, choose a service and describe your idea. Save a draft on your device or try the demonstration project enquiry form.',
-            'Підготуй бриф проєкту для Enver: обери послугу та опиши свою ідею. Збережи чернетку на пристрої або перевір демонстраційну форму обговорення проєкту.',
+            'Tell Enver about your project. Choose a service, describe your idea and leave your email so we can get back to you.',
+            'Розкажи Enver про свій проєкт. Обери послугу, опиши ідею та залиш електронну пошту для відповіді.',
             'content'
         ],
         [
@@ -839,8 +839,8 @@ const pageTranslations = {
         ],
         [
             '.page-description',
-            'Start with your idea, your audience and what you want to achieve. Use this form to prepare a project brief.',
-            'Почни зі своєї ідеї, аудиторії та результату, якого хочеш досягти. Скористайся формою, щоб підготувати бриф проєкту.'
+            'Have an idea? Tell us what you need and leave your email so we can get back to you.',
+            'Маєш ідею? Розкажи, що потрібно зробити, і залиш електронну пошту, щоб ми могли відповісти.'
         ],
         [
             '#openRequestModal',
@@ -884,26 +884,6 @@ const pageTranslations = {
             ]
         ],
         [
-            '.form-notice h3',
-            'Demo Form',
-            'Демонстраційна форма'
-        ],
-        [
-            '.form-notice p',
-            'This form saves a draft in your browser. It does not send an email or contact a server.',
-            'Ця форма зберігає чернетку у твоєму браузері. Вона не надсилає електронного листа та не передає дані на сервер.'
-        ],
-        [
-            '#contactForm h2',
-            'Project Brief',
-            'Бриф проєкту'
-        ],
-        [
-            '#contactForm > .page-text',
-            'Fields marked * are required.',
-            'Поля, позначені *, обов’язкові для заповнення.'
-        ],
-        [
             'label[for="userName"], label[for="requestClientName"]',
             'Your Name *',
             'Твоє ім’я *'
@@ -944,11 +924,6 @@ const pageTranslations = {
             'Брендинг та анімація'
         ],
         [
-            '#projectService option[value="other"]',
-            'Other',
-            'Інше'
-        ],
-        [
             '#userName, #requestClientName',
             'Your name',
             'Твоє ім’я',
@@ -965,57 +940,6 @@ const pageTranslations = {
             'Describe your idea, audience and project goals.',
             'Опиши ідею, аудиторію та цілі проєкту.',
             'placeholder'
-        ],
-        [
-            '#contactForm .form-checkbox span',
-            'I agree to save this draft on this device. *',
-            'Погоджуюся зберегти чернетку на цьому пристрої. *'
-        ],
-        [
-            '#contactForm button[type="submit"]',
-            'Save Draft',
-            'Зберегти чернетку'
-        ],
-        [
-            '#clearDraft',
-            'Clear Draft',
-            'Очистити чернетку'
-        ],
-        [
-            '.page-section > .content-wrap > .page-label',
-            'THE NEXT STEPS',
-            'НАСТУПНІ КРОКИ'
-        ],
-        [
-            '.page-section > .content-wrap > .page-section-title',
-            'What Happens in a Real Project?',
-            'Як відбувається робота над реальним проєктом?'
-        ],
-        [
-            '.contact-process-grid h3',
-            [
-                'Review the Brief',
-                'Define the Scope',
-                'Start Creating'
-            ],
-            [
-                'Обговорення брифу',
-                'Визначення обсягу',
-                'Початок роботи'
-            ]
-        ],
-        [
-            '.contact-process-grid p',
-            [
-                'Clarify the goals, audience and main project requirements.',
-                'Agree on deliverables, milestones and responsibilities.',
-                'Move into research and explore the first design direction.'
-            ],
-            [
-                'Уточнення цілей, аудиторії та основних вимог до проєкту.',
-                'Погодження результатів роботи, етапів і відповідальності.',
-                'Початок дослідження та пошук першого напряму дизайну.'
-            ]
         ],
         [
             '#requestModalTitle',

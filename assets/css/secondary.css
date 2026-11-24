@@ -1606,3 +1606,52 @@
         scroll-behavior: auto !important;
     }
 }
+
+/* СПРОЩЕНА КОНТАКТНА СТОРІНКА */
+
+.contact-page .contact-guide {
+    padding-top: 64px;
+}
+
+.contact-guide .contact-information > .page-text {
+    max-width: 620px;
+}
+
+.contact-tips {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    margin-top: 36px;
+}
+
+.contact-tips .contact-tip {
+    min-width: 0;
+    margin-top: 0;
+    padding-top: 24px;
+}
+
+.contact-tips .contact-tip h3 {
+    font-size: 22px;
+}
+
+@media screen and (min-width: 789px) {
+    .contact-page .contact-guide {
+        padding-top: 88px;
+    }
+
+    .contact-tips {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 36px;
+        margin-top: 40px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .contact-page .contact-guide {
+        padding-top: 110px;
+    }
+
+    .contact-tips {
+        gap: 56px;
+    }
+}
