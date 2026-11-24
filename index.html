@@ -235,38 +235,46 @@
                             <!-- PORTFOLIO -->
 
         <section class="section portfolio-section">
-            
-            <div class="content-wrap relative animate-on-scroll">
-                <h2 class="section-title portfolio-title">Our Awesome Portfolio</h2>
-                <img src="assets/images/vector-doublecircle.png" alt="circles" class="floating-icon icon-circles-portfolio">
-            </div>
+    <div class="content-wrap relative animate-on-scroll">
+        <h2 class="section-title portfolio-title">
+            Our Awesome Portfolio
+        </h2>
 
-            <div class="portfolio-slider-wrap animate-on-scroll">
-                <div class="portfolio-track" id="portfolioTrack">
-                    <img src="assets/images/portfolio-imgs/portfolio-img1.png" alt="Portfolio 1" class="portfolio-slide">
-                    <img src="assets/images/portfolio-imgs/portfolio-img2.png" alt="Portfolio 2" class="portfolio-slide">
-                    <img src="assets/images/portfolio-imgs/portfolio-img3.png" alt="Portfolio 3" class="portfolio-slide">
-                </div>
-            </div>
+        <img src="assets/images/vector-doublecircle.png" alt="" class="floating-icon icon-circles-portfolio">
+    </div>
 
-            <div class="content-wrap relative animate-on-scroll">
-                <div class="portfolio-controls d-flex">
-                    <button class="slider-btn btn-prev" id="btnPrev">
-                        <img src="assets/images/portfolio-imgs/arrow-left.png" alt="arrow-prev  ">
-                    </button>
-                    <button class="slider-btn btn-next" id="btnNext">
-                        <img src="assets/images/portfolio-imgs/arrow-right.png" alt="arrow-next">
-                    </button>
-                </div>
-                <div class="portfolio-pagination">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                    </div>
-                <img src="assets/images/vector-graphic.png" alt="zigzag" class="floating-icon icon-zigzag-portfolio">
+    <div class="portfolio-carousel content-wrap animate-on-scroll">
+        <div class="portfolio-slider-wrap">
+            <div class="portfolio-track" id="portfolioTrack">
+                <img src="assets/images/portfolio-imgs/portfolio-img1.png" alt="Portfolio 1" class="portfolio-slide">
+                <img src="assets/images/portfolio-imgs/portfolio-img2.png" alt="Portfolio 2" class="portfolio-slide">
+                <img src="assets/images/portfolio-imgs/portfolio-img3.png" alt="Portfolio 3"class="portfolio-slide">
             </div>
+        </div>
 
-        </section>
+        <button type="button" class="slider-btn btn-prev" id="btnPrev" aria-label="Попередній проєкт" aria-controls="portfolioTrack">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M14 6L8 12L14 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                </path>
+            </svg>
+        </button>
+
+        <button type="button" class="slider-btn btn-next" id="btnNext" aria-label="Наступний проєкт" aria-controls="portfolioTrack">
+            <svg width="24" height="24" viewBox="0 0 24 24fill="none" aria-hidden="true">
+                <path d="M10 6L16 12L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                </path>
+            </svg>
+        </button>
+    </div>
+
+    <div class="content-wrap portfolio-decoration">
+        <img
+            src="assets/images/vector-graphic.png"
+            alt=""
+            class="icon-zigzag-portfolio">
+    </div>
+
+</section>
 
         <section class="section contact-section">
             <div class="content-wrap relative animate-on-scroll">

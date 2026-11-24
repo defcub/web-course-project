@@ -1098,10 +1098,6 @@ ul {
         left: 74px;
     }
 
-    #btnPrev, #btnNext {
-        display: none !important;
-    }
-
                     /* =========================================
                            CONTACT SECTION (DESKTOPS)
                     ========================================= */
@@ -1628,5 +1624,288 @@ body.modal-open {
 @media (prefers-reduced-motion: reduce) {
     .logo-intro {
         transition: none;
+    }
+}
+
+/* КЕРУВАННЯ ПОРТФОЛІО */
+
+.portfolio-section .portfolio-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.portfolio-section .slider-btn {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.portfolio-section .slider-btn img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.portfolio-section .slider-btn:hover:not(:disabled) {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.portfolio-section .slider-btn:active:not(:disabled) {
+    transform: scale(0.94);
+}
+
+.portfolio-section .slider-btn:focus-visible {
+    outline: 2px solid var(--text-white);
+    outline-offset: 5px;
+}
+
+.portfolio-section .slider-btn:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.portfolio-section .portfolio-track {
+    position: relative;
+    transition: transform 450ms ease;
+}
+
+@media screen and (max-width: 1024px) {
+    .portfolio-section .portfolio-slider-wrap {
+        width: calc(100% - 48px);
+    }
+
+    .portfolio-section .portfolio-track {
+        width: 100%;
+        flex-shrink: 0;
+    }
+
+    .portfolio-section .portfolio-slide {
+        flex: 0 0 100%;
+        min-width: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .portfolio-section .portfolio-track,
+    .portfolio-section .slider-btn {
+        transition: none;
+    }
+}
+
+
+/* ПОРТФОЛІО: ПРОГОРТАННЯ ТА БІЧНІ СТРІЛКИ */
+
+.portfolio-carousel {
+    position: relative;
+}
+
+.portfolio-carousel .portfolio-slider-wrap {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    margin: 0;
+    overflow: hidden;
+    background: transparent;
+    border-radius: 12px;
+}
+
+.portfolio-carousel .portfolio-track {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 24px;
+    padding: 0;
+    transition: transform 0.4s ease-in-out;
+}
+
+.portfolio-carousel .portfolio-slide,
+.portfolio-carousel .portfolio-copy {
+    display: block;
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    height: 300px;
+    margin: 0;
+    border-radius: 12px;
+    object-fit: cover;
+    user-select: none;
+}
+
+.portfolio-carousel .slider-btn {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    opacity: 1;
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.portfolio-carousel .btn-prev {
+    left: 12px;
+}
+
+.portfolio-carousel .btn-next {
+    right: 12px;
+}
+
+.portfolio-carousel .slider-btn:hover {
+    background-color: #4343B8;
+    transform: translateY(-50%) scale(1.06);
+}
+
+.portfolio-carousel .slider-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.portfolio-carousel .slider-btn:focus-visible {
+    outline: 2px solid var(--text-white);
+    outline-offset: 4px;
+}
+
+.portfolio-carousel .slider-btn svg {
+    display: block;
+    flex-shrink: 0;
+    fill: none;
+}
+
+.portfolio-carousel .slider-btn svg path {
+    fill: none;
+    stroke: currentColor;
+}
+
+.portfolio-decoration {
+    margin-top: 40px;
+}
+
+.portfolio-decoration .icon-zigzag-portfolio {
+    position: static;
+    display: block;
+    width: 61px;
+    height: auto;
+}
+
+@media screen and (min-width: 789px) {
+    .portfolio-carousel .portfolio-slide,
+    .portfolio-carousel .portfolio-copy {
+        flex-basis: calc((100% - 24px) / 2);
+        height: 380px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .portfolio-carousel .portfolio-track {
+        gap: 40px;
+    }
+
+    .portfolio-carousel .portfolio-slide,
+    .portfolio-carousel .portfolio-copy {
+        flex-basis: calc((100% - 80px) / 3);
+        height: 460px;
+    }
+
+    .portfolio-carousel .slider-btn {
+        width: 52px;
+        height: 52px;
+    }
+
+    .portfolio-carousel .btn-prev {
+        left: 16px;
+    }
+
+    .portfolio-carousel .btn-next {
+        right: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .portfolio-carousel .portfolio-track,
+    .portfolio-carousel .slider-btn {
+        transition: none;
+    }
+}
+
+/* НЕРУХОМІ СТРІЛКИ ПОРТФОЛІО */
+
+/* За замовчуванням кнопки розташовані під фотографіями. */
+.portfolio-section .portfolio-carousel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 16px;
+    align-items: center;
+}
+
+.portfolio-carousel .portfolio-slider-wrap {
+    grid-column: 1 / -1;
+    min-width: 0;
+}
+
+.portfolio-section .portfolio-carousel .slider-btn,
+.portfolio-section .portfolio-carousel .slider-btn:hover,
+.portfolio-section .portfolio-carousel .slider-btn:active {
+    position: static;
+    width: 52px;
+    height: 52px;
+    margin: 0;
+    transform: none;
+    translate: none;
+    scale: none;
+    transition: background-color 0.2s ease;
+}
+
+.portfolio-section .portfolio-carousel .btn-prev {
+    justify-self: end;
+}
+
+.portfolio-section .portfolio-carousel .btn-next {
+    justify-self: start;
+}
+
+/* На широкому екрані є місце для кнопок збоку.
+   Контент: 1200px, кнопки: 52px, відступ від фото: 20px. */
+@media screen and (min-width: 1400px) {
+    .portfolio-section .portfolio-carousel {
+        display: block;
+    }
+
+    .portfolio-section .portfolio-carousel .slider-btn,
+    .portfolio-section .portfolio-carousel .slider-btn:hover,
+    .portfolio-section .portfolio-carousel .slider-btn:active {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .portfolio-section .portfolio-carousel .btn-prev {
+        left: -72px;
+        right: auto;
+    }
+
+    .portfolio-section .portfolio-carousel .btn-next {
+        right: -72px;
+        left: auto;
     }
 }
