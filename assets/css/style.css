@@ -1568,3 +1568,24 @@ body.modal-open {
     line-height: 1.4;
     text-align: center;
 }
+
+
+/*  ТРИКУТНИК НАД ЗАГОЛОВКОМ SERVICES */
+
+.services-section .icon-play-services {
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 80px;
+    object-fit: contain;
+    transform: translateY(calc(-100% - 24px));
+    scale: 1;
+    pointer-events: none;
+}
+
+@media screen and (min-width: 1025px) {
+    .services-section .icon-play-services {
+        width: 84px;
+        height: 104px;
+    }
+}

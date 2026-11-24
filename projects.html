@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="assets/css/pages.css">
         <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
     </head>
-    <body class="inner-page">
+    <body class="inner-page studio-page projects-page">
 
         <!-- HEADER -->
         <header class="main-header" id="header">
@@ -165,7 +165,7 @@
                         No projects found. Try another search or category.
                     </p>
 
-                    <div class="project-list">
+                    <div class="project-results"></div>
 
                         <!-- ПРОЄКТ 1: ЗАСТОСУНОК ІЗ ФІЛЬМАМИ -->
                         <p id="projectStatus" class="page-text" role="status"></p>
@@ -178,35 +178,18 @@
 
                         <template id="projectTemplate">
                             <article class="project-case">
-                                <div class="project-preview">
-                                    <img src="" alt="" loading="lazy">
-                                </div>
-
+                                <header class="project-heading"><p class="page-label" data-field="category"></p><h2 class="page-section-title"data-field="title"></h2>
+                                </header>
+                                <div class="project-preview"><img src="" alt="" loading="lazy"></div>
                                 <div class="project-content">
-                                    <p class="page-label" data-field="category"></p>
-
-                                    <h2 class="page-section-title" data-field="title"></h2>
-
                                     <p class="page-text" data-field="description"></p>
-
                                     <div class="project-description-grid">
-                                        <div>
-                                            <h3 data-field="challengeTitle"></h3>
-                                            <p data-field="challenge"></p>
-                                        </div>
-
-                                        <div>
-                                            <h3 data-field="approachTitle"></h3>
-                                            <p data-field="approach"></p>
-                                        </div>
+                                        <div><h3 data-field="challengeTitle"></h3><p data-field="challenge"></p></div>
+                                        <div><h3 data-field="approachTitle"></h3><p data-field="approach"></p></div>
                                     </div>
-
-                                    <div class="project-result">
-                                        <h3 data-field="resultTitle"></h3>
-                                        <p data-field="result"></p>
-                                    </div>
-
-                                    <a href="contact.html" class="page-link" data-field="link"></a>
+                                    <div class="project-result"><h3 data-field="resultTitle"></h3><p data-field="result"></p></div>
+                                    <a href="contact.html" class="page-link" data-field="link">
+                                    </a>
                                 </div>
                             </article>
                         </template>

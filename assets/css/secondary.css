@@ -1,0 +1,1608 @@
+/* =========================================
+   СПІЛЬНА ОСНОВА ДОДАТКОВИХ СТОРІНОК
+   ========================================= */
+
+.studio-page {
+    --studio-surface: #1E1E20;
+    --studio-line: rgba(255, 255, 255, 0.18);
+    --studio-field-line: rgba(255, 255, 255, 0.38);
+
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.studio-page [hidden] {
+    display: none !important;
+}
+
+.studio-page h1,
+.studio-page h2 {
+    font-family: var(--main-font);
+    font-weight: 700;
+}
+
+.studio-page h1,
+.studio-page h2,
+.studio-page h3,
+.studio-page p,
+.studio-page a {
+    overflow-wrap: break-word;
+}
+
+.studio-page .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.studio-page button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.studio-page button:disabled:hover {
+    transform: none;
+}
+
+.studio-page a:focus-visible,
+.studio-page button:focus-visible,
+.studio-page summary:focus-visible {
+    outline: 2px solid var(--text-white);
+    outline-offset: 5px;
+}
+
+.studio-page .main-header {
+    background-color: var(--bg-dark);
+}
+
+.studio-page .menu-icon {
+    padding: 8px;
+    color: var(--text-white);
+    background: transparent;
+    border: none;
+    line-height: 1;
+}
+
+.studio-page .main-menu a[aria-current="page"] {
+    color: var(--primary-color);
+}
+
+
+/* =========================================
+   ЗАГОЛОВКИ ТА ВІДСТУПИ
+   ========================================= */
+
+.page-heading {
+    padding: 160px 0 0;
+}
+
+.page-label {
+    margin-bottom: 20px;
+    color: var(--text-gray);
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.page-title {
+    max-width: 960px;
+    margin: 0;
+    font-size: 40px;
+    line-height: 1.15;
+}
+
+.page-description {
+    max-width: 700px;
+    margin-top: 24px;
+    color: var(--text-gray);
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.page-section {
+    padding-top: 88px;
+}
+
+.studio-page main > .page-section:last-child {
+    padding-bottom: 88px;
+}
+
+.page-section-title {
+    max-width: 900px;
+    margin-bottom: 24px;
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+.page-text {
+    color: var(--text-gray);
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.page-text + .page-text {
+    margin-top: 20px;
+}
+
+.page-link,
+.account-home {
+    display: inline-block;
+    color: var(--text-white);
+    font-weight: 700;
+    line-height: 1.6;
+    text-decoration: underline;
+    text-decoration-color: var(--primary-color);
+    text-underline-offset: 7px;
+}
+
+.page-link {
+    margin-top: 28px;
+}
+
+.page-link:hover,
+.account-home:hover {
+    text-decoration-color: var(--text-white);
+}
+
+.heading-split {
+    display: grid;
+    gap: 32px;
+}
+
+.heading-title,
+.heading-aside {
+    min-width: 0;
+}
+
+.heading-aside .page-description {
+    margin-top: 0;
+}
+
+
+/* =========================================
+   ABOUT
+   ========================================= */
+
+.about-photo {
+    margin-top: 48px;
+}
+
+.about-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.about-photo figcaption {
+    margin-top: 14px;
+    color: var(--text-gray);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.about-layout {
+    display: grid;
+    gap: 32px;
+    align-items: start;
+}
+
+.about-content,
+.studio-roles {
+    min-width: 0;
+}
+
+.values-grid {
+    display: grid;
+    gap: 36px;
+    margin-top: 40px;
+}
+
+.value-card {
+    padding-top: 24px;
+    border-top: 1px solid var(--studio-line);
+}
+
+.step-number {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.value-card h3,
+.process-card h3,
+.studio-role h3,
+.contact-tip h3 {
+    margin-bottom: 12px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.value-card p,
+.process-card p,
+.studio-role p,
+.contact-tip p {
+    color: var(--text-gray);
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.studio-role {
+    padding: 24px 0;
+    border-top: 1px solid var(--studio-line);
+}
+
+.studio-role:last-child {
+    padding-bottom: 0;
+}
+
+.page-banner {
+    display: grid;
+    gap: 24px;
+    padding: 40px 24px;
+    background-color: var(--studio-surface);
+}
+
+.page-banner .page-section-title {
+    margin: 0;
+}
+
+.page-banner .btn {
+    justify-self: start;
+}
+
+
+/* =========================================
+   SERVICES
+   ========================================= */
+
+.service-details {
+    display: grid;
+    gap: 40px;
+    padding: 48px 0;
+    border-bottom: 1px solid var(--studio-line);
+}
+
+.service-details:first-child {
+    padding-top: 0;
+}
+
+.service-info,
+.service-deliverables {
+    min-width: 0;
+}
+
+.service-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.service-symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 69px;
+    width: 69px;
+    height: 69px;
+    border-radius: 50%;
+}
+
+.service-symbol img {
+    display: block;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.service-titles {
+    min-width: 0;
+}
+
+.service-titles .page-label {
+    margin-bottom: 10px;
+}
+
+.service-titles .page-section-title {
+    margin: 0;
+}
+
+.service-deliverables h3 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.feature-list li {
+    padding: 16px 0;
+    color: var(--text-gray);
+    border-top: 1px solid var(--studio-line);
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.process-grid {
+    display: grid;
+    gap: 36px;
+    margin-top: 40px;
+}
+
+.process-card {
+    padding-top: 24px;
+    border-top: 1px solid var(--studio-line);
+}
+
+.faq-list {
+    max-width: 940px;
+    margin-top: 32px;
+}
+
+.faq-item {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--studio-line);
+}
+
+.faq-item:first-child {
+    border-top: 1px solid var(--studio-line);
+}
+
+.faq-item summary {
+    padding-right: 16px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.faq-item summary::marker {
+    color: var(--primary-color);
+}
+
+.faq-item p {
+    max-width: 760px;
+    margin-top: 20px;
+    color: var(--text-gray);
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   СПІЛЬНІ ПОЛЯ ФОРМ
+   ========================================= */
+
+.form-row,
+.admin-form-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.form-group,
+.account-field,
+.admin-field {
+    min-width: 0;
+    margin-bottom: 24px;
+}
+
+.form-group label,
+.account-field label,
+.admin-field label,
+.admin-field-label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--text-white);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.studio-page .form-group input,
+.studio-page .form-group select,
+.studio-page .form-group textarea,
+.studio-page .account-field input,
+.studio-page .admin-field input:not([type="hidden"]):not([type="file"]),
+.studio-page .admin-field select,
+.studio-page .admin-field textarea {
+    display: block;
+    width: 100%;
+    min-height: 52px;
+    padding: 14px 16px;
+    color: var(--text-white);
+    background-color: var(--bg-dark);
+    border: 1px solid var(--studio-field-line);
+    border-radius: 4px;
+    font: inherit;
+    font-size: 16px;
+    line-height: 1.5;
+    color-scheme: dark;
+}
+
+.studio-page input::placeholder,
+.studio-page textarea::placeholder {
+    color: var(--text-gray);
+    opacity: 0.75;
+}
+
+.studio-page input:focus-visible,
+.studio-page select:focus-visible,
+.studio-page textarea:focus-visible {
+    border-color: var(--primary-color);
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+.studio-page textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.studio-page fieldset {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.form-row > .form-group {
+    margin-bottom: 0;
+}
+
+.form-row {
+    margin-bottom: 24px;
+}
+
+.field-counter {
+    margin-top: 8px;
+    color: var(--text-gray);
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: right;
+}
+
+.form-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 24px 0;
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.7;
+    cursor: pointer;
+}
+
+.form-checkbox input {
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    margin-top: 4px;
+    accent-color: var(--primary-color);
+}
+
+.form-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 28px;
+}
+
+.form-message,
+.account-message,
+.admin-status,
+.image-upload-message {
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.form-message {
+    color: #b8edc8;
+}
+
+.account-message[data-type="success"] {
+    color: #a5e6b8;
+}
+
+.account-message[data-type="error"],
+.admin-status[data-error="true"],
+.image-upload-message {
+    color: #ffb4b4;
+}
+
+.form-message:empty,
+.account-message:empty,
+.admin-status:empty,
+.image-upload-message:empty {
+    display: none;
+}
+
+
+/* =========================================
+   PROJECTS
+   ========================================= */
+
+.projects-page .page-title {
+    max-width: 1000px;
+}
+
+.projects-page .page-description {
+    max-width: 720px;
+}
+
+.project-tools {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    align-items: end;
+    margin-bottom: 32px;
+}
+
+.project-tools .form-group {
+    margin: 0;
+}
+
+.project-tools .btn {
+    min-height: 52px;
+}
+
+.project-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 28px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--studio-line);
+}
+
+.filter-btn {
+    position: relative;
+    padding: 14px 0;
+    color: var(--text-gray);
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    cursor: pointer;
+}
+
+.filter-btn:hover {
+    color: var(--text-white);
+}
+
+.filter-btn.active,
+.filter-btn[aria-pressed="true"] {
+    color: var(--text-white);
+    border-bottom-color: var(--primary-color);
+}
+
+#projectCount {
+    font-size: 15px;
+}
+
+.project-empty {
+    margin-top: 40px;
+    padding: 28px 0;
+    color: var(--text-gray);
+    background: transparent;
+    border: none;
+    border-top: 1px solid var(--studio-line);
+    border-radius: 0;
+    line-height: 1.7;
+}
+
+.project-results {
+    margin-top: 40px;
+}
+
+.project-list {
+    display: grid;
+    gap: 72px;
+}
+
+.project-case {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    min-width: 0;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--studio-line);
+}
+
+.project-case:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.project-heading .page-label {
+    margin-bottom: 12px;
+}
+
+.project-heading .page-section-title {
+    margin: 0;
+}
+
+.project-preview {
+    min-width: 0;
+    padding: 24px;
+    align-self: start;
+    background-color: var(--studio-surface);
+    border-radius: 14px;
+}
+
+.project-preview img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.project-content {
+    min-width: 0;
+}
+
+.project-description-grid {
+    display: grid;
+    gap: 28px;
+    margin-top: 32px;
+}
+
+.project-description-grid h3,
+.project-result h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.project-description-grid p,
+.project-result p {
+    color: var(--text-gray);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.project-result {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--studio-line);
+}
+
+
+/* =========================================
+   CONTACT
+   ========================================= */
+
+.contact-layout {
+    display: grid;
+    gap: 56px;
+    align-items: start;
+}
+
+.contact-information,
+.brief-column {
+    min-width: 0;
+}
+
+.contact-tip {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--studio-line);
+}
+
+.contact-tip .step-number {
+    margin-bottom: 14px;
+}
+
+.project-form {
+    padding-top: 32px;
+    border-top: 2px solid var(--primary-color);
+}
+
+.project-form h2 {
+    margin-bottom: 14px;
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+.project-form > .page-text {
+    margin-bottom: 32px;
+    font-size: 15px;
+}
+
+.form-notice {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--studio-line);
+}
+
+.form-notice h3 {
+    margin-bottom: 10px;
+    font-size: 17px;
+    line-height: 1.4;
+}
+
+.form-notice p {
+    color: var(--text-gray);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.studio-page .request-modal {
+    padding: 64px 24px 32px;
+    background-color: var(--studio-surface);
+    border: 1px solid var(--studio-line);
+    border-radius: 8px;
+}
+
+.studio-page .request-modal h2 {
+    font-size: 30px;
+    line-height: 1.25;
+}
+
+.studio-page .request-modal .page-text {
+    margin-bottom: 28px;
+    font-size: 16px;
+}
+
+
+/* =========================================
+   AUTH
+   ========================================= */
+
+.account-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    width: calc(100% - 48px);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 0;
+}
+
+.account-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.account-logo img {
+    display: block;
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.account-main {
+    width: calc(100% - 48px);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 0 88px;
+}
+
+.account-card {
+    display: grid;
+    gap: 40px;
+    align-items: start;
+}
+
+.account-intro,
+.account-content {
+    min-width: 0;
+}
+
+.account-intro h1 {
+    font-size: 40px;
+    line-height: 1.15;
+}
+
+.account-description {
+    max-width: 420px;
+    margin-top: 24px;
+    color: var(--text-gray);
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.account-switcher {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--studio-line);
+}
+
+.account-switcher button {
+    flex: 1;
+    padding: 14px 0;
+    color: var(--text-gray);
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font: inherit;
+    font-weight: 800;
+    line-height: 1.4;
+    text-align: center;
+    cursor: pointer;
+}
+
+.account-switcher button[aria-pressed="true"] {
+    color: var(--text-white);
+    border-bottom-color: var(--primary-color);
+}
+
+.account-hint {
+    margin-bottom: 24px;
+    color: var(--text-gray);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.account-submit,
+.account-magic {
+    width: 100%;
+    min-height: 52px;
+}
+
+.account-magic {
+    margin-top: 16px;
+}
+
+.account-email {
+    margin: 16px 0 28px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.account-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.account-actions .btn {
+    flex: 1 1 180px;
+}
+
+.account-home {
+    margin-top: 32px;
+}
+
+.account-main noscript {
+    display: block;
+    margin-top: 32px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   ADMIN
+   ========================================= */
+
+.admin-main {
+    width: calc(100% - 48px);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0 88px;
+}
+
+.admin-intro {
+    display: grid;
+    gap: 24px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--studio-line);
+}
+
+.admin-intro h1 {
+    max-width: 760px;
+    font-size: 36px;
+    line-height: 1.2;
+}
+
+.admin-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+}
+
+.admin-links a {
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.admin-links a:hover {
+    color: var(--text-white);
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.admin-status {
+    margin-bottom: 24px;
+    color: var(--text-gray);
+}
+
+.admin-email {
+    margin: 28px 0;
+    color: var(--text-gray);
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.admin-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin: 40px 0 32px;
+}
+
+.admin-heading h2 {
+    font-size: 30px;
+    line-height: 1.25;
+}
+
+.admin-project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.admin-heading .admin-project-actions {
+    margin-top: 0;
+}
+
+.admin-project-list {
+    display: grid;
+}
+
+.admin-project {
+    min-width: 0;
+    padding: 32px 0;
+    border-top: 1px solid var(--studio-line);
+    overflow-wrap: anywhere;
+}
+
+.admin-project h3 {
+    margin-bottom: 8px;
+    font-size: 24px;
+    line-height: 1.35;
+}
+
+.admin-project p {
+    max-width: 760px;
+    margin-top: 8px;
+    color: var(--text-gray);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.admin-project .admin-project-slug {
+    font-size: 13px;
+}
+
+.admin-delete {
+    min-height: 48px;
+    padding: 12px 20px;
+    color: #ffb4b4;
+    background: transparent;
+    border: 1px solid #b85858;
+    border-radius: 4px;
+    font: inherit;
+    font-weight: 700;
+    line-height: 1.4;
+    cursor: pointer;
+}
+
+.admin-delete:hover {
+    background-color: #41292d;
+}
+
+.admin-form {
+    margin-bottom: 40px;
+    padding: 24px;
+    background-color: var(--studio-surface);
+    border-top: 2px solid var(--primary-color);
+}
+
+.admin-form h2 {
+    margin-bottom: 32px;
+    font-size: 28px;
+    line-height: 1.3;
+}
+
+.admin-form h3 {
+    margin-bottom: 24px;
+    font-size: 21px;
+    line-height: 1.4;
+}
+
+.admin-form-grid {
+    margin-bottom: 32px;
+}
+
+.admin-form-grid > .admin-field {
+    margin-bottom: 0;
+}
+
+.admin-image-field {
+    grid-column: 1 / -1;
+}
+
+.admin-translation {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--studio-line);
+}
+
+.admin-translation summary {
+    font-weight: 700;
+    line-height: 1.6;
+    cursor: pointer;
+}
+
+.admin-translation[open] summary {
+    margin-bottom: 20px;
+}
+
+.admin-form-hint {
+    margin-bottom: 24px;
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.image-drop-zone {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+    padding: 24px;
+    background-color: var(--bg-dark);
+    border: 1px dashed var(--studio-field-line);
+    border-radius: 4px;
+}
+
+.image-drop-zone.is-dragging,
+.image-drop-zone:focus-within {
+    border-color: var(--primary-color);
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+.admin-image-preview {
+    display: block;
+    flex: 0 0 96px;
+    width: 96px;
+    height: 96px;
+    background-color: var(--studio-surface);
+    border-radius: 4px;
+    object-fit: contain;
+}
+
+.image-upload-controls {
+    flex: 1 1 180px;
+    min-width: 0;
+}
+
+.image-drop-title {
+    margin-bottom: 12px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+#imageUploadHint {
+    margin-top: 12px;
+    color: var(--text-gray);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   404
+   ========================================= */
+
+.studio-page .error-section {
+    padding: 160px 0 88px;
+    text-align: left;
+}
+
+.studio-page .error-content {
+    display: grid;
+    gap: 40px;
+    max-width: none;
+    margin: 0;
+}
+
+.error-mark {
+    position: relative;
+    width: fit-content;
+    padding-right: 40px;
+}
+
+.studio-page .error-code {
+    margin: 0;
+    font-size: clamp(110px, 20vw, 220px);
+    line-height: 1;
+}
+
+.error-symbol {
+    position: absolute;
+    top: -16px;
+    right: 0;
+    width: 48px;
+    height: 64px;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.studio-page .error-title {
+    margin-bottom: 24px;
+    font-size: 36px;
+    line-height: 1.2;
+}
+
+.studio-page .error-description {
+    margin: 0 0 32px;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.studio-page .error-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    max-width: none;
+    margin: 0;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+.studio-page .main-footer {
+    margin-top: 0;
+    padding: 40px 0;
+}
+
+.studio-page .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.studio-page .footer-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+}
+
+.studio-page .footer-nav a {
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.studio-page .footer-nav a:hover {
+    color: var(--text-white);
+}
+
+.studio-page .copyright {
+    color: var(--text-gray);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media screen and (min-width: 789px) {
+    .page-heading {
+        padding-top: 180px;
+    }
+
+    .page-title {
+        font-size: 58px;
+    }
+
+    .page-section {
+        padding-top: 110px;
+    }
+
+    .page-section-title {
+        font-size: 42px;
+    }
+
+    .page-text {
+        font-size: 18px;
+    }
+
+    .about-layout {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 56px;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 32px;
+    }
+
+    .value-card h3 {
+        font-size: 23px;
+    }
+
+    .page-banner {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 24px 40px;
+        padding: 56px 40px;
+    }
+
+    .page-banner .page-section-title,
+    .page-banner .page-text {
+        grid-column: 1;
+    }
+
+    .page-banner .btn {
+        grid-column: 2;
+        grid-row: 1 / 3;
+        align-self: center;
+    }
+
+    .service-details {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+        gap: 56px;
+        padding: 56px 0;
+    }
+
+    .service-heading {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .service-titles .page-section-title {
+        font-size: 36px;
+    }
+
+    .service-deliverables {
+        padding-top: 8px;
+    }
+
+    .process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .form-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-tools {
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) auto;
+    }
+
+    .project-case {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 32px 40px;
+    }
+
+    .project-heading {
+        grid-column: 1 / -1;
+    }
+
+    .project-preview {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .project-content {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .project-case:nth-child(even) .project-preview {
+        grid-column: 2;
+    }
+
+    .project-case:nth-child(even) .project-content {
+        grid-column: 1;
+    }
+
+    .project-heading .page-section-title {
+        font-size: 40px;
+    }
+
+    .project-description-grid {
+        gap: 24px;
+    }
+
+    .contact-layout {
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 48px;
+    }
+
+    .studio-page .request-modal {
+        padding: 64px 40px 40px;
+    }
+
+    .account-main {
+        padding-top: 80px;
+    }
+
+    .account-card {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 64px;
+    }
+
+    .account-intro h1 {
+        font-size: 58px;
+    }
+
+    .account-content {
+        width: 100%;
+        max-width: 460px;
+        justify-self: end;
+    }
+
+    .admin-intro h1 {
+        font-size: 48px;
+    }
+
+    .admin-form {
+        padding: 36px;
+    }
+
+    .admin-form-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .admin-project {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        column-gap: 40px;
+    }
+
+    .admin-project > h3,
+    .admin-project > p {
+        grid-column: 1;
+    }
+
+    .admin-project > .admin-project-actions {
+        grid-column: 2;
+        grid-row: 1 / 5;
+        align-self: start;
+        margin-top: 0;
+    }
+
+    .studio-page .error-content {
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        align-items: center;
+        gap: 64px;
+    }
+
+    .studio-page .error-title {
+        font-size: 48px;
+    }
+
+    .studio-page .footer-inner {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+
+/* =========================================
+   DESKTOP
+   ========================================= */
+
+@media screen and (min-width: 1025px) {
+    .page-heading {
+        padding-top: 200px;
+    }
+
+    .page-title {
+        font-size: 72px;
+        line-height: 1.12;
+    }
+
+    .page-description {
+        font-size: 20px;
+        line-height: 1.7;
+    }
+
+    .page-section {
+        padding-top: 150px;
+    }
+
+    .studio-page main > .page-section:last-child {
+        padding-bottom: 150px;
+    }
+
+    .page-section-title {
+        font-size: 54px;
+    }
+
+    .heading-split {
+        grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+        align-items: end;
+        gap: 80px;
+    }
+
+    .heading-split .page-title {
+        font-size: 64px;
+    }
+
+    .heading-aside {
+        padding-bottom: 6px;
+    }
+
+    .about-page .page-heading .content-wrap {
+        display: grid;
+        grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+        gap: 24px 64px;
+    }
+
+    .about-page .page-heading .page-label {
+        grid-column: 1 / -1;
+        margin-bottom: 0;
+    }
+
+    .about-page .page-heading .page-title {
+        grid-column: 1;
+        font-size: 64px;
+    }
+
+    .about-page .page-heading .page-description {
+        grid-column: 2;
+        align-self: end;
+        margin: 0;
+    }
+
+    .about-photo {
+        grid-column: 1 / -1;
+        margin-top: 40px;
+    }
+
+    .about-layout {
+        gap: 100px;
+    }
+
+    .values-grid {
+        gap: 56px;
+        margin-top: 56px;
+    }
+
+    .page-banner {
+        padding: 72px 56px;
+    }
+
+    .page-banner .page-section-title {
+        font-size: 48px;
+    }
+
+    .service-details {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+        gap: 100px;
+        padding: 72px 0;
+    }
+
+    .service-titles .page-section-title {
+        font-size: 42px;
+    }
+
+    .process-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 40px;
+        margin-top: 56px;
+    }
+
+    .contact-process-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .project-results {
+        margin-top: 64px;
+    }
+
+    .project-list {
+        gap: 110px;
+    }
+
+    .project-case {
+        gap: 40px 72px;
+        padding-bottom: 72px;
+    }
+
+    .project-heading .page-section-title {
+        font-size: 48px;
+    }
+
+    .contact-layout {
+        gap: 100px;
+    }
+
+    .account-main {
+        padding-top: 110px;
+        padding-bottom: 150px;
+    }
+
+    .account-card {
+        gap: 120px;
+    }
+
+    .account-intro h1 {
+        font-size: 72px;
+    }
+
+    .admin-main {
+        padding-top: 64px;
+    }
+
+    .admin-intro {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: end;
+        gap: 40px;
+    }
+
+    .admin-intro .admin-links {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+    }
+}
+
+
+/* =========================================
+   ВУЗЬКІ ЕКРАНИ ТА ЗМЕНШЕННЯ АНІМАЦІЙ
+   ========================================= */
+
+@media screen and (max-width: 479px) {
+    .form-buttons .btn,
+    .studio-page .error-actions .btn {
+        width: 100%;
+    }
+
+    .project-preview {
+        padding: 16px;
+    }
+
+    .admin-form {
+        padding: 24px 16px;
+    }
+
+    .image-drop-zone {
+        padding: 16px;
+    }
+
+    .image-upload-controls .btn {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .studio-page *,
+    .studio-page *::before,
+    .studio-page *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

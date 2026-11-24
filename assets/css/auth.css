@@ -104,6 +104,8 @@
 
 .account-submit {
     width: 100%;
+    justify-content: center;
+    text-align: center;
 }
 
 .account-card button:disabled {

@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="assets/css/pages.css">
     <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
 </head>
-<body class="inner-page">
+<body class="inner-page studio-page contact-page">
 
     <!-- HEADER -->
     <header class="main-header" id="header">
@@ -97,20 +97,23 @@
     <main>
         <!-- ЗАГОЛОВОК СТОРІНКИ -->
         <section class="page-heading">
-            <div class="content-wrap">
-                <p class="page-label">CONTACT US</p>
+            <div class="content-wrap heading-split">
+                <div class="heading-title">
+                    <p class="page-label">CONTACT US</p>
+                    <h1 class="page-title">Tell Us About<br>Your Next Project</h1>
+                </div>
 
-                <h1 class="page-title">
-                    Tell Us About<br>Your Next Project
-                </h1>
+                <div class="heading-aside">
+                    <p class="page-description">
+                        Start with your idea, your audience and what
+                        you want to achieve. Use this form to prepare
+                        a project brief.
+                    </p>
 
-                <p class="page-description">
-                    Start with your idea, your audience and what you want
-                    to achieve. Use this form to prepare a project brief.
-                </p>
-                <button type="button" class="btn btn-primary request-button" id="openRequestModal">
-                    Discuss a Project
-                </button>
+                    <button type="button" class="btn btn-primary request-button" id="openRequestModal">
+                        Discuss a Project
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -153,16 +156,8 @@
                                 you would like to create.
                             </p>
                         </div>
-
-                        <div class="form-notice">
-                            <h3>Demo Form</h3>
-                            <p>
-                                This form saves a draft in your browser.
-                                It does not send an email or contact a server.
-                            </p>
-                        </div>
                     </div>
-
+                    <div class="brief-column">
                     <form id="contactForm" class="project-form">
                         <h2>Project Brief</h2>
 
@@ -257,6 +252,12 @@
                         <p id="formMessage" class="form-message"
                            role="status" aria-live="polite"></p>
                     </form>
+                        <div class="form-notice">
+                            <h3>Demo Form</h3>
+                            <p>This form saves a draft in your browser. It does not send an email or contact a server.
+                            </p>
+                        </div>
+                    </div>
 
                 </div>
             </div>

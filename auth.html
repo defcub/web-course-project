@@ -8,11 +8,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/auth.css">
+    <link rel="stylesheet" href="assets/css/secondary.css">
 </head>
-<body>
+<body class="studio-page auth-page">
     <header class="account-header">
-        <a href="index.html" class="account-logo">Enver</a>
+        <a href="index.html" class="account-logo">
+            <img src="assets/images/logo-icon.png" alt="">
+            <span class="logo-text">Enver</span>
+        </a>
 
         <div class="language-switcher" role="group" aria-label="Website language">
             <button type="button" class="language-btn" data-language="en" lang="en" aria-pressed="false">EN</button>
@@ -22,8 +25,14 @@
 
     <main class="account-main">
         <section class="account-card" aria-labelledby="accountTitle">
-            <h1 id="accountTitle" data-auth-text="title">Your account</h1>
-            <p class="account-description" data-auth-text="description">Sign in or create an account.</p>
+            <div class="account-intro">
+                <h1 id="accountTitle" data-auth-text="title">Your account</h1>
+                <p class="account-description" data-auth-text="description">
+                    Sign in or create an account.
+                </p>
+            </div>
+
+            <div class="account-content">
 
             <div id="authGuest">
                 <div class="account-switcher" role="group" aria-label="Account action">
@@ -53,7 +62,7 @@
                         </p>
 
                         <button type="submit" class="btn btn-primary account-submit" id="authSubmit">Sign in</button>
-                        <button type="button"class="btn btn-outline account-magic"id="magicLogin"data-auth-text="magicLink">Send a sign-in link</button>
+                        <button type="button" class="btn btn-outline account-magic" id="magicLogin" data-auth-text="magicLink">Send a sign-in link</button>
                     </fieldset>
                 </form>
             </div>
@@ -82,8 +91,11 @@
 
             <p id="authMessage" class="account-message" role="status" aria-live="polite"></p>
 
-            <a href="index.html" class="account-home" data-auth-text="home">Back to home</a>
-        </section>
+                <a href="index.html" class="account-home" data-auth-text="home">
+                    Back to home
+                </a>
+            </div>
+            </section>
 
         <noscript>Enable JavaScript to sign in. Увімкни JavaScript для входу.</noscript>
     </main>

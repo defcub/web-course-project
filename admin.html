@@ -9,12 +9,14 @@
     <title>Administration — Enver</title>
     <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/auth.css">
-    <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" href="assets/css/secondary.css">
 </head>
-<body>
+<body class="studio-page admin-page">
     <header class="account-header">
-        <a href="index.html" class="account-logo">Enver</a>
+        <a href="index.html" class="account-logo">
+            <img src="assets/images/logo-icon.png" alt="">
+            <span class="logo-text">Enver</span>
+        </a>
 
         <div class="language-switcher" role="group" aria-label="Website language">
             <button type="button" class="language-btn" data-language="en" lang="en" aria-pressed="false">EN</button>
@@ -23,7 +25,20 @@
     </header>
 
     <main class="admin-main">
-        <h1 data-admin-text="title">Project administration</h1>
+        <div class="admin-intro">
+            <h1 data-admin-text="title">Project administration</h1>
+            <nav class="admin-links" aria-label="Page navigation">
+                <a href="auth.html" data-admin-text="account">
+                    Your account
+                </a>
+                <a href="projects.html" data-admin-text="catalogue">
+                    View catalogue
+                </a>
+                <a href="index.html" data-admin-text="home">
+                    Back to home
+                </a>
+            </nav>
+        </div>
 
         <p id="adminStatus" class="admin-status" role="status" aria-live="polite"></p>
 
