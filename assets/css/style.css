@@ -532,6 +532,23 @@ ul {
     margin-bottom: 20px;
 }
 
+.service-icon {
+    display: block;
+    width: 32px;
+    height: 32px;
+    flex: none;
+    background-image: url("../images/icons/services-sprite.svg");
+    background-repeat: no-repeat;
+    background-size: 192px 32px;
+}
+
+.service-icon-dev { background-position: 0 0; }
+.service-icon-uiux { background-position: -32px 0; }
+.service-icon-graphik { background-position: -64px 0; }
+.service-icon-motion { background-position: -96px 0; }
+.service-icon-photo { background-position: -128px 0; }
+.service-icon-video { background-position: -160px 0; }
+
 .bg-purple { background-color: #5454D41A; }
 .bg-red { background-color: #F040371A; }
 .bg-yellow { background-color: #FEDC5A1A; }
