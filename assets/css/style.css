@@ -405,10 +405,22 @@ ul {
 }
 
 .video-wrapper {
-    position: relative;
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin: 0;
+}
+
+.studio-video {
+    display: block;
     width: 100%;
-    max-width: 327px;
-    height: 184px;
+    height: 100%;
+    object-fit: contain;
+}
+
+.video-play-btn[hidden] {
+    display: none;
 }
 
 .video-thumbnail {
@@ -958,7 +970,6 @@ ul {
 
     .video-wrapper {
         max-width: 100%;
-        height: 670px;
     }
 
     .video-play-btn {

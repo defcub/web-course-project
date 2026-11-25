@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.8.5/plyr.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     
@@ -149,10 +150,12 @@
                 </div>
 
                 <div class="video-wrapper">
-                    <img src="assets/images/meeting-video.png" alt="Enver Video Presentation" class="video-thumbnail">
-                    
-                    <button class="video-play-btn">
-                        <img src="assets/images/button-play.png" alt="button-play">
+                    <video class="studio-video" id="studioVideo" controls playsinline preload="none" poster="assets/images/enver-video-preview.png">
+                        <source src="assets/videos/enver-presentation.mp4" type="video/mp4">
+                        <a href="assets/videos/enver-presentation.mp4">Відкрити відео</a>
+                    </video>
+                    <button type="button" class="video-play-btn" id="studioPlayButton" aria-label="Відтворити презентацію студії" aria-controls="studioVideo" hidden>
+                        <img src="assets/images/button-play.png" alt="">
                     </button>
                 </div>
 
@@ -332,5 +335,7 @@
 
     <script src="assets/js/language.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="https://cdn.plyr.io/3.8.5/plyr.js"></script>
+    <script src="assets/js/video-player.js"></script>
 </body>
 </html>

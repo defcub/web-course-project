@@ -244,3 +244,23 @@ if (track && btnPrev && btnNext) {
         updatePosition(false);
     }
 }
+
+const studioVideo = document.getElementById('studioVideo');
+const studioPlayButton = document.getElementById('studioPlayButton');
+
+if (studioVideo && studioPlayButton) {
+    studioVideo.controls = false;
+    studioPlayButton.hidden = false;
+
+    studioPlayButton.addEventListener('click', async () => {
+        studioPlayButton.hidden = true;
+        studioVideo.controls = true;
+        studioVideo.focus({ preventScroll: true });
+
+        try {
+            await studioVideo.play();
+        } catch (error) {
+            console.warn('Не вдалося запустити відео:', error);
+        }
+    });
+}
