@@ -3,6 +3,7 @@ const logoIntroVideo = document.getElementById('logoIntroVideo');
 
 if (logoIntro && logoIntroVideo) {
     const storageKey = 'enverIntroShown';
+    const isReload = performance.getEntriesByType('navigation')[0]?.type === 'reload';
 
     const reducedMotion = window.matchMedia(
         '(prefers-reduced-motion: reduce)'
@@ -69,7 +70,7 @@ if (logoIntro && logoIntroVideo) {
         }
     });
 
-    if (!alreadyShown && !reducedMotion.matches) {
+    if ((!alreadyShown || isReload) && !reducedMotion.matches) {
         try {
             sessionStorage.setItem(storageKey, 'true');
         } catch {
