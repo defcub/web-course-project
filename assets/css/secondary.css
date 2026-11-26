@@ -31,6 +31,8 @@
     min-height: 48px;
     line-height: 1.4;
     text-align: center;
+    font-size: 14px;
+    padding: 10px 14px;
 }
 
 .studio-page button:disabled {
@@ -139,6 +141,8 @@
     text-decoration-color: var(--text-white);
 }
 
+/* заголовок і пояснення поруч на великих екранах */
+
 .heading-split {
     display: grid;
     gap: 32px;
@@ -169,6 +173,8 @@
     font-size: 14px;
     line-height: 1.6;
 }
+
+/* розташування блоків на сторінці про студію */
 
 .about-layout {
     display: grid;
@@ -243,6 +249,8 @@
 .page-banner .btn {
     justify-self: start;
 }
+
+/* опис послуги та перелік результатів роботи */
 
 .service-details {
     display: grid;
@@ -322,6 +330,8 @@
     border-top: 1px solid var(--studio-line);
 }
 
+/* список запитань із відповідями, які можна розгорнути */
+
 .faq-list {
     max-width: 940px;
     margin-top: 32px;
@@ -355,6 +365,8 @@
     font-size: 17px;
     line-height: 1.8;
 }
+
+/* спільне компонування полів у формах */
 
 .form-row,
 .admin-form-grid {
@@ -470,6 +482,8 @@
     margin-top: 28px;
 }
 
+/* повідомлення про результат дії або помилку */    
+
 .form-message,
 .account-message,
 .admin-status,
@@ -508,6 +522,8 @@
 .projects-page .page-description {
     max-width: 720px;
 }
+
+/* пошук і сортування проєктів */
 
 .project-tools {
     display: grid;
@@ -581,6 +597,8 @@
     gap: 72px;
 }
 
+/* окремий проєкт із заголовком, зображенням та описом */
+
 .project-case {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -610,6 +628,8 @@
     background-color: var(--studio-surface);
     border-radius: 14px;
 }
+
+/* розміри зображення всередині картки проєкту */
 
 .project-preview img {
     display: block;
@@ -647,6 +667,8 @@
     padding-top: 24px;
     border-top: 1px solid var(--studio-line);
 }
+
+/* контактна інформація та форма заявки */
 
 .contact-layout {
     display: grid;
@@ -750,6 +772,8 @@
     margin: 0 auto;
     padding: 48px 0 88px;
 }
+
+/* блок входу та реєстрації */
 
 .account-card {
     display: grid;
@@ -921,6 +945,8 @@
     margin-top: 0;
 }
 
+/* список проєктів для керування в адмінці */
+
 .admin-project-list {
     display: grid;
 }
@@ -998,6 +1024,8 @@
     grid-column: 1 / -1;
 }
 
+/* додаткові поля англійського перекладу */
+
 .admin-translation {
     margin-top: 32px;
     padding-top: 24px;
@@ -1020,6 +1048,8 @@
     font-size: 15px;
     line-height: 1.7;
 }
+
+/* зона вибору або перетягування зображення */
 
 .image-drop-zone {
     display: flex;
@@ -1066,6 +1096,8 @@
     font-size: 13px;
     line-height: 1.6;
 }
+
+/* оформлення сторінки з помилкою 404 */
 
 .studio-page .error-section {
     padding: 160px 0 88px;
@@ -1524,6 +1556,25 @@
 
     .image-upload-controls .btn {
         width: 100%;
+    }
+    
+    .studio-page .language-switcher {
+        padding: 3px;
+        gap: 2px;
+    }
+
+    .studio-page .language-btn {
+        min-width: 38px;
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .studio-page .header-actions {
+        gap: 8px;
+    }
+    
+    .studio-page .header-actions > .btn {
+        display: none;
     }
 }
 

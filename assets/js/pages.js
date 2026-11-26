@@ -1,7 +1,4 @@
-
-// =========================================
 // ВАЛІДАЦІЯ ФОРМ ОБРАНОЮ МОВОЮ
-// =========================================
 
 function prepareFormValidation(form) {
     const fields = form.querySelectorAll('input, select, textarea');
@@ -107,7 +104,8 @@ if (
         updateRequestMessage();
     }
 
-    function isOutsideModal(event) {
+    // перевірка, чи клік був поза вікном
+    function isOutsideModal(event) {    
         const bounds = requestModal.getBoundingClientRect();
 
         return (
@@ -174,9 +172,8 @@ if (
     );
     
 
-    // Надсилання заявки
     const sendButton = requestModalForm.querySelector('button[type="submit"]');
-
+    // перевірка заявки та надсилання її на сервер
     requestModalForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 

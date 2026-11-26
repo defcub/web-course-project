@@ -10,6 +10,8 @@
     font-size: 32px;
 }
 
+/* повідомлення про завантаження, збереження або помилку */
+
 .admin-status {
     margin-bottom: 24px;
     color: #c6c6ce;
@@ -38,6 +40,8 @@
     margin: 0;
     font-size: 26px;
 }
+
+/* картки проєктів із кнопками керування */
 
 .admin-project-list {
     display: grid;
@@ -78,6 +82,8 @@
 .admin-links a {
     color: #c1c1ff;
 }
+
+/* вигляд кнопок, які тимчасово недоступні */
 
 .admin-main button:disabled {
     opacity: 0.6;
@@ -130,6 +136,8 @@
 #adminActionMessage:empty {
     display: none;
 }
+
+/* форма створення та редагування проєкту */
 
 .admin-form {
     margin-bottom: 28px;
@@ -206,6 +214,8 @@
     }
 }
 
+/* блок із полями англійського перекладу */ 
+
 .admin-translation {
     margin-top: 24px;
     padding-top: 20px;
@@ -226,6 +236,8 @@
     outline: 2px solid #a5a5ff;
     outline-offset: 4px;
 }
+
+/* область для вибору та перетягування зображення */
 
 .image-drop-zone {
     padding: 20px;
@@ -282,6 +294,8 @@
     background: #252436;
 }
 
+/* попередній перегляд вибраного зображення */
+
 .admin-image-preview {
     display: block;
     flex: 0 0 96px;
@@ -328,6 +342,8 @@
     font-size: 14px;
     line-height: 1.5;
 }
+
+/* порожнє повідомлення не займає місце */
 
 .image-upload-message:empty {
     display: none;

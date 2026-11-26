@@ -51,10 +51,12 @@ if (
         return document.documentElement.lang === 'uk' ? 'uk' : 'en';
     }
 
+    // приведення тексту до спільного вигляду для пошуку
     function normalizeText(text) {
         return text.trim().toLocaleLowerCase().replace(/\s+/g, ' ');
     }
 
+    // перевірка структуру даних перед створенням карток
     function validateProjects(data) {
         const fields = ['title', 'description', 'challenge', 'approach', 'result', 'link', 'alt'];
 
@@ -95,6 +97,7 @@ if (
         });
     }
 
+    // заповнення копії шаблону даними одного проєкту
     function createProjectCard(project, language) {
         const fragment = projectTemplate.content.cloneNode(true);
         const card = fragment.querySelector('.project-case');
@@ -141,6 +144,7 @@ if (
         return fragment;
     }
 
+    // застосування пошуку, категорію та сортування перед показом карток
     function renderProjects() {
         const language = getProjectLanguage();
         const labels = projectLabels[language];
@@ -209,6 +213,7 @@ if (
         projectEmpty.hidden = visibleProjects.length !== 0;
     }
 
+    // завантаження проєктів та оновлення стану каталогу
     async function loadProjects() {
         if (loadState === 'loading' && retryProjects.disabled) {
             return;

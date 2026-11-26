@@ -55,11 +55,16 @@ ul {
     justify-content: space-between;
 }
 
+/* обмеження ширини вмісту та центрування його на сторінці */
+
 .content-wrap {
     width: calc(100% - 48px);
     max-width: 1200px;
     margin: 0 auto;
 }
+
+/* спільний вигляд кнопок */
+
 .btn {
     border-radius: 4px;
     font-size: 1rem;
@@ -95,6 +100,9 @@ ul {
     background: #4343b8;
     transform: translateY(-3px);
 }
+
+/* шапка сайту та навігація */
+
 .main-header {
     position: fixed;
     top: 0;
@@ -144,6 +152,9 @@ ul {
 .d-none-mobile {
     display: none;
 }
+
+/* мобільне меню, яке відкривається кнопкою */
+
 .nav-menu {
     position: fixed;
     top: 0;
@@ -175,6 +186,9 @@ ul {
 .main-menu a.active {
     color: var(--primary-color);
 }
+
+/* головний екран із заголовком та зображенням */
+
 .hero-section {
     position: relative;
     padding-top: 140px;
@@ -208,6 +222,9 @@ ul {
     margin-bottom: 40px;
     max-width: 327px;
 }
+
+/* підсвічування головного екрана */
+
 .hero-wrap::before {
     content: '';
     position: absolute;
@@ -274,6 +291,9 @@ ul {
     right: 30px;
     width: 45px;
 }
+
+/* розташування фото та декоративних фігур */
+
 .visual-composition {
     position: relative;
     width: 350px;
@@ -335,6 +355,9 @@ ul {
     top: 0px;
     left: -7px;
 }
+
+/* початковий стан елементів перед появою під час прокручування */
+
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(40px);
@@ -342,6 +365,8 @@ ul {
         opacity 0.8s ease,
         transform 0.8s ease;
 }
+
+/* клас додається скриптом, коли елемент потрапляє в поле зору */
 
 .animate-on-scroll.is-visible {
     opacity: 1;
@@ -375,6 +400,8 @@ ul {
     margin-bottom: 50px;
     max-width: 327px;
 }
+
+/* контейнер для відео та кнопки відтворення */
 
 .video-wrapper {
     position: relative;
@@ -468,6 +495,8 @@ ul {
     margin: 0 auto 60px auto;
 }
 
+/* сітка карток послуг */
+
 .services-grid {
     display: flex;
     flex-direction: column;
@@ -495,6 +524,8 @@ ul {
     margin-bottom: 20px;
 }
 
+/* усі іконки з одного спрайт зображення */
+
 .service-icon {
     display: block;
     width: 32px;
@@ -504,6 +535,8 @@ ul {
     background-repeat: no-repeat;
     background-size: 192px 32px;
 }
+
+/* зміщення фону вибирає потрібну іконку зі спрайта */
 
 .service-icon-dev {
     background-position: 0 0;
@@ -600,6 +633,9 @@ ul {
     display: flex;
     align-items: center;
 }
+
+/* скрипт переміщує цю стрічку для перемикання карток */
+
 .portfolio-track {
     display: flex;
     gap: 24px;
@@ -1149,6 +1185,8 @@ ul {
     z-index: 1001;
 }
 
+/* перемикач мови та стан вибраної кнопки */
+
 .language-switcher {
     display: flex;
     align-items: center;
@@ -1307,6 +1345,8 @@ body.modal-open {
     overflow: hidden;
 }
 
+/* модальне вікно з формою заявки */
+
 .request-modal {
     width: calc(100% - 32px);
     max-width: 620px;
@@ -1322,6 +1362,8 @@ body.modal-open {
     border-radius: 12px;
     font-family: inherit;
 }
+
+/* затемнення сторінки позаду відкритої форми */
 
 .request-modal::backdrop {
     background-color: rgba(0, 0, 0, 0.75);
@@ -1498,6 +1540,8 @@ body.modal-open {
     }
 }
 
+/* заставка з анімацією логотипу */
+
 .logo-intro {
     position: fixed;
     inset: 0;
@@ -1536,6 +1580,8 @@ body.modal-open {
     opacity: 1;
     transition: opacity 450ms ease;
 }
+
+/* плавне приховування заставки після завершення анімації */
 
 .logo-intro.is-hiding {
     opacity: 0;
@@ -1642,6 +1688,8 @@ body.modal-open {
     padding: 0;
     transition: transform 0.4s ease-in-out;
 }
+
+/* оригінальні картки та їхні копії мають однаковий розмір */
 
 .portfolio-carousel .portfolio-slide,
 .portfolio-carousel .portfolio-copy {
@@ -1775,6 +1823,8 @@ body.modal-open {
     min-width: 0;
 }
 
+/* зберігаємо положення стрілок при наведенні та натисканні */
+
 .portfolio-section .portfolio-carousel .slider-btn,
 .portfolio-section .portfolio-carousel .slider-btn:hover,
 .portfolio-section .portfolio-carousel .slider-btn:active {
@@ -1795,6 +1845,9 @@ body.modal-open {
 .portfolio-section .portfolio-carousel .btn-next {
     justify-self: start;
 }
+
+/* на широких екранах виносимо стрілки за краї карток */
+
 @media screen and (min-width: 1400px) {
     .portfolio-section .portfolio-carousel {
         display: block;

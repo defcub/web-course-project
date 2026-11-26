@@ -1,6 +1,7 @@
 const databaseUrl = 'https://tmgvsunlcgbujkujpnzc.supabase.co';
 const databaseKey = 'sb_publishable_07x7239yVI9ARO1XYKYZjA_kVANRncp';
 
+// отримання списку проєктів через сервер на render
 async function getDatabaseProjects() {
     const response = await fetch('https://enver-api.onrender.com/api/projects', {
         headers: { Accept: 'application/json' },

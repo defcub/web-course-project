@@ -151,6 +151,7 @@ function getFormField(name) {
     return adminForm.elements.namedItem(name);
 }
 
+// створення поля для тексту проєкту двома мовами
 function createContentFields() {
     const containers = {
         uk: document.getElementById('adminUkrainianFields'),
@@ -183,6 +184,7 @@ function createContentFields() {
     });
 }
 
+// заповнення списку категорій даними з бази
 function renderCategories() {
     const selected = projectCategory.value;
     const language = getAdminLanguage();
@@ -214,6 +216,7 @@ function getAdminProjectContent(project) {
     return getAdminLanguage() === 'en' && hasEnglish ? project.content_en : project.content_uk;
 }
 
+// оновлення вмісту адмінки відповідно до її поточного стану
 function renderAdmin() {
     const language = getAdminLanguage();
     document.querySelectorAll('[data-admin-text]').forEach((element) => {
@@ -316,6 +319,7 @@ function closeProjectForm() {
     clearFormValidation();
 }
 
+// відкриття порожної форми або заповнення її даними проєкту
 function openProjectForm(project = null) {
     if (adminBusy || adminState !== 'ready') {
         return;
@@ -356,6 +360,7 @@ function openProjectForm(project = null) {
     document.getElementById('englishTranslation').open = false;
 }
 
+// перевірка поля перед збереженням проєкту
 function validateProjectForm() {
     clearFormValidation();
     const hasEnglish = contentFields.some((field) => {
@@ -398,6 +403,7 @@ function validateProjectForm() {
     return validateProjectImage();
 }
 
+// збирання значення полів у структуру для запису в базу
 function collectProjectData() {
     const project = {
         slug: getFormField('slug').value,
@@ -422,11 +428,13 @@ function collectProjectData() {
     return project;
 }
 
+// перевірка користувача та доступ перед завантаженням адмінки
 async function loadAdminPage() {
     if (adminBusy) {
         return;
     }
 
+    // номер запиту допомагає ігнорувати застарілі відповіді
     const request = ++adminRequest;
 
     closeProjectForm();
@@ -499,6 +507,7 @@ async function loadAdminPage() {
     }
 }
 
+// створення нового проєку або зберігання зміни наявного
 async function saveAdminProject(event) {
     event.preventDefault();
 
@@ -586,6 +595,7 @@ async function saveAdminProject(event) {
     }
 }
 
+// видалення проєкту після підтвердження
 async function deleteAdminProject(project) {
     if (adminBusy || adminState !== 'ready') {
         return;

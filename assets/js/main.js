@@ -10,6 +10,7 @@ if (iconBlock && iconOpen && iconClose && navMenu) {
         iconBlock.setAttribute('aria-label', siteLanguage.text(isOpen ? 'menuClose' : 'menuOpen'));
     }
 
+    // одночасне оновлення меню та стан кнопки
     function setMenuState(isOpen) {
         navMenu.classList.toggle('menu-open', isOpen);
 
@@ -53,6 +54,7 @@ if (iconBlock && iconOpen && iconClose && navMenu) {
 const header = document.getElementById('header');
 
 if (header) {
+    // змінюємо вигляд шапки залежно від прокручування
     function updateHeader() {
         header.classList.toggle('scrolled', window.scrollY > 50);
     }
@@ -103,6 +105,7 @@ if (track && btnPrev && btnNext) {
         const beforeSlides = document.createDocumentFragment();
         const afterSlides = document.createDocumentFragment();
 
+        // копії карток по краях дозволяють гортати слайдер по колу
         function createCopy(slide) {
             const copy = slide.cloneNode(true);
 
@@ -125,6 +128,7 @@ if (track && btnPrev && btnNext) {
         track.prepend(beforeSlides);
         track.append(afterSlides);
 
+        // обчислення зміщення стрічки за шириною картки та відступом
         function updatePosition(animate) {
             const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
             const slideWidth = slides[0].getBoundingClientRect().width;
@@ -135,11 +139,13 @@ if (track && btnPrev && btnNext) {
             track.style.transform = `translateX(-${offset}px)`;
 
             if (!animate) {
+                // застосування позиції без анімації перед поверненням переходу
                 void track.offsetWidth;
                 track.style.transition = '';
             }
         }
 
+        // повертаємося з копії до основного набору карток
         function finishMovement() {
             clearTimeout(finishTimeout);
 
@@ -153,6 +159,7 @@ if (track && btnPrev && btnNext) {
             isMoving = false;
         }
 
+        // перемикання картки та блокування повторного руху до завершення переходу
         function moveSlide(direction) {
             if (isMoving || slideCount < 2) {
                 return;
@@ -198,11 +205,11 @@ if (studioVideo && studioPlayButton) {
     studioVideo.controls = false;
     studioPlayButton.hidden = false;
 
+    // запуск відео після натискання кнопки
     studioPlayButton.addEventListener('click', async () => {
         studioPlayButton.hidden = true;
         studioVideo.controls = true;
         studioVideo.focus({ preventScroll: true });
-
         try {
             await studioVideo.play();
         } catch (error) {

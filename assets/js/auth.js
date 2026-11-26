@@ -156,6 +156,7 @@ function clearValidation() {
     authPasswordRepeat.setCustomValidity('');
 }
 
+// перемикання форми між входом і реєстрацією
 function changeAuthMode(mode) {
     authMode = mode;
     authPassword.value = '';
@@ -166,6 +167,7 @@ function changeAuthMode(mode) {
     authEmail.focus();
 }
 
+// перевірка пошти та паролю перед запитом
 function validateAuthForm() {
     clearValidation();
 
@@ -209,6 +211,7 @@ function getAuthErrorKey(error) {
     return errors[error.code] || 'requestError';
 }
 
+// перевірка, чи показувати користувачу посилання на адмінку
 async function checkAdminAccess(user, checkNumber) {
     try {
         const { data, error } = await supabaseClient.from('admin_users').select('user_id').eq('user_id', user.id).maybeSingle();
@@ -232,6 +235,7 @@ async function checkAdminAccess(user, checkNumber) {
     }
 }
 
+// оновлення сторінки залежно від того, чи користувач увійшов
 function showAuthUser(user) {
     authGuest.hidden = Boolean(user);
     authUser.hidden = !user;
@@ -269,6 +273,7 @@ document.addEventListener('siteLanguageChange', () => {
     renderAuth();
 });
 
+// оброблення входу або реєстрації без перезавантаження сторінки
 authForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -320,6 +325,7 @@ authForm.addEventListener('submit', async (event) => {
     }
 });
 
+// запуск входу через гугл
 googleLogin.addEventListener('click', async () => {
     if (!authReady || authBusy) {
         return;
@@ -349,6 +355,7 @@ googleLogin.addEventListener('click', async () => {
     }
 });
 
+// надсилання на пошту посилання для входу
 magicLogin.addEventListener('click', async () => {
     if (!authReady || authBusy || authMode !== 'login') {
         return;
@@ -396,6 +403,7 @@ magicLogin.addEventListener('click', async () => {
     }
 });
 
+// завершення сеансу користувача
 logoutButton.addEventListener('click', async () => {
     if (!authReady || authBusy) {
         return;

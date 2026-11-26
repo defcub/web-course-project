@@ -47,6 +47,7 @@ function showImageMessage(key) {
     renderImageTexts();
 }
 
+// показ зображення перед збереженням проєкту
 function showImagePreview(source) {
     if (imagePreviewUrl) {
         URL.revokeObjectURL(imagePreviewUrl);
@@ -62,6 +63,7 @@ function showImagePreview(source) {
     }
 }
 
+// очищення вибраного файлу і попереднього перегляду
 function resetImagePicker() {
     selectedImageFile = null;
     imageFileInput.value = '';
@@ -73,6 +75,7 @@ function resetImagePicker() {
     imageDropZone.classList.remove('is-dragging');
 }
 
+// перевірка вибраного файлу перед показом прев’ю
 function selectProjectImage(files) {
     if (adminBusy || adminState !== 'ready') {
         return;
@@ -110,6 +113,7 @@ function validateProjectImage() {
     return true;
 }
 
+// завантаження зображення у сховище та повернення його адреси
 async function uploadProjectImage() {
     if (!selectedImageFile) {
         return imagePathInput.value;

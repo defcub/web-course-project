@@ -3,6 +3,7 @@ const logoIntroVideo = document.getElementById('logoIntroVideo');
 
 if (logoIntro && logoIntroVideo) {
     const storageKey = 'enverIntroShown';
+    // перевірка, чи сторінку перезавантажили
     const isReload = performance.getEntriesByType('navigation')[0]?.type === 'reload';
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let alreadyShown = false;
@@ -60,11 +61,12 @@ if (logoIntro && logoIntroVideo) {
         }
     });
 
+    // показуємо заставку при першому вході та після перезавантаження
     if ((!alreadyShown || isReload) && !reducedMotion.matches) {
         try {
             sessionStorage.setItem(storageKey, 'true');
         } catch {
-            // Анімація працюватиме й без запису у сховище.
+            // анімація працюватиме й без запису у сховище.
         }
 
         logoIntroVideo.muted = true;
