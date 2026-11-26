@@ -1,339 +1,271 @@
 <!DOCTYPE html>
 <html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enver - студія цифрового дизайну та розробки</title>
-    <meta name="description"
-    content="Студія Enver: розробка сайтів, UI/UX-дизайн, брендинг та анімація. Переглянь наші послуги й проєкти та розкажи про свою ідею.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.8.5/plyr.css">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Enver - студія цифрового дизайну та розробки</title>
+        <meta name="description" content="Студія Enver: розробка сайтів, UI/UX-дизайн, брендинг та анімація. Переглянь наші послуги й проєкти та розкажи про свою ідею." />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.plyr.io/3.8.5/plyr.css" />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <link rel="icon" type="image/png" href="assets/images/logo-icon.png" />
+    </head>
     <body>
-        <!-- ВСТУПНА АНІМАЦІЯ ЛОГОТИПУ -->
-    <div class="logo-intro" id="logoIntro" hidden>
-        <video
-            class="logo-intro-video"
-            id="logoIntroVideo"
-            muted
-            playsinline
-            preload="none"
-            aria-hidden="true">
-        </video>
-    </div>
-    <script src="assets/js/logo-intro.js"></script>
-
-    <header class="main-header" id="header">
-        <div class="navbar content-wrap d-flex item-center space-between">
-            
-            <div class="logo d-flex item-center">
-                <img src="assets/images/logo-icon.png" alt="Enver Logo">
-                <span class="logo-text">Enver</span>
-            </div>
-            
-            <nav class="nav-menu">
-                <ul id="mainMenu" class="main-menu d-flex">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="projects.html">Our Project</a></li>
-                    <li><a href="about.html">About us</a></li>
-                    <li><a href="auth.html" class="account-nav-link">Account</a></li>
-                </ul>
-            </nav>
-
-            <div class="header-actions">
-
-            <div class="language-switcher"
-                role="group"
-                aria-label="Website language">
-
-                <button type="button"
-                        class="language-btn"
-                        data-language="en"
-                        lang="en"
-                        aria-label="English"
-                        aria-pressed="false">
-                    EN
-                </button>
-
-                <button type="button"
-                        class="language-btn"
-                        data-language="uk"
-                        lang="uk"
-                        aria-label="Українська"
-                        aria-pressed="false">
-                    UA
-                </button>
-
-            </div>
-
-            <a href="contact.html"
-            class="btn btn-outline d-none-mobile">
-                Contact us
-            </a>
-
-            <button type="button"
-                    id="iconBlock"
-                    class="menu-icon d-mobile-only"
-                    aria-label="Open navigation"
-                    aria-expanded="false"
-                    aria-controls="mainMenu">
-
-                <img src="assets/images/icons/burger-icon.svg"
-                    id="iconOpen"
-                    alt="">
-
-                <span id="iconClose"
-                    class="d-none"
-                    aria-hidden="true">
-                    ×
-                </span>
-
-            </button>
-
+        <div class="logo-intro" id="logoIntro" hidden>
+            <video class="logo-intro-video" id="logoIntroVideo" muted playsinline preload="none" aria-hidden="true"> </video>
         </div>
-            
-        </div>
-    </header>
+        <script src="assets/js/logo-intro.js"></script>
 
-    <main>
-        <section class="section hero-section">
-            <div class="content-wrap d-flex hero-wrap vertical-center animate-on-scroll">
-                
-                <img src="assets/images/vector-graphic.png" alt="zigzag" class="floating-icon icon-zigzag">
-                <img src="assets/images/vector-doubleplay.png" alt="play" class="floating-icon icon-play">
-                <img src="assets/images/vector-doublecircle.png" alt="circles" class="floating-icon icon-circles">
-                <img src="assets/images/vector-plus.png" alt="plus" class="floating-icon icon-plus">
-
-                <div class="hero-content">
-                    <h1 class="hero-title">Build Your<br>Awesome<br>Platform</h1>
-                    <p class="hero-subtitle">
-                        Enver studio is a digital studio that offers several services such as UI/UX Design to developers, we will provide the best service for those of you who use our services.
-                    </p>
-                    <a href="services.html" class="btn btn-primary">
-                        <span class="hero-button-text">Our Services</span>
-                        <img src="assets/images/icons/arrow-up.svg" alt="">
-                    </a>
-                </div>
-
-                <div class="hero-visual">
-                    <div class="visual-composition animate-on-scroll">
-                        <div class="diamond-outline"></div>
-                        <div class="diamond-solid"></div>
-                            <img src="assets/images/waves-group.svg" alt="background waves" class="vector-waves">                        
-                        <div class="visual-mask">
-                            <img src="assets/images/happy-man.png" alt="Happy man pointing" class="hero-guy">
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-        
-        <section class="section video-section">
-            <div class="content-wrap animate-on-scroll">
-                
-                <div class="video-text-header d-flex">
-                    <h2 class="section-title">Why Enver Is The<br>Best Choice?</h2>
-                    <p class="section-subtitle">
-                        Watch this one minute video so you understand why you should use our services!
-                    </p>
-                </div>
-
-                <div class="video-wrapper">
-                    <video class="studio-video" id="studioVideo" controls playsinline preload="none" poster="assets/images/enver-video-preview.png">
-                        <source src="assets/videos/enver-presentation.mp4" type="video/mp4">
-                        <a href="assets/videos/enver-presentation.mp4">Відкрити відео</a>
-                    </video>
-                    <button type="button" class="video-play-btn" id="studioPlayButton" aria-label="Відтворити презентацію студії" aria-controls="studioVideo" hidden>
-                        <img src="assets/images/button-play.png" alt="">
-                    </button>
-                </div>
-
-            </div>
-        </section>
-                                    <!-- Service -->
-        <section class="section services-section">
-            <div class="content-wrap relative animate-on-scroll">
-                <img src="assets/images/vector-doubleplay.png" alt="play" class="floating-icon icon-play-services">
-                <img src="assets/images/vector-plus.png" alt="plus" class="floating-icon icon-plus-services-1">
-                <img src="assets/images/vector-plus.png" alt="plus" class="floating-icon icon-plus-services-2">
-                
-                <h2 class="section-title">The Services We Provide For You</h2>
-                
-                <div class="services-grid">
-                    
-                    <div class="service-card">
-                        <div class="icon-wrap bg-purple">
-                            <span class="service-icon service-icon-dev" aria-hidden="true"></span>
-                        </div>
-                        <div class="card-text">
-                            <h3 class="card-title">Development</h3>
-                            <p class="card-desc">Create a platform with the best and coolest quality from us.</p>
-                        </div>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="icon-wrap bg-red">
-                            <span class="service-icon service-icon-uiux" aria-hidden="true"></span>
-                        </div>
-                        <div class="card-text">
-                            <h3 class="card-title">UI/UX Designer</h3>
-                            <p class="card-desc">We provide UI/UX Design services, and of course with the best quality</p>
-                        </div>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="icon-wrap bg-yellow">
-                            <span class="service-icon service-icon-graphik" aria-hidden="true"></span>
-                        </div>
-                        <div class="card-text">
-                            <h3 class="card-title">Graphik Designer</h3>
-                            <p class="card-desc">We provide Graphic Design services, with the best designers</p>
-                        </div>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="icon-wrap bg-yellow">
-                            <span class="service-icon service-icon-motion" aria-hidden="true"></span>
-                        </div>
-                        <div class="card-text">
-                            <h3 class="card-title">Motion Graphik</h3>
-                            <p class="card-desc">Create a platform with the best and coolest quality from us.</p>
-                        </div>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="icon-wrap bg-purple">
-                            <span class="service-icon service-icon-photo" aria-hidden="true"></span>
-                        </div>
-                        <div class="card-text">
-                            <h3 class="card-title">Photography</h3>
-                            <p class="card-desc">We provide Photography services, and of course with the best quality</p>
-                        </div>
-                    </div>
-
-                    <div class="service-card">
-                        <div class="icon-wrap bg-red">
-                            <span class="service-icon service-icon-video" aria-hidden="true"></span>
-                        </div>
-                        <div class="card-text">
-                            <h3 class="card-title">Videography</h3>
-                            <p class="card-desc">Create a platform with the best and coolest quality from us.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-                            <!-- PORTFOLIO -->
-
-        <section class="section portfolio-section">
-    <div class="content-wrap relative animate-on-scroll">
-        <h2 class="section-title portfolio-title">
-            Our Awesome Portfolio
-        </h2>
-
-        <img src="assets/images/vector-doublecircle.png" alt="" class="floating-icon icon-circles-portfolio">
-    </div>
-
-    <div class="portfolio-carousel content-wrap animate-on-scroll">
-        <div class="portfolio-slider-wrap">
-            <div class="portfolio-track" id="portfolioTrack">
-                <img src="assets/images/portfolio-imgs/portfolio-img1.png" alt="Portfolio 1" class="portfolio-slide">
-                <img src="assets/images/portfolio-imgs/portfolio-img2.png" alt="Portfolio 2" class="portfolio-slide">
-                <img src="assets/images/portfolio-imgs/portfolio-img3.png" alt="Portfolio 3"class="portfolio-slide">
-            </div>
-        </div>
-
-        <button type="button" class="slider-btn btn-prev" id="btnPrev" aria-label="Попередній проєкт" aria-controls="portfolioTrack">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M14 6L8 12L14 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                </path>
-            </svg>
-        </button>
-
-        <button type="button" class="slider-btn btn-next" id="btnNext" aria-label="Наступний проєкт" aria-controls="portfolioTrack">
-            <svg width="24" height="24" viewBox="0 0 24 24fill="none" aria-hidden="true">
-                <path d="M10 6L16 12L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                </path>
-            </svg>
-        </button>
-    </div>
-
-    <div class="content-wrap portfolio-decoration">
-        <img
-            src="assets/images/vector-graphic.png"
-            alt=""
-            class="icon-zigzag-portfolio">
-    </div>
-
-</section>
-
-        <section class="section contact-section">
-            <div class="content-wrap relative animate-on-scroll">
-                
-                <img src="assets/images/vector-plus.png" alt="plus" class="floating-icon icon-plus-contact">
-                <img src="assets/images/vector-doublecircle.png" alt="circles" class="floating-icon icon-circles-contact">
-
-                <h2 class="contact-title">Contact us for the service you want to use</h2>
-                
-                <a href="contact.html" class="btn btn-primary contact-btn">Contact us</a>
-                
-            </div>
-        </section>
-    </main>
-
-                                                 <!-- FOOTER -->
-    <!-- FOOTER -->
-    <footer class="main-footer">
-        <div class="content-wrap">
-            <div class="footer-inner d-flex">
-
-                <a href="index.html" class="logo d-flex item-center">
-                    <img src="assets/images/logo-icon.png" alt="">
+        <header class="main-header" id="header">
+            <div class="navbar content-wrap d-flex item-center space-between">
+                <div class="logo d-flex item-center">
+                    <img src="assets/images/logo-icon.png" alt="Enver Logo" />
                     <span class="logo-text">Enver</span>
-                </a>
+                </div>
 
-                <nav class="footer-nav" aria-label="Footer navigation">
-                    <ul class="d-flex">
-                        <li>
-                            <a href="services.html">Services</a>
-                        </li>
-
-                        <li>
-                            <a href="projects.html">Projects</a>
-                        </li>
-
-                        <li>
-                            <a href="about.html">About us</a>
-                        </li>
-
-                        <li>
-                            <a href="contact.html">Contact us</a>
-                        </li>
+                <nav class="nav-menu">
+                    <ul id="mainMenu" class="main-menu d-flex">
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Our Project</a></li>
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="auth.html" class="account-nav-link">Account</a></li>
                     </ul>
                 </nav>
 
-                <p class="copyright">
-                    © 2026 Enver. Student project.
-                </p>
+                <div class="header-actions">
+                    <div class="language-switcher" role="group" aria-label="Website language">
+                        <button type="button" class="language-btn" data-language="en" lang="en" aria-label="English" aria-pressed="false">
+                            EN
+                        </button>
 
+                        <button type="button" class="language-btn" data-language="uk" lang="uk" aria-label="Українська" aria-pressed="false" >
+                            UA
+                        </button>
+                    </div>
+
+                    <a href="contact.html" class="btn btn-outline d-none-mobile"> Contact us </a>
+
+                    <button type="button" id="iconBlock" class="menu-icon d-mobile-only" aria-label="Open navigation" aria-expanded="false" aria-controls="mainMenu" >
+                        <img src="assets/images/icons/burger-icon.svg" id="iconOpen" alt="" />
+
+                        <span id="iconClose" class="d-none" aria-hidden="true"> × </span>
+                    </button>
+                </div>
             </div>
-        </div>
-    </footer>
+        </header>
 
-    <script src="assets/js/language.js"></script>
-    <script src="assets/js/main.js"></script>
-</body>
+        <main>
+            <section class="section hero-section">
+                <div class="content-wrap d-flex hero-wrap vertical-center animate-on-scroll">
+                    <img src="assets/images/vector-graphic.png" alt="zigzag" class="floating-icon icon-zigzag" />
+                    <img src="assets/images/vector-doubleplay.png" alt="play" class="floating-icon icon-play" />
+                    <img src="assets/images/vector-doublecircle.png" alt="circles" class="floating-icon icon-circles" />
+                    <img src="assets/images/vector-plus.png" alt="plus" class="floating-icon icon-plus" />
+
+                    <div class="hero-content">
+                        <h1 class="hero-title">Build Your<br />Awesome<br />Platform</h1>
+                        <p class="hero-subtitle">
+                            Enver studio is a digital studio that offers several services such as UI/UX Design to developers, we will
+                            provide the best service for those of you who use our services.
+                        </p>
+                        <a href="services.html" class="btn btn-primary">
+                            <span class="hero-button-text">Our Services</span>
+                            <img src="assets/images/icons/arrow-up.svg" alt="" />
+                        </a>
+                    </div>
+
+                    <div class="hero-visual">
+                        <div class="visual-composition animate-on-scroll">
+                            <div class="diamond-outline"></div>
+                            <div class="diamond-solid"></div>
+                            <img src="assets/images/waves-group.svg" alt="background waves" class="vector-waves" />
+                            <div class="visual-mask">
+                                <img src="assets/images/happy-man.png" alt="Happy man pointing" class="hero-guy" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section video-section">
+                <div class="content-wrap animate-on-scroll">
+                    <div class="video-text-header d-flex">
+                        <h2 class="section-title">Why Enver Is The<br />Best Choice?</h2>
+                        <p class="section-subtitle"> Watch this one minute video so you understand why you should use our services! </p>
+                    </div>
+
+                    <div class="video-wrapper">
+                        <video class="studio-video" id="studioVideo" controls playsinline preload="none" poster="assets/images/enver-video-preview.png" >
+                            <source src="assets/videos/enver-presentation.mp4" type="video/mp4" />
+                            <a href="assets/videos/enver-presentation.mp4">Відкрити відео</a>
+                        </video>
+                        <button type="button" class="video-play-btn" id="studioPlayButton" aria-label="Відтворити презентацію студії" aria-controls="studioVideo" hidden >
+                            <img src="assets/images/button-play.png" alt="" />
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section services-section">
+                <div class="content-wrap relative animate-on-scroll">
+                    <img src="assets/images/vector-doubleplay.png" alt="play" class="floating-icon icon-play-services" />
+                    <img src="assets/images/vector-plus.png" alt="plus" class="floating-icon icon-plus-services-1" />
+                    <img src="assets/images/vector-plus.png" alt="plus" class="floating-icon icon-plus-services-2" />
+
+                    <h2 class="section-title">The Services We Provide For You</h2>
+
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="icon-wrap bg-purple">
+                                <span class="service-icon service-icon-dev" aria-hidden="true"></span>
+                            </div>
+                            <div class="card-text">
+                                <h3 class="card-title">Development</h3>
+                                <p class="card-desc">Create a platform with the best and coolest quality from us.</p>
+                            </div>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="icon-wrap bg-red">
+                                <span class="service-icon service-icon-uiux" aria-hidden="true"></span>
+                            </div>
+                            <div class="card-text">
+                                <h3 class="card-title">UI/UX Designer</h3>
+                                <p class="card-desc">We provide UI/UX Design services, and of course with the best quality</p>
+                            </div>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="icon-wrap bg-yellow">
+                                <span class="service-icon service-icon-graphik" aria-hidden="true"></span>
+                            </div>
+                            <div class="card-text">
+                                <h3 class="card-title">Graphik Designer</h3>
+                                <p class="card-desc">We provide Graphic Design services, with the best designers</p>
+                            </div>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="icon-wrap bg-yellow">
+                                <span class="service-icon service-icon-motion" aria-hidden="true"></span>
+                            </div>
+                            <div class="card-text">
+                                <h3 class="card-title">Motion Graphik</h3>
+                                <p class="card-desc">Create a platform with the best and coolest quality from us.</p>
+                            </div>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="icon-wrap bg-purple">
+                                <span class="service-icon service-icon-photo" aria-hidden="true"></span>
+                            </div>
+                            <div class="card-text">
+                                <h3 class="card-title">Photography</h3>
+                                <p class="card-desc">We provide Photography services, and of course with the best quality</p>
+                            </div>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="icon-wrap bg-red">
+                                <span class="service-icon service-icon-video" aria-hidden="true"></span>
+                            </div>
+                            <div class="card-text">
+                                <h3 class="card-title">Videography</h3>
+                                <p class="card-desc">Create a platform with the best and coolest quality from us.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section portfolio-section">
+                <div class="content-wrap relative animate-on-scroll">
+                    <h2 class="section-title portfolio-title"> Our Awesome Portfolio </h2>
+
+                    <img src="assets/images/vector-doublecircle.png" alt="" class="floating-icon icon-circles-portfolio" />
+                </div>
+
+                <div class="portfolio-carousel content-wrap animate-on-scroll">
+                    <div class="portfolio-slider-wrap">
+                        <div class="portfolio-track" id="portfolioTrack">
+                            <img src="assets/images/portfolio-imgs/portfolio-img1.png" alt="Portfolio 1" class="portfolio-slide" />
+                            <img src="assets/images/portfolio-imgs/portfolio-img2.png" alt="Portfolio 2" class="portfolio-slide" />
+                            <img src="assets/images/portfolio-imgs/portfolio-img3.png" alt="Portfolio 3" class="portfolio-slide" />
+                        </div>
+                    </div>
+
+                    <button type="button" class="slider-btn btn-prev" id="btnPrev" aria-label="Попередній проєкт" aria-controls="portfolioTrack" >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M14 6L8 12L14 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ></path>
+                        </svg>
+                    </button>
+
+                    <button type="button" class="slider-btn btn-next" id="btnNext" aria-label="Наступний проєкт" aria-controls="portfolioTrack" >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M10 6L16 12L10 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="content-wrap portfolio-decoration">
+                    <img src="assets/images/vector-graphic.png" alt="" class="icon-zigzag-portfolio" />
+                </div>
+            </section>
+
+            <section class="section contact-section">
+                <div class="content-wrap relative animate-on-scroll">
+                    <img src="assets/images/vector-plus.png" alt="plus" class="floating-icon icon-plus-contact" />
+                    <img src="assets/images/vector-doublecircle.png" alt="circles" class="floating-icon icon-circles-contact" />
+
+                    <h2 class="contact-title">Contact us for the service you want to use</h2>
+
+                    <a href="contact.html" class="btn btn-primary contact-btn">Contact us</a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="main-footer">
+            <div class="content-wrap">
+                <div class="footer-inner d-flex">
+                    <a href="index.html" class="logo d-flex item-center">
+                        <img src="assets/images/logo-icon.png" alt="" />
+                        <span class="logo-text">Enver</span>
+                    </a>
+
+                    <nav class="footer-nav" aria-label="Footer navigation">
+                        <ul class="d-flex">
+                            <li>
+                                <a href="services.html">Services</a>
+                            </li>
+
+                            <li>
+                                <a href="projects.html">Projects</a>
+                            </li>
+
+                            <li>
+                                <a href="about.html">About us</a>
+                            </li>
+
+                            <li>
+                                <a href="contact.html">Contact us</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <p class="copyright"> © 2026 Enver. Student project. </p>
+                </div>
+            </div>
+        </footer>
+
+        <script src="assets/js/language.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
 </html>

@@ -72,7 +72,6 @@ const authTexts = {
         setupError: 'Не вдалося запустити авторизацію. Онови сторінку.'
     }
 };
-
 const authForm = document.getElementById('authForm');
 const authFields = document.getElementById('authFields');
 const authEmail = document.getElementById('authEmail');
@@ -92,14 +91,14 @@ const logoutButton = document.getElementById('logoutButton');
 const authMessage = document.getElementById('authMessage');
 const adminLink = document.getElementById('adminLink');
 let adminCheckNumber = 0;
-
 let supabaseClient;
 let authMode = 'login';
 let authBusy = false;
 let authReady = false;
 let messageKey = '';
 let messageType = '';
-const googleReturnError = new URLSearchParams(window.location.hash.slice(1)).has('error') || new URLSearchParams(window.location.search).has('error');
+const googleReturnError =
+    new URLSearchParams(window.location.hash.slice(1)).has('error') || new URLSearchParams(window.location.search).has('error');
 
 function getAuthRedirectUrl() {
     return new URL('auth.html', window.location.href).href;
@@ -112,10 +111,9 @@ function getAuthText(key) {
 }
 
 function renderAuth() {
-    document.querySelectorAll('[data-auth-text]').forEach(element => {
+    document.querySelectorAll('[data-auth-text]').forEach((element) => {
         element.textContent = getAuthText(element.dataset.authText);
     });
-
     const isRegister = authMode === 'register';
 
     googleLogin.disabled = authBusy || !authReady;
@@ -130,9 +128,7 @@ function renderAuth() {
     authPasswordRepeat.disabled = !isRegister;
     authPasswordRepeat.required = isRegister;
 
-    authPassword.autocomplete = isRegister
-        ? 'new-password'
-        : 'current-password';
+    authPassword.autocomplete = isRegister ? 'new-password' : 'current-password';
 
     authFields.disabled = authBusy || !authReady;
     loginMode.disabled = authBusy || !authReady;
@@ -141,13 +137,10 @@ function renderAuth() {
 
     authForm.setAttribute('aria-busy', String(authBusy));
 
-    authSubmit.textContent = getAuthText(
-        authBusy ? 'loading' : authMode
-    );
+    authSubmit.textContent = getAuthText(authBusy ? 'loading' : authMode);
 
     authMessage.textContent = messageKey ? getAuthText(messageKey) : '';
     authMessage.dataset.type = messageType;
-
     document.title = getAuthText('title') + ' — Enver';
 }
 
@@ -218,11 +211,7 @@ function getAuthErrorKey(error) {
 
 async function checkAdminAccess(user, checkNumber) {
     try {
-        const { data, error } = await supabaseClient
-            .from('admin_users')
-            .select('user_id')
-            .eq('user_id', user.id)
-            .maybeSingle();
+        const { data, error } = await supabaseClient.from('admin_users').select('user_id').eq('user_id', user.id).maybeSingle();
 
         if (checkNumber !== adminCheckNumber) {
             return;
@@ -275,13 +264,12 @@ authForm.addEventListener('input', () => {
         showAuthMessage('');
     }
 });
-
 document.addEventListener('siteLanguageChange', () => {
     clearValidation();
     renderAuth();
 });
 
-authForm.addEventListener('submit', async event => {
+authForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     if (!authReady || authBusy || !validateAuthForm()) {
@@ -290,7 +278,6 @@ authForm.addEventListener('submit', async event => {
 
     authBusy = true;
     showAuthMessage('loading');
-
     const credentials = {
         email: authEmail.value,
         password: authPassword.value
@@ -323,10 +310,7 @@ authForm.addEventListener('submit', async event => {
         } else {
             showAuthUser(result.data.user);
 
-            showAuthMessage(
-                authMode === 'register' ? 'registerSuccess' : 'loginSuccess',
-                'success'
-            );
+            showAuthMessage(authMode === 'register' ? 'registerSuccess' : 'loginSuccess', 'success');
         }
     } catch (error) {
         showAuthMessage(getAuthErrorKey(error), 'error');

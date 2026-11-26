@@ -4,11 +4,7 @@ const logoIntroVideo = document.getElementById('logoIntroVideo');
 if (logoIntro && logoIntroVideo) {
     const storageKey = 'enverIntroShown';
     const isReload = performance.getEntriesByType('navigation')[0]?.type === 'reload';
-
-    const reducedMotion = window.matchMedia(
-        '(prefers-reduced-motion: reduce)'
-    );
-
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let alreadyShown = false;
     let finished = false;
     let safetyTimeout;
@@ -35,9 +31,7 @@ if (logoIntro && logoIntroVideo) {
         }
 
         finished = true;
-
         clearTimeout(safetyTimeout);
-
         document.removeEventListener('keydown', handleIntroKey);
 
         // Зберігаємо останній кадр під час затухання.
@@ -61,11 +55,7 @@ if (logoIntro && logoIntroVideo) {
     }
 
     logoIntro.addEventListener('transitionend', (event) => {
-        if (
-            event.target === logoIntro &&
-            event.propertyName === 'opacity' &&
-            finished
-        ) {
+        if (event.target === logoIntro && event.propertyName === 'opacity' && finished) {
             hideIntro();
         }
     });
@@ -81,7 +71,6 @@ if (logoIntro && logoIntroVideo) {
 
         logoIntroVideo.addEventListener('ended', finishIntro);
         logoIntroVideo.addEventListener('error', finishIntro);
-
         document.addEventListener('keydown', handleIntroKey);
 
         logoIntroVideo.src = 'assets/videos/logo.webm';

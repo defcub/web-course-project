@@ -1,7 +1,3 @@
-// =========================================
-// БУРГЕР МЕНЮ
-// =========================================
-
 const iconBlock = document.getElementById('iconBlock');
 const iconOpen = document.getElementById('iconOpen');
 const iconClose = document.getElementById('iconClose');
@@ -11,10 +7,7 @@ if (iconBlock && iconOpen && iconClose && navMenu) {
     function updateMenuLabel() {
         const isOpen = navMenu.classList.contains('menu-open');
 
-        iconBlock.setAttribute(
-            'aria-label',
-            siteLanguage.text(isOpen ? 'menuClose' : 'menuOpen')
-        );
+        iconBlock.setAttribute('aria-label', siteLanguage.text(isOpen ? 'menuClose' : 'menuOpen'));
     }
 
     function setMenuState(isOpen) {
@@ -33,7 +26,6 @@ if (iconBlock && iconOpen && iconClose && navMenu) {
 
         setMenuState(!isOpen);
     });
-
     const menuLinks = navMenu.querySelectorAll('a');
 
     menuLinks.forEach((link) => {
@@ -41,12 +33,8 @@ if (iconBlock && iconOpen && iconClose && navMenu) {
             setMenuState(false);
         });
     });
-
     document.addEventListener('keydown', (event) => {
-        if (
-            event.key === 'Escape' &&
-            navMenu.classList.contains('menu-open')
-        ) {
+        if (event.key === 'Escape' && navMenu.classList.contains('menu-open')) {
             setMenuState(false);
             iconBlock.focus();
         }
@@ -57,19 +45,10 @@ if (iconBlock && iconOpen && iconClose && navMenu) {
             setMenuState(false);
         }
     });
-
-    document.addEventListener(
-        'siteLanguageChange',
-        updateMenuLabel
-    );
+    document.addEventListener('siteLanguageChange', updateMenuLabel);
 
     updateMenuLabel();
 }
-
-
-// =========================================
-// ЗМІНА ШАПКИ ПРИ СКРОЛІ
-// =========================================
 
 const header = document.getElementById('header');
 
@@ -85,16 +64,8 @@ if (header) {
     updateHeader();
 }
 
-
-// =========================================
-// АНІМАЦІЯ ПОЯВИ ЕЛЕМЕНТІВ
-// =========================================
-
 const hiddenElements = document.querySelectorAll('.animate-on-scroll');
-
-const reducedMotion = window.matchMedia(
-    '(prefers-reduced-motion: reduce)'
-).matches;
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if ('IntersectionObserver' in window && !reducedMotion) {
     const observer = new IntersectionObserver((entries) => {
@@ -116,31 +87,19 @@ if ('IntersectionObserver' in window && !reducedMotion) {
     });
 }
 
-// =========================================
-// СЛАЙДЕР ПОРТФОЛІО
-// =========================================
-
 const track = document.getElementById('portfolioTrack');
 const btnPrev = document.getElementById('btnPrev');
 const btnNext = document.getElementById('btnNext');
 
 if (track && btnPrev && btnNext) {
-    const slides = Array.from(
-        track.querySelectorAll('.portfolio-slide')
-    );
-
-    const motionPreference = window.matchMedia(
-        '(prefers-reduced-motion: reduce)'
-    );
+    const slides = Array.from(track.querySelectorAll('.portfolio-slide'));
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 
     if (slides.length > 0) {
         const slideCount = slides.length;
-
         let currentIndex = slideCount;
         let isMoving = false;
         let finishTimeout;
-
-        // Копії з обох боків забезпечують рух по колу.
         const beforeSlides = document.createDocumentFragment();
         const afterSlides = document.createDocumentFragment();
 
@@ -167,22 +126,15 @@ if (track && btnPrev && btnNext) {
         track.append(afterSlides);
 
         function updatePosition(animate) {
-            const gap =
-                parseFloat(getComputedStyle(track).columnGap) || 0;
-
-            const slideWidth =
-                slides[0].getBoundingClientRect().width;
-
+            const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+            const slideWidth = slides[0].getBoundingClientRect().width;
             const offset = currentIndex * (slideWidth + gap);
 
-            track.style.transition = animate
-                ? ''
-                : 'none';
+            track.style.transition = animate ? '' : 'none';
 
             track.style.transform = `translateX(-${offset}px)`;
 
             if (!animate) {
-                // Фіксуємо непомітне повернення до основних слайдів.
                 void track.offsetWidth;
                 track.style.transition = '';
             }
@@ -215,8 +167,6 @@ if (track && btnPrev && btnNext) {
             }
 
             updatePosition(true);
-
-            // Запасний варіант, якщо transitionend не спрацює.
             finishTimeout = setTimeout(finishMovement, 500);
         }
 
@@ -229,11 +179,7 @@ if (track && btnPrev && btnNext) {
         });
 
         track.addEventListener('transitionend', (event) => {
-            if (
-                event.target === track &&
-                event.propertyName === 'transform' &&
-                isMoving
-            ) {
+            if (event.target === track && event.propertyName === 'transform' && isMoving) {
                 finishMovement();
             }
         });

@@ -1,30 +1,26 @@
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <title>Наші проєкти - Enver</title>
-        <meta name="description"
-        content="Портфоліо Enver: концепції вебсайтів і мобільних застосунків. Переглянь проєкти, їхні завдання та запропоновані дизайнерські рішення.">
+        <meta name="description" content="Портфоліо Enver: концепції вебсайтів і мобільних застосунків. Переглянь проєкти, їхні завдання та запропоновані дизайнерські рішення." />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/secondary.css">
-        <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <link rel="stylesheet" href="assets/css/secondary.css" />
+        <link rel="icon" type="image/png" href="assets/images/logo-icon.png" />
     </head>
     <body class="inner-page studio-page projects-page">
-
-        <!-- HEADER -->
         <header class="main-header" id="header">
             <div class="navbar content-wrap d-flex item-center space-between">
-
                 <a href="index.html" class="logo d-flex item-center">
-                    <img src="assets/images/logo-icon.png" alt="">
+                    <img src="assets/images/logo-icon.png" alt="" />
                     <span class="logo-text">Enver</span>
                 </a>
 
@@ -32,7 +28,7 @@
                     <ul id="mainMenu" class="main-menu d-flex">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="services.html">Services</a></li>
-                        <li><a href="projects.html" class="active"aria-current="page">Our Project</a></li>
+                        <li><a href="projects.html" class="active" aria-current="page">Our Project</a></li>
                         <li><a href="about.html">About us</a></li>
                         <li class="mobile-contact-link"><a href="contact.html">Contact us</a></li>
                         <li><a href="auth.html" class="account-nav-link">Account</a></li>
@@ -40,87 +36,47 @@
                 </nav>
 
                 <div class="header-actions">
+                    <div class="language-switcher" role="group" aria-label="Website language">
+                        <button type="button" class="language-btn" data-language="en" lang="en" aria-label="English" aria-pressed="false">
+                            EN
+                        </button>
 
-                <div class="language-switcher"
-                    role="group"
-                    aria-label="Website language">
+                        <button type="button" class="language-btn" data-language="uk" lang="uk" aria-label="Українська" aria-pressed="false" >
+                            UA
+                        </button>
+                    </div>
 
-                    <button type="button"
-                            class="language-btn"
-                            data-language="en"
-                            lang="en"
-                            aria-label="English"
-                            aria-pressed="false">
-                        EN
+                    <a href="contact.html" class="btn btn-outline d-none-mobile"> Contact us </a>
+
+                    <button type="button" id="iconBlock" class="menu-icon d-mobile-only" aria-label="Open navigation" aria-expanded="false" aria-controls="mainMenu" >
+                        <img src="assets/images/icons/burger-icon.svg" id="iconOpen" alt="" />
+
+                        <span id="iconClose" class="d-none" aria-hidden="true"> × </span>
                     </button>
-
-                    <button type="button"
-                            class="language-btn"
-                            data-language="uk"
-                            lang="uk"
-                            aria-label="Українська"
-                            aria-pressed="false">
-                        UA
-                    </button>
-
                 </div>
-
-                <a href="contact.html"
-                class="btn btn-outline d-none-mobile">
-                    Contact us
-                </a>
-
-                <button type="button"
-                        id="iconBlock"
-                        class="menu-icon d-mobile-only"
-                        aria-label="Open navigation"
-                        aria-expanded="false"
-                        aria-controls="mainMenu">
-
-                    <img src="assets/images/icons/burger-icon.svg"
-                        id="iconOpen"
-                        alt="">
-
-                    <span id="iconClose"
-                        class="d-none"
-                        aria-hidden="true">
-                        ×
-                    </span>
-
-                </button>
-
-</div>
-
             </div>
         </header>
 
         <main>
-            <!-- ЗАГОЛОВОК СТОРІНКИ -->
             <section class="page-heading">
                 <div class="content-wrap">
                     <p class="page-label">OUR PROJECTS</p>
 
-                    <h1 class="page-title">
-                        Explore the Thinking<br>Behind Our Work
-                    </h1>
+                    <h1 class="page-title"> Explore the Thinking<br />Behind Our Work </h1>
 
                     <p class="page-description">
-                        Explore a movie discovery app, a furniture store
-                        and a creative agency website. These illustrative
-                        case studies describe design ideas based on
-                        the portfolio visuals.
+                        Explore a movie discovery app, a furniture store and a creative agency website. These illustrative case studies
+                        describe design ideas based on the portfolio visuals.
                     </p>
                 </div>
             </section>
 
-            <!-- ФІЛЬТРИ ТА ПРОЄКТИ -->
             <section class="page-section">
                 <div class="content-wrap">
-                    
                     <div class="project-tools">
                         <div class="form-group">
                             <label for="projectSearch">Search projects</label>
-                            <input type="search" id="projectSearch" placeholder="Enter a title or description" maxlength="100">
+                            <input type="search" id="projectSearch" placeholder="Enter a title or description" maxlength="100" />
                         </div>
 
                         <div class="form-group">
@@ -133,87 +89,60 @@
                             </select>
                         </div>
 
-                        <button type="button" class="btn btn-outline" id="resetProjects">
-                            Reset
-                        </button>
+                        <button type="button" class="btn btn-outline" id="resetProjects"> Reset </button>
                     </div>
 
-                    <div class="project-filters" role="group"
-                        aria-label="Filter projects">
+                    <div class="project-filters" role="group" aria-label="Filter projects">
+                        <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true"> All Projects </button>
 
-                        <button type="button" class="filter-btn active"
-                                data-filter="all" aria-pressed="true">
-                            All Projects
-                        </button>
+                        <button type="button" class="filter-btn" data-filter="website" aria-pressed="false"> Websites </button>
 
-                        <button type="button" class="filter-btn"
-                                data-filter="website" aria-pressed="false">
-                            Websites
-                        </button>
-
-                        <button type="button" class="filter-btn"
-                                data-filter="application" aria-pressed="false">
-                            Applications
-                        </button>
-
+                        <button type="button" class="filter-btn" data-filter="application" aria-pressed="false"> Applications </button>
                     </div>
 
-                    <p id="projectCount" class="page-text" role="status">
-                        Showing 3 projects
-                    </p>
+                    <p id="projectCount" class="page-text" role="status"> Showing 3 projects </p>
 
-                    <p id="projectEmpty" class="project-empty" hidden>
-                        No projects found. Try another search or category.
-                    </p>
+                    <p id="projectEmpty" class="project-empty" hidden> No projects found. Try another search or category. </p>
 
                     <div class="project-results"></div>
 
-                        <!-- ПРОЄКТ 1: ЗАСТОСУНОК ІЗ ФІЛЬМАМИ -->
-                        <p id="projectStatus" class="page-text" role="status"></p>
+                    <p id="projectStatus" class="page-text" role="status"></p>
 
-                        <button type="button" class="btn btn-outline" id="retryProjects" hidden>
-                            Try again
-                        </button>
+                    <button type="button" class="btn btn-outline" id="retryProjects" hidden> Try again </button>
 
-                        <div class="project-list" id="projectList"></div>
+                    <div class="project-list" id="projectList"></div>
 
-                        <template id="projectTemplate">
-                            <article class="project-case">
-                                <header class="project-heading"><p class="page-label" data-field="category"></p><h2 class="page-section-title"data-field="title"></h2>
-                                </header>
-                                <div class="project-preview"><img src="" alt="" loading="lazy"></div>
-                                <div class="project-content">
-                                    <p class="page-text" data-field="description"></p>
-                                    <div class="project-description-grid">
-                                        <div><h3 data-field="challengeTitle"></h3><p data-field="challenge"></p></div>
-                                        <div><h3 data-field="approachTitle"></h3><p data-field="approach"></p></div>
-                                    </div>
-                                    <div class="project-result"><h3 data-field="resultTitle"></h3><p data-field="result"></p></div>
-                                    <a href="contact.html" class="page-link" data-field="link">
-                                    </a>
+                    <template id="projectTemplate">
+                        <article class="project-case">
+                            <header class="project-heading" ><p class="page-label" data-field="category"></p><h2 class="page-section-title" data-field="title"></h2>
+                            </header>
+                            <div class="project-preview"><img src="" alt="" loading="lazy" /></div>
+                            <div class="project-content">
+                                <p class="page-text" data-field="description"></p>
+                                <div class="project-description-grid">
+                                    <div><h3 data-field="challengeTitle"></h3><p data-field="challenge"></p></div>
+                                    <div><h3 data-field="approachTitle"></h3><p data-field="approach"></p></div>
                                 </div>
-                            </article>
-                        </template>
+                                <div class="project-result"><h3 data-field="resultTitle"></h3><p data-field="result"></p></div>
+                                <a href="contact.html" class="page-link" data-field="link"> </a>
+                            </div>
+                        </article>
+                    </template>
 
-                        <noscript>
-                            <p class="page-text">
-                                Enable JavaScript to view the project catalogue.
-                                Увімкни JavaScript, щоб переглянути каталог проєктів.
-                            </p>
-                        </noscript>
-
-                    </div>
+                    <noscript>
+                        <p class="page-text">
+                            Enable JavaScript to view the project catalogue. Увімкни JavaScript, щоб переглянути каталог проєктів.
+                        </p>
+                    </noscript>
                 </div>
             </section>
         </main>
 
-        <!-- FOOTER -->
         <footer class="main-footer">
             <div class="content-wrap">
                 <div class="footer-inner d-flex">
-
                     <a href="index.html" class="logo d-flex item-center">
-                        <img src="assets/images/logo-icon.png" alt="">
+                        <img src="assets/images/logo-icon.png" alt="" />
                         <span class="logo-text">Enver</span>
                     </a>
 
@@ -227,7 +156,6 @@
                     </nav>
 
                     <p class="copyright">© 2026 Enver. Student project.</p>
-
                 </div>
             </div>
         </footer>
@@ -238,4 +166,4 @@
         <script src="assets/js/database.js"></script>
         <script src="assets/js/projects.js"></script>
     </body>
-    </html>
+</html>

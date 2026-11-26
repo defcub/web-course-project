@@ -16,7 +16,7 @@
     line-height: 1.6;
 }
 
-.admin-status[data-error="true"] {
+.admin-status[data-error='true'] {
     color: #ffb4b4;
 }
 
@@ -106,7 +106,6 @@
     }
 }
 
-
 .admin-project-actions {
     display: flex;
     flex-wrap: wrap;
@@ -131,7 +130,6 @@
 #adminActionMessage:empty {
     display: none;
 }
-
 
 .admin-form {
     margin-bottom: 28px;
@@ -208,7 +206,6 @@
     }
 }
 
-
 .admin-translation {
     margin-top: 24px;
     padding-top: 20px;
@@ -274,7 +271,9 @@
     border: 1px dashed #64646e;
     border-radius: 8px;
     background: #19191d;
-    transition: border-color 0.2s, background-color 0.2s;
+    transition:
+        border-color 0.2s,
+        background-color 0.2s;
 }
 
 .image-drop-zone.is-dragging,

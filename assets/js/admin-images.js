@@ -18,34 +18,28 @@ const imageTexts = {
         uploadFailed: 'Не вдалося завантажити зображення. Перевір з’єднання та спробуй ще раз.'
     }
 };
-
 const imageFileInput = document.getElementById('projectImageFile');
 const imagePathInput = document.getElementById('projectImage');
 const imageDropZone = document.getElementById('imageDropZone');
 const imagePreview = document.getElementById('projectImagePreview');
 const imageMessage = document.getElementById('imageUploadMessage');
 const chooseImageButton = document.getElementById('chooseProjectImage');
-
 const imageExtensions = {
     'image/jpeg': 'jpg',
     'image/png': 'png',
     'image/webp': 'webp'
 };
-
 let selectedImageFile = null;
 let imagePreviewUrl = '';
 let imageMessageKey = '';
 
 function renderImageTexts() {
     const language = document.documentElement.lang === 'uk' ? 'uk' : 'en';
-
-    document.querySelectorAll('[data-image-text]').forEach(element => {
+    document.querySelectorAll('[data-image-text]').forEach((element) => {
         element.textContent = imageTexts[language][element.dataset.imageText];
     });
 
-    imageMessage.textContent = imageMessageKey
-        ? imageTexts[language][imageMessageKey]
-        : '';
+    imageMessage.textContent = imageMessageKey ? imageTexts[language][imageMessageKey] : '';
 }
 
 function showImageMessage(key) {
@@ -90,12 +84,7 @@ function selectProjectImage(files) {
 
     const file = files[0];
 
-    if (
-        files.length !== 1 ||
-        !Object.hasOwn(imageExtensions, file.type) ||
-        file.size === 0 ||
-        file.size > 5 * 1024 * 1024
-    ) {
+    if (files.length !== 1 || !Object.hasOwn(imageExtensions, file.type) || file.size === 0 || file.size > 5 * 1024 * 1024) {
         imageFileInput.value = '';
         showImageMessage('invalid');
         return;
@@ -129,13 +118,10 @@ async function uploadProjectImage() {
     const file = selectedImageFile;
     const extension = imageExtensions[file.type];
     const fileName = crypto.randomUUID() + '.' + extension;
-
-    const { error } = await adminClient.storage
-        .from('project-images')
-        .upload(fileName, file, {
-            contentType: file.type,
-            upsert: false
-        });
+    const { error } = await adminClient.storage.from('project-images').upload(fileName, file, {
+        contentType: file.type,
+        upsert: false
+    });
 
     if (error) {
         const uploadError = new Error(error.message);
@@ -143,9 +129,7 @@ async function uploadProjectImage() {
         throw uploadError;
     }
 
-    const { data } = adminClient.storage
-        .from('project-images')
-        .getPublicUrl(fileName);
+    const { data } = adminClient.storage.from('project-images').getPublicUrl(fileName);
 
     return data.publicUrl;
 }
@@ -162,7 +146,7 @@ imageFileInput.addEventListener('change', () => {
     selectProjectImage(imageFileInput.files);
 });
 
-imageDropZone.addEventListener('dragover', event => {
+imageDropZone.addEventListener('dragover', (event) => {
     event.preventDefault();
 
     if (!adminBusy && adminState === 'ready') {
@@ -170,13 +154,13 @@ imageDropZone.addEventListener('dragover', event => {
     }
 });
 
-imageDropZone.addEventListener('dragleave', event => {
+imageDropZone.addEventListener('dragleave', (event) => {
     if (!imageDropZone.contains(event.relatedTarget)) {
         imageDropZone.classList.remove('is-dragging');
     }
 });
 
-imageDropZone.addEventListener('drop', event => {
+imageDropZone.addEventListener('drop', (event) => {
     event.preventDefault();
 
     imageDropZone.classList.remove('is-dragging');
@@ -185,7 +169,6 @@ imageDropZone.addEventListener('drop', event => {
         selectProjectImage(event.dataTransfer.files);
     }
 });
-
 document.addEventListener('siteLanguageChange', renderImageTexts);
 
 renderImageTexts();

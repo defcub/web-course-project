@@ -1,10 +1,12 @@
 import { createServer } from 'node:http';
-
 const port = Number(process.env.PORT || 3000);
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_PUBLISHABLE_KEY;
 const allowedOrigins = new Set(
-    (process.env.ALLOWED_ORIGINS || '').split(',').map(value => value.trim()).filter(Boolean)
+    (process.env.ALLOWED_ORIGINS || '')
+        .split(',')
+        .map((value) => value.trim())
+        .filter(Boolean)
 );
 
 if (!supabaseUrl || !supabaseKey) {
@@ -61,7 +63,6 @@ const server = createServer(async (request, response) => {
         const url = new URL('/rest/v1/projects', supabaseUrl);
         url.searchParams.set('select', 'id,slug,image_path,content_en,content_uk,sort_order,categories(slug,name_en,name_uk)');
         url.searchParams.set('order', 'sort_order.asc,id.asc');
-
         const result = await fetch(url, {
             headers: { apikey: supabaseKey, Accept: 'application/json' },
             signal: AbortSignal.timeout(15000)

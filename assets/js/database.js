@@ -1,5 +1,3 @@
-// ПІДКЛЮЧЕННЯ ДО SUPABASE
-
 const databaseUrl = 'https://tmgvsunlcgbujkujpnzc.supabase.co';
 const databaseKey = 'sb_publishable_07x7239yVI9ARO1XYKYZjA_kVANRncp';
 

@@ -1,117 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sign in or create an Enver account.">
-    <title>Account — Enver</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/secondary.css">
-</head>
-<body class="studio-page auth-page">
-    <header class="account-header">
-        <a href="index.html" class="account-logo">
-            <img src="assets/images/logo-icon.png" alt="">
-            <span class="logo-text">Enver</span>
-        </a>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Sign in or create an Enver account." />
+        <title>Account — Enver</title>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+        <link rel="icon" type="image/png" href="assets/images/logo-icon.png" />
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <link rel="stylesheet" href="assets/css/secondary.css" />
+    </head>
+    <body class="studio-page auth-page">
+        <header class="account-header">
+            <a href="index.html" class="account-logo">
+                <img src="assets/images/logo-icon.png" alt="" />
+                <span class="logo-text">Enver</span>
+            </a>
 
-        <div class="language-switcher" role="group" aria-label="Website language">
-            <button type="button" class="language-btn" data-language="en" lang="en" aria-pressed="false">EN</button>
-            <button type="button" class="language-btn" data-language="uk" lang="uk" aria-pressed="false">UA</button>
-        </div>
-    </header>
-
-    <main class="account-main">
-        <section class="account-card" aria-labelledby="accountTitle">
-            <div class="account-intro">
-                <h1 id="accountTitle" data-auth-text="title">Your account</h1>
-                <p class="account-description" data-auth-text="description">
-                    Sign in or create an account.
-                </p>
+            <div class="language-switcher" role="group" aria-label="Website language">
+                <button type="button" class="language-btn" data-language="en" lang="en" aria-pressed="false">EN</button>
+                <button type="button" class="language-btn" data-language="uk" lang="uk" aria-pressed="false">UA</button>
             </div>
+        </header>
 
-            <div class="account-content">
-
-            <div id="authGuest">
-                <button
-                    type="button"
-                    class="btn btn-outline account-google"
-                    id="googleLogin"
-                    data-auth-text="googleLogin"
-                    disabled>
-                    Continue with Google
-                </button>
-                <div class="account-switcher" role="group" aria-label="Account action">
-                    <button type="button" id="loginMode" aria-pressed="true" data-auth-text="login">Sign in</button>
-                    <button type="button" id="registerMode" aria-pressed="false" data-auth-text="register">Create account</button>
+        <main class="account-main">
+            <section class="account-card" aria-labelledby="accountTitle">
+                <div class="account-intro">
+                    <h1 id="accountTitle" data-auth-text="title">Your account</h1>
+                    <p class="account-description" data-auth-text="description"> Sign in or create an account. </p>
                 </div>
 
-                <form id="authForm" novalidate>
-                    <fieldset id="authFields" disabled>
-                        <div class="account-field">
-                            <label for="authEmail" data-auth-text="email">Email</label>
-                            <input type="email" id="authEmail" name="email" autocomplete="email" maxlength="254" required>
+                <div class="account-content">
+                    <div id="authGuest">
+                        <button type="button" class="btn btn-outline account-google" id="googleLogin" data-auth-text="googleLogin" disabled>
+                            Continue with Google
+                        </button>
+                        <div class="account-switcher" role="group" aria-label="Account action">
+                            <button type="button" id="loginMode" aria-pressed="true" data-auth-text="login">Sign in</button>
+                            <button type="button" id="registerMode" aria-pressed="false" data-auth-text="register">Create account</button>
                         </div>
 
-                        <div class="account-field">
-                            <label for="authPassword" data-auth-text="password">Password</label>
-                            <input type="password" id="authPassword" name="password" autocomplete="current-password" required>
+                        <form id="authForm" novalidate>
+                            <fieldset id="authFields" disabled>
+                                <div class="account-field">
+                                    <label for="authEmail" data-auth-text="email">Email</label>
+                                    <input type="email" id="authEmail" name="email" autocomplete="email" maxlength="254" required />
+                                </div>
+
+                                <div class="account-field">
+                                    <label for="authPassword" data-auth-text="password">Password</label>
+                                    <input type="password" id="authPassword" name="password" autocomplete="current-password" required />
+                                </div>
+
+                                <div class="account-field" id="passwordRepeatGroup" hidden>
+                                    <label for="authPasswordRepeat" data-auth-text="repeat">Repeat password</label>
+                                    <input type="password" id="authPasswordRepeat" name="passwordRepeat" autocomplete="new-password" disabled />
+                                </div>
+
+                                <p class="account-hint" id="passwordHint" data-auth-text="hint" hidden> Use at least 8 characters. </p>
+
+                                <button type="submit" class="btn btn-primary account-submit" id="authSubmit">Sign in</button>
+                                <button type="button" class="btn btn-outline account-magic" id="magicLogin" data-auth-text="magicLink" >Send a sign-in link</button
+                                >
+                            </fieldset>
+                        </form>
+                    </div>
+
+                    <div id="authUser" hidden>
+                        <p data-auth-text="signedIn">You are signed in as:</p>
+                        <p id="accountEmail" class="account-email"></p>
+
+                        <div class="account-actions">
+                            <a href="admin.html" id="adminLink" class="btn btn-primary" data-auth-text="admin" hidden> Manage projects </a>
+
+                            <button type="button" id="logoutButton" class="btn btn-outline" data-auth-text="logout"> Sign out </button>
                         </div>
+                    </div>
 
-                        <div class="account-field" id="passwordRepeatGroup" hidden>
-                            <label for="authPasswordRepeat" data-auth-text="repeat">Repeat password</label>
-                            <input type="password" id="authPasswordRepeat" name="passwordRepeat" autocomplete="new-password" disabled>
-                        </div>
+                    <p id="authMessage" class="account-message" role="status" aria-live="polite"></p>
 
-                        <p class="account-hint" id="passwordHint" data-auth-text="hint" hidden>
-                            Use at least 8 characters.
-                        </p>
-
-                        <button type="submit" class="btn btn-primary account-submit" id="authSubmit">Sign in</button>
-                        <button type="button" class="btn btn-outline account-magic" id="magicLogin" data-auth-text="magicLink">Send a sign-in link</button>
-                    </fieldset>
-                </form>
-            </div>
-
-            <div id="authUser" hidden>
-                <p data-auth-text="signedIn">You are signed in as:</p>
-                <p id="accountEmail" class="account-email"></p>
-
-                <div class="account-actions">
-                    <a href="admin.html"
-                    id="adminLink"
-                    class="btn btn-primary"
-                    data-auth-text="admin"
-                    hidden>
-                        Manage projects
-                    </a>
-
-                    <button type="button"
-                            id="logoutButton"
-                            class="btn btn-outline"
-                            data-auth-text="logout">
-                        Sign out
-                    </button>
+                    <a href="index.html" class="account-home" data-auth-text="home"> Back to home </a>
                 </div>
-            </div>  
-
-            <p id="authMessage" class="account-message" role="status" aria-live="polite"></p>
-
-                <a href="index.html" class="account-home" data-auth-text="home">
-                    Back to home
-                </a>
-            </div>
             </section>
 
-        <noscript>Enable JavaScript to sign in. Увімкни JavaScript для входу.</noscript>
-    </main>
+            <noscript>Enable JavaScript to sign in. Увімкни JavaScript для входу.</noscript>
+        </main>
 
-    <script src="assets/js/language.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="assets/js/database.js"></script>
-    <script src="assets/js/auth.js"></script>
-</body>
+        <script src="assets/js/language.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="assets/js/database.js"></script>
+        <script src="assets/js/auth.js"></script>
+    </body>
 </html>

@@ -48,8 +48,9 @@ const adminTexts = {
         imageInvalid: 'Use a path inside assets/images/ ending in .png, .jpg, .jpeg, .webp, .gif, .avif or .svg.',
         noCategories: 'No categories are available. Add categories in Supabase first.',
         optionalEnglish: 'Add / edit English translation',
-        translationHint: 'Translation is optional. Leave all seven fields empty or complete them all. To remove a translation, clear all its fields.',
-        translationReview: 'You changed the Ukrainian text, but the English translation is unchanged. It may be outdated. Save anyway?',
+        translationHint:
+            'Translation is optional. Leave all seven fields empty or complete them all. To remove a translation, clear all its fields.',
+        translationReview: 'You changed the Ukrainian text, but the English translation is unchanged. It may be outdated. Save anyway?'
     },
     uk: {
         title: 'Керування проєктами',
@@ -100,11 +101,12 @@ const adminTexts = {
         imageInvalid: 'Вкажи шлях усередині assets/images/ із розширенням .png, .jpg, .jpeg, .webp, .gif, .avif або .svg.',
         noCategories: 'Немає доступних категорій. Спочатку додай категорії в Supabase.',
         optionalEnglish: 'Додати / редагувати англійський переклад',
-        translationHint: 'Переклад необов’язковий. Залиш усі сім полів порожніми або заповни їх усі. Щоб видалити переклад, очисти всі його поля.',
-        translationReview: 'Ти змінив український текст, але англійський переклад залишився попереднім. Він може бути застарілим. Усе одно зберегти?',
+        translationHint:
+            'Переклад необов’язковий. Залиш усі сім полів порожніми або заповни їх усі. Щоб видалити переклад, очисти всі його поля.',
+        translationReview:
+            'Ти змінив український текст, але англійський переклад залишився попереднім. Він може бути застарілим. Усе одно зберегти?'
     }
 };
-
 const contentFields = [
     { name: 'title', label: 'fieldTitle', max: 120 },
     { name: 'description', label: 'description', max: 2000, multiline: true },
@@ -114,7 +116,6 @@ const contentFields = [
     { name: 'link', label: 'link', max: 120 },
     { name: 'alt', label: 'alt', max: 250 }
 ];
-
 const adminPanel = document.getElementById('adminPanel');
 const adminStatus = document.getElementById('adminStatus');
 const adminEmail = document.getElementById('adminEmail');
@@ -128,7 +129,6 @@ const adminFormFields = document.getElementById('adminFormFields');
 const adminFormTitle = document.getElementById('adminFormTitle');
 const adminCancel = document.getElementById('adminCancel');
 const projectCategory = document.getElementById('projectCategory');
-
 let adminClient;
 let adminProjects = [];
 let adminCategories = [];
@@ -151,7 +151,6 @@ function getFormField(name) {
     return adminForm.elements.namedItem(name);
 }
 
-// Створюємо однакові поля для двох мов
 function createContentFields() {
     const containers = {
         uk: document.getElementById('adminUkrainianFields'),
@@ -159,19 +158,14 @@ function createContentFields() {
     };
 
     Object.entries(containers).forEach(([language, container]) => {
-        contentFields.forEach(field => {
+        contentFields.forEach((field) => {
             const name = field.name + '_' + language;
-
             const wrapper = document.createElement('div');
             wrapper.className = 'admin-field';
-
             const label = document.createElement('label');
             label.htmlFor = name;
             label.dataset.adminText = field.label;
-
-            const input = document.createElement(
-                field.multiline ? 'textarea' : 'input'
-            );
+            const input = document.createElement(field.multiline ? 'textarea' : 'input');
 
             input.id = name;
             input.name = name;
@@ -195,7 +189,7 @@ function renderCategories() {
 
     projectCategory.replaceChildren();
 
-    adminCategories.forEach(category => {
+    adminCategories.forEach((category) => {
         const option = document.createElement('option');
 
         option.value = category.id;
@@ -204,37 +198,31 @@ function renderCategories() {
         projectCategory.append(option);
     });
 
-    if (adminCategories.some(category => String(category.id) === selected)) {
+    if (adminCategories.some((category) => String(category.id) === selected)) {
         projectCategory.value = selected;
     }
 }
 
 function getAdminProjectContent(project) {
     const english = project.content_en;
+    const hasEnglish =
+        english &&
+        contentFields.every((field) => {
+            return typeof english[field.name] === 'string' && english[field.name].trim() !== '';
+        });
 
-    const hasEnglish = english && contentFields.every(field => {
-        return typeof english[field.name] === 'string' &&
-            english[field.name].trim() !== '';
-    });
-
-    return getAdminLanguage() === 'en' && hasEnglish
-        ? project.content_en
-        : project.content_uk;
+    return getAdminLanguage() === 'en' && hasEnglish ? project.content_en : project.content_uk;
 }
 
 function renderAdmin() {
     const language = getAdminLanguage();
-
-    document.querySelectorAll('[data-admin-text]').forEach(element => {
+    document.querySelectorAll('[data-admin-text]').forEach((element) => {
         element.textContent = getAdminText(element.dataset.adminText);
     });
-
     document.title = getAdminText('title') + ' — Enver';
     adminStatus.textContent = getAdminText(adminState);
 
-    adminStatus.dataset.error = String(
-        adminState === 'error' || adminState === 'setupError'
-    );
+    adminStatus.dataset.error = String(adminState === 'error' || adminState === 'setupError');
 
     adminPanel.hidden = adminState !== 'ready';
     adminRetry.hidden = adminState !== 'error';
@@ -245,17 +233,11 @@ function renderAdmin() {
 
     adminForm.setAttribute('aria-busy', String(adminBusy));
 
-    adminFormTitle.textContent = getAdminText(
-        editingProjectId === null ? 'add' : 'editTitle'
-    );
+    adminFormTitle.textContent = getAdminText(editingProjectId === null ? 'add' : 'editTitle');
 
-    adminActionMessage.textContent = adminAction
-        ? getAdminText(adminAction)
-        : '';
+    adminActionMessage.textContent = adminAction ? getAdminText(adminAction) : '';
 
-    adminActionMessage.dataset.error = String(
-        ['actionFailed', 'noAccess', 'duplicate', 'noCategories'].includes(adminAction)
-    );
+    adminActionMessage.dataset.error = String(['actionFailed', 'noAccess', 'duplicate', 'noCategories'].includes(adminAction));
 
     adminEmail.textContent = adminUserEmail;
 
@@ -275,32 +257,24 @@ function renderAdmin() {
 
     const fragment = document.createDocumentFragment();
 
-    adminProjects.forEach(project => {
+    adminProjects.forEach((project) => {
         const content = getAdminProjectContent(project);
-
         const card = document.createElement('article');
         card.className = 'admin-project';
-
         const title = document.createElement('h3');
         title.textContent = content.title;
-
         const category = document.createElement('p');
         category.textContent = project.categories['name_' + language];
-
         const description = document.createElement('p');
         description.textContent = content.description;
-
         const contentLanguage = content === project.content_en ? 'en' : 'uk';
         title.lang = contentLanguage;
         description.lang = contentLanguage;
-
         const slug = document.createElement('p');
         slug.className = 'admin-project-slug';
         slug.textContent = project.slug;
-
         const actions = document.createElement('div');
         actions.className = 'admin-project-actions';
-
         const editButton = document.createElement('button');
         editButton.type = 'button';
         editButton.className = 'btn btn-outline';
@@ -310,7 +284,6 @@ function renderAdmin() {
         editButton.addEventListener('click', () => {
             openProjectForm(project);
         });
-
         const deleteButton = document.createElement('button');
         deleteButton.type = 'button';
         deleteButton.className = 'admin-delete';
@@ -330,7 +303,7 @@ function renderAdmin() {
 }
 
 function clearFormValidation() {
-    adminForm.querySelectorAll('input, select, textarea').forEach(field => {
+    adminForm.querySelectorAll('input, select, textarea').forEach((field) => {
         field.setCustomValidity('');
     });
 }
@@ -368,12 +341,11 @@ function openProjectForm(project = null) {
         showImagePreview(project.image_path);
         getFormField('sort_order').value = project.sort_order;
 
-        ['uk', 'en'].forEach(language => {
+        ['uk', 'en'].forEach((language) => {
             const content = project['content_' + language] || {};
 
-            contentFields.forEach(field => {
-                getFormField(field.name + '_' + language).value =
-                    content[field.name] || '';
+            contentFields.forEach((field) => {
+                getFormField(field.name + '_' + language).value = content[field.name] || '';
             });
         });
     }
@@ -386,15 +358,15 @@ function openProjectForm(project = null) {
 
 function validateProjectForm() {
     clearFormValidation();
-    const hasEnglish = contentFields.some(field => {
+    const hasEnglish = contentFields.some((field) => {
         return getFormField(field.name + '_en').value.trim() !== '';
     });
 
-    contentFields.forEach(field => {
+    contentFields.forEach((field) => {
         getFormField(field.name + '_en').required = hasEnglish;
     });
 
-    adminForm.querySelectorAll('input, select, textarea').forEach(field => {
+    adminForm.querySelectorAll('input, select, textarea').forEach((field) => {
         if (field.type === 'file') {
             return;
         }
@@ -402,21 +374,17 @@ function validateProjectForm() {
 
         if (field.required && !field.value) {
             field.setCustomValidity(getAdminText('required'));
-        } else if (
-            (field.maxLength > 0 && field.value.length > field.maxLength) ||
-            !field.validity.valid
-        ) {
+        } else if ((field.maxLength > 0 && field.value.length > field.maxLength) || !field.validity.valid) {
             field.setCustomValidity(getAdminText('invalid'));
         }
     });
-
     const slug = getFormField('slug');
 
     if (slug.value && !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(slug.value)) {
         slug.setCustomValidity(getAdminText('slugInvalid'));
     }
 
-    const invalidEnglish = contentFields.some(field => {
+    const invalidEnglish = contentFields.some((field) => {
         return !getFormField(field.name + '_en').validity.valid;
     });
 
@@ -424,7 +392,7 @@ function validateProjectForm() {
         document.getElementById('englishTranslation').open = true;
     }
     if (!adminForm.reportValidity()) {
-    return false;
+        return false;
     }
 
     return validateProjectImage();
@@ -440,15 +408,13 @@ function collectProjectData() {
         content_en: {}
     };
 
-    ['uk', 'en'].forEach(language => {
+    ['uk', 'en'].forEach((language) => {
         const content = {};
 
-        contentFields.forEach(field => {
-            content[field.name] =
-                getFormField(field.name + '_' + language).value.trim();
+        contentFields.forEach((field) => {
+            content[field.name] = getFormField(field.name + '_' + language).value.trim();
         });
-
-        const hasText = Object.values(content).some(value => value !== '');
+        const hasText = Object.values(content).some((value) => value !== '');
 
         project['content_' + language] = hasText ? content : {};
     });
@@ -492,11 +458,7 @@ async function loadAdminPage() {
             return;
         }
 
-        const adminResult = await adminClient
-            .from('admin_users')
-            .select('user_id')
-            .eq('user_id', user.id)
-            .maybeSingle();
+        const adminResult = await adminClient.from('admin_users').select('user_id').eq('user_id', user.id).maybeSingle();
 
         if (request !== adminRequest) return;
         if (adminResult.error) throw adminResult.error;
@@ -514,15 +476,10 @@ async function loadAdminPage() {
 
         if (request !== adminRequest) return;
         if (projectsResult.error) throw projectsResult.error;
-
-        const categoriesResult = await adminClient
-            .from('categories')
-            .select('id, name_en, name_uk')
-            .order('id', { ascending: true });
+        const categoriesResult = await adminClient.from('categories').select('id, name_en, name_uk').order('id', { ascending: true });
 
         if (request !== adminRequest) return;
         if (categoriesResult.error) throw categoriesResult.error;
-
         adminProjects = projectsResult.data;
         adminCategories = categoriesResult.data;
         adminUserEmail = user.email;
@@ -533,7 +490,6 @@ async function loadAdminPage() {
         }
     } catch (error) {
         if (request !== adminRequest) return;
-
         adminState = 'error';
         console.warn('Admin page:', error.message);
     } finally {
@@ -553,22 +509,16 @@ async function saveAdminProject(event) {
     const request = adminRequest;
     const project = collectProjectData();
     const projectId = editingProjectId;
-
-    const original = adminProjects.find(item => item.id === projectId);
+    const original = adminProjects.find((item) => item.id === projectId);
     if (original && Object.keys(project.content_en).length > 0) {
-        const ukrainianChanged = contentFields.some(field => {
+        const ukrainianChanged = contentFields.some((field) => {
             return project.content_uk[field.name] !== original.content_uk[field.name];
         });
-
-        const englishUnchanged = contentFields.every(field => {
+        const englishUnchanged = contentFields.every((field) => {
             return project.content_en[field.name] === original.content_en?.[field.name];
         });
 
-        if (
-            ukrainianChanged &&
-            englishUnchanged &&
-            !window.confirm(getAdminText('translationReview'))
-        ) {
+        if (ukrainianChanged && englishUnchanged && !window.confirm(getAdminText('translationReview'))) {
             document.getElementById('englishTranslation').open = true;
             return;
         }
@@ -591,26 +541,19 @@ async function saveAdminProject(event) {
 
         showImagePreview(project.image_path);
         showImageMessage('');
-
         let query;
 
         if (projectId === null) {
             query = adminClient.from('projects').insert(project);
         } else {
-            query = adminClient
-                .from('projects')
-                .update(project)
-                .eq('id', projectId);
+            query = adminClient.from('projects').update(project).eq('id', projectId);
         }
 
-        const result = await query
-            .select('*, categories(name_en, name_uk)')
-            .single();
+        const result = await query.select('*, categories(name_en, name_uk)').single();
 
         if (request !== adminRequest) return;
         if (result.error) throw result.error;
-
-        adminProjects = adminProjects.filter(item => {
+        adminProjects = adminProjects.filter((item) => {
             return item.id !== result.data.id;
         });
 
@@ -655,17 +598,12 @@ async function deleteAdminProject(project) {
     }
 
     const request = adminRequest;
-
     adminBusy = true;
     adminAction = 'deleting';
     renderAdmin();
 
     try {
-        const result = await adminClient
-            .from('projects')
-            .delete()
-            .eq('id', project.id)
-            .select('id');
+        const result = await adminClient.from('projects').delete().eq('id', project.id).select('id');
 
         if (request !== adminRequest) return;
         if (result.error) throw result.error;
@@ -675,7 +613,7 @@ async function deleteAdminProject(project) {
             return;
         }
 
-        adminProjects = adminProjects.filter(item => item.id !== project.id);
+        adminProjects = adminProjects.filter((item) => item.id !== project.id);
 
         if (editingProjectId === project.id) {
             closeProjectForm();
@@ -684,7 +622,6 @@ async function deleteAdminProject(project) {
         adminAction = 'deleted';
     } catch (error) {
         if (request !== adminRequest) return;
-
         adminAction = 'actionFailed';
         console.warn('Delete project:', error.message);
     } finally {
@@ -712,7 +649,6 @@ adminForm.addEventListener('change', clearFormValidation);
 
 adminRefresh.addEventListener('click', loadAdminPage);
 adminRetry.addEventListener('click', loadAdminPage);
-
 document.addEventListener('siteLanguageChange', () => {
     clearFormValidation();
     renderAdmin();

@@ -1,5 +1,4 @@
 import { createClient } from 'npm:@supabase/supabase-js@2';
-
 const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'authorization, apikey, content-type, x-client-info',
@@ -99,15 +98,12 @@ Deno.serve(async function (request) {
                 autoRefreshToken: false
             }
         });
-
-        const { error } = await database
-            .from('project_requests')
-            .insert({
-                name: name,
-                email: email,
-                service: service,
-                message: message
-            });
+        const { error } = await database.from('project_requests').insert({
+            name: name,
+            email: email,
+            service: service,
+            message: message
+        });
 
         if (error) {
             console.error('Request insert failed:', error.code);

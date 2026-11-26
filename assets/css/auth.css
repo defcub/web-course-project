@@ -57,7 +57,7 @@
     cursor: pointer;
 }
 
-.account-switcher button[aria-pressed="true"] {
+.account-switcher button[aria-pressed='true'] {
     background: #5454d4;
     border-color: #5454d4;
 }
@@ -122,11 +122,11 @@
     display: none;
 }
 
-.account-message[data-type="error"] {
+.account-message[data-type='error'] {
     color: #ffb4b4;
 }
 
-.account-message[data-type="success"] {
+.account-message[data-type='success'] {
     color: #a5e6b8;
 }
 

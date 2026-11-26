@@ -60,8 +60,6 @@ ul {
     max-width: 1200px;
     margin: 0 auto;
 }
-
-/* --- BUTTONS --- */
 .btn {
     border-radius: 4px;
     font-size: 1rem;
@@ -70,8 +68,6 @@ ul {
     font-family: inherit;
     transition: all 0.3s ease;
 }
-
-/* Прозора кнопка з білою рамкою (Contact us) */
 .btn-outline {
     font-family: 'Nunito Sans', sans-serif;
     background: transparent;
@@ -84,8 +80,6 @@ ul {
     background: var(--text-white);
     color: var(--bg-dark);
 }
-
-/* фіолетова кнопка */
 .btn-primary {
     font-family: 'Nunito Sans', sans-serif;
     background: var(--primary-color);
@@ -98,20 +92,18 @@ ul {
 }
 
 .btn-primary:hover {
-    background: #4343B8;
+    background: #4343b8;
     transform: translateY(-3px);
 }
-
-/* =========================================
-   HEADER & NAVBAR
-   ========================================= */
 .main-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    transition: background-color 0.3s ease, padding 0.3s ease;
+    transition:
+        background-color 0.3s ease,
+        padding 0.3s ease;
     padding-top: 32px;
     padding-bottom: 20px;
 }
@@ -133,7 +125,7 @@ ul {
 }
 
 .logo-text {
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
     font-weight: 800;
 }
@@ -152,8 +144,6 @@ ul {
 .d-none-mobile {
     display: none;
 }
-
-/* МОБІЛЬНЕ МЕНЮ */
 .nav-menu {
     position: fixed;
     top: 0;
@@ -165,7 +155,9 @@ ul {
     justify-content: center;
     align-items: center;
     visibility: hidden;
-    transition: right 0.4s ease, visibility 0.4s;
+    transition:
+        right 0.4s ease,
+        visibility 0.4s;
 }
 
 .nav-menu.menu-open {
@@ -183,13 +175,8 @@ ul {
 .main-menu a.active {
     color: var(--primary-color);
 }
-
-/* =========================================
-                    HERO SECTION (MOBILE)
-            ========================================= */
 .hero-section {
     position: relative;
-    /* літаючі іконки і градієнт позицінуються відносно цієї секції */
     padding-top: 140px;
 }
 
@@ -221,8 +208,6 @@ ul {
     margin-bottom: 40px;
     max-width: 327px;
 }
-
-/* --- ФОНОВИЙ ГРАДІЄНТ --- */
 .hero-wrap::before {
     content: '';
     position: absolute;
@@ -253,16 +238,12 @@ ul {
     top: -150px;
     right: -250px;
 }
-
-/* --- КОНТЕЙНЕР ДЛЯ ФОТО --- */
 .hero-visual {
     width: 100%;
     display: flex;
     justify-content: center;
     align-self: center;
 }
-
-/* --- ЛІТАЮЧІ ІКОНКИ --- */
 .floating-icon {
     position: absolute;
     transform: translateY(120px);
@@ -293,8 +274,6 @@ ul {
     right: 30px;
     width: 45px;
 }
-
-/* --- КОМПОЗИЦІЯ З ФОТО ТА РОМБАМИ --- */
 .visual-composition {
     position: relative;
     width: 350px;
@@ -303,8 +282,6 @@ ul {
     top: 60px;
     scale: 0.8;
 }
-
-/* Спільні стилі для ромбів */
 .diamond-outline,
 .diamond-solid {
     position: absolute;
@@ -358,23 +335,18 @@ ul {
     top: 0px;
     left: -7px;
 }
-
-/* --- АНІМАЦІЇ ПРИ СКРОЛІ --- */
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(40px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
 }
 
 .animate-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
-
-
-            /* =========================================
-                            VIDEO SECTION (MOBILE)
-            ========================================= */
 .video-section {
     padding-top: 88px;
 }
@@ -405,11 +377,11 @@ ul {
 }
 
 .video-wrapper {
-        position: relative;
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        margin: 0;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
 }
 
 .studio-video {
@@ -459,25 +431,18 @@ ul {
 .video-play-btn:hover {
     transform: translate(-50%, -50%) scale(1.1);
 }
-
-
-            /* =========================================
-                      SERVICES SECTION (MOBILE)
-            ========================================= */
 .services-section {
     position: relative;
     isolation: isolate;
     padding-top: 140px;
 }
-
-/* --- ГРАДІЄНТ --- */
 .services-section::before {
     content: '';
     position: absolute;
     width: 467px;
     height: 508px;
-    top: -100px; 
-    left: -120px; 
+    top: -100px;
+    left: -120px;
     border-radius: 233.5px;
     transform: rotate(54.37deg);
     background: linear-gradient(180deg, rgba(84, 84, 212, 0.21) 100%, rgba(84, 84, 212, 0.0882) 100%);
@@ -485,17 +450,15 @@ ul {
     z-index: -1;
     pointer-events: none;
 }
-
-/* --- ЖОВТО-РОЖЕВИЙ ГРАДІЄНТ --- */
 .services-section::after {
     content: '';
     position: absolute;
     width: 860px;
     height: 2576px;
-    top: -270px;  
+    top: -270px;
     border-radius: 233.5px;
     transform: rotate(65.71deg);
-    background: linear-gradient(180deg, rgba(251, 168, 28, 0.048) 0%, rgba(224, 86, 136, 0.018) 100%);    /* Знову використовуємо filter замість backdrop-filter і зменшуємо для мобілки */
+    background: linear-gradient(180deg, rgba(251, 168, 28, 0.048) 0%, rgba(224, 86, 136, 0.018) 100%);
     filter: blur(300px);
     z-index: -1;
     pointer-events: none;
@@ -537,21 +500,39 @@ ul {
     width: 32px;
     height: 32px;
     flex: none;
-    background-image: url("../images/icons/services-sprite.svg");
+    background-image: url('../images/icons/services-sprite.svg');
     background-repeat: no-repeat;
     background-size: 192px 32px;
 }
 
-.service-icon-dev { background-position: 0 0; }
-.service-icon-uiux { background-position: -32px 0; }
-.service-icon-graphik { background-position: -64px 0; }
-.service-icon-motion { background-position: -96px 0; }
-.service-icon-photo { background-position: -128px 0; }
-.service-icon-video { background-position: -160px 0; }
+.service-icon-dev {
+    background-position: 0 0;
+}
+.service-icon-uiux {
+    background-position: -32px 0;
+}
+.service-icon-graphik {
+    background-position: -64px 0;
+}
+.service-icon-motion {
+    background-position: -96px 0;
+}
+.service-icon-photo {
+    background-position: -128px 0;
+}
+.service-icon-video {
+    background-position: -160px 0;
+}
 
-.bg-purple { background-color: #5454D41A; }
-.bg-red { background-color: #F040371A; }
-.bg-yellow { background-color: #FEDC5A1A; }
+.bg-purple {
+    background-color: #5454d41a;
+}
+.bg-red {
+    background-color: #f040371a;
+}
+.bg-yellow {
+    background-color: #fedc5a1a;
+}
 
 .card-text {
     width: 100%;
@@ -570,18 +551,14 @@ ul {
     margin-bottom: 20px;
     text-align: center;
 }
-
-/* Опис картки */
 .card-desc {
     font-family: 'Nunito Sans', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 28px;
-    color: var(--text-gray); 
+    color: var(--text-gray);
     text-align: center;
 }
-
-/* --- ІКОНКИ ДЛЯ СЕРВІСІВ --- */
 .icon-play-services {
     top: -190px;
     left: 20px;
@@ -601,11 +578,9 @@ ul {
     width: 28px;
 }
 
-.relative { position: relative; }
-
-                    /* =========================================
-                           PORTFOLIO SECTION (MOBILE)
-                    ========================================= */
+.relative {
+    position: relative;
+}
 .portfolio-section {
     padding-top: 88px;
 }
@@ -619,37 +594,29 @@ ul {
     max-width: 375px;
     height: 294px;
     margin: 0 auto 50px auto;
-    background: #1E1E20;
+    background: #1e1e20;
     border-radius: 14px;
     overflow: hidden;
     display: flex;
     align-items: center;
 }
-
-/*стрічка, на якій лежать всі фото.*/
 .portfolio-track {
     display: flex;
     gap: 24px;
     padding: 0 24px;
     transition: transform 0.4s ease-in-out;
 }
-
-/* Самі фотографії */
 .portfolio-slide {
     flex: 0 0 327px;
     height: 246px;
     border-radius: 12px;
     object-fit: cover;
 }
-
-/* Блок з кнопками */
 .portfolio-controls {
     justify-content: center;
     gap: 12px;
     margin: 0 auto;
 }
-
-/* стилі для кнопок слайдера */
 .slider-btn {
     width: 38.2px;
     height: 38.2px;
@@ -661,17 +628,15 @@ ul {
     cursor: pointer;
     color: var(--text-white);
     font-size: 14px;
-    transition: transform 0.2s ease, opacity 0.3s ease;
+    transition:
+        transform 0.2s ease,
+        opacity 0.3s ease;
 }
-
-/* кнопка назад */
 .btn-prev {
     background: rgba(255, 255, 255, 0.2);
 }
-
-/* кнопка вперед */
 .btn-next {
-    background: #5454D4;
+    background: #5454d4;
 }
 
 .slider-btn:active {
@@ -683,7 +648,7 @@ ul {
 }
 
 .icon-circles-portfolio {
-    top: 51px; 
+    top: 51px;
     right: 20px;
     width: 39.3px;
     transform: rotate(-20.89deg);
@@ -694,23 +659,18 @@ ul {
     left: 9px;
     width: 61px;
 }
-
-
-            /* =========================================
-                    CONTACT SECTION (MOBILE)
-            ========================================= */
 .contact-section {
     margin-top: 88px;
-    padding-top: 80px; 
+    padding-top: 80px;
     padding-bottom: 80px;
-    background: #1E1E2080;
+    background: #1e1e2080;
 }
 
 .contact-title {
     font-family: var(--main-font);
     font-size: 36px;
     font-weight: 700;
-    line-height: 1.2; 
+    line-height: 1.2;
     margin-bottom: 50px;
     max-width: 327px;
 }
@@ -723,22 +683,18 @@ ul {
 }
 
 .icon-plus-contact {
-    top: -168px; 
-    right: 16.67px; 
+    top: -168px;
+    right: 16.67px;
     width: 28px;
 }
 
 .icon-circles-contact {
-    bottom: 22px; 
-    left: 9px; 
+    bottom: 22px;
+    left: 9px;
     width: 39px;
 }
-
-                /* =========================================
-                           FOOTER (MOBILE)
-                ========================================= */
 .main-footer {
-    padding-top: 80px; 
+    padding-top: 80px;
     padding-bottom: 50px;
 }
 
@@ -756,7 +712,7 @@ ul {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 40px; 
+    gap: 40px;
 }
 
 .footer-nav a {
@@ -765,7 +721,7 @@ ul {
     font-size: 18px;
     line-height: 28px;
     color: rgba(255, 255, 255, 0.7);
-    text-transform: capitalize; /*перша літера кожного слова велика */
+    text-transform: capitalize;
     transition: color 0.3s ease;
 }
 
@@ -781,11 +737,6 @@ ul {
     color: rgba(255, 255, 255, 0.7);
     text-align: center;
 }
-
-
-/* =========================================
-                TABLETS & LAPTOPS
-   ========================================= */
 @media screen and (min-width: 789px) {
     .d-mobile-only {
         display: none;
@@ -857,16 +808,8 @@ ul {
         right: 0px;
         width: 50px;
     }
-
-
 }
-
-
-/* =========================================
-            DESKTOPS & LARGE SCREENS
-   ========================================= */
 @media screen and (min-width: 1025px) {
-
     .hero-section {
         padding-top: 130px;
     }
@@ -956,10 +899,6 @@ ul {
         right: 0px;
         width: 50px;
     }
-
-            /* =========================================
-                      VIDEO SECTION (DESKTOPS)
-            ========================================= */
     .video-section {
         padding-top: 150px;
     }
@@ -993,10 +932,6 @@ ul {
         width: 80px;
         height: 80px;
     }
-
-                    /* =========================================
-                           SERVICES SECTION (DESKTOPS)
-                    ========================================= */
     .services-section {
         position: relative;
         isolation: isolate;
@@ -1006,7 +941,7 @@ ul {
     .services-section .section-title {
         font-size: 60px;
         line-height: 70px;
-        margin-bottom: 80px; 
+        margin-bottom: 80px;
         margin: 0 auto 80px auto;
         text-align: center;
         max-width: none;
@@ -1015,14 +950,13 @@ ul {
     .services-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 24px; 
+        gap: 24px;
         flex-direction: row;
     }
 
     .service-card {
         max-width: 384px;
         height: 300px;
-        
     }
 
     .card-title {
@@ -1050,16 +984,12 @@ ul {
     }
 
     .icon-plus-services-2 {
-        top: auto; 
+        top: auto;
         bottom: -40px;
-        left: 20px; 
+        left: 20px;
         width: 35px;
         rotate: -25.34deg;
     }
-    
-                /* =========================================
-                       PORTFOLIO SECTION (DESKTOPS)
-                ========================================= */
     .portfolio-section {
         padding-top: 150px;
     }
@@ -1087,7 +1017,7 @@ ul {
     }
 
     .portfolio-slide {
-        flex: 1; 
+        flex: 1;
         height: 460px;
         max-width: 360px;
     }
@@ -1096,7 +1026,7 @@ ul {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 8px; 
+        gap: 8px;
     }
 
     .portfolio-pagination .dot {
@@ -1110,7 +1040,7 @@ ul {
 
     .portfolio-pagination .dot.active {
         width: 16px;
-        background-color: #5454D4;
+        background-color: #5454d4;
         border-radius: 10px;
     }
 
@@ -1122,20 +1052,16 @@ ul {
     }
 
     .icon-zigzag-portfolio {
-        bottom: 0px; 
+        bottom: 0px;
         left: 74px;
     }
-
-                    /* =========================================
-                           CONTACT SECTION (DESKTOPS)
-                    ========================================= */
     .contact-section {
         margin-top: 150px;
         padding-top: 187px;
         padding-bottom: 187px;
     }
 
-   .contact-section .content-wrap {
+    .contact-section .content-wrap {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -1169,10 +1095,6 @@ ul {
         left: 39px;
         width: 51px;
     }
-
-    /* =========================================
-               FOOTER (DESKTOPS)
-    ========================================= */
 
     .main-footer {
         padding: 50px 0;
@@ -1212,12 +1134,7 @@ ul {
         font-family: 'Nunito Sans', sans-serif;
         font-size: 16px;
     }
-
 }
-
-
-
-/*ПЕРЕМИКАННЯ МОВИ */
 
 .main-header .navbar {
     gap: 12px;
@@ -1257,7 +1174,6 @@ ul {
     transition: background-color 0.2s ease;
 }
 
-
 .language-btn:hover {
     background-color: #35353d;
 }
@@ -1283,16 +1199,11 @@ ul {
 .main-header .mobile-contact-link {
     display: block;
 }
-
-/* Довші переклади можуть переноситися */
 .hero-title,
 .section-title,
 .contact-title {
     overflow-wrap: break-word;
 }
-
-
-/* СТОРІНКА 404 */
 
 .error-page {
     display: flex;
@@ -1363,8 +1274,6 @@ ul {
     padding: 28px 0;
 }
 
-/* Планшети та комп’ютери */
-
 @media screen and (min-width: 789px) {
     .error-section {
         padding: 180px 0 90px;
@@ -1389,9 +1298,6 @@ ul {
         max-width: none;
     }
 }
-
-
-/* МОДАЛЬНЕ ВІКНО */
 
 .request-button {
     margin-top: 28px;
@@ -1477,9 +1383,6 @@ body.modal-open {
     }
 }
 
-
-/* ПОШУК І СОРТУВАННЯ ПРОЄКТІВ */
-
 .project-tools {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -1516,9 +1419,6 @@ body.modal-open {
     }
 }
 
-
-/* СТАН ЗАВАНТАЖЕННЯ КАТАЛОГУ */
-
 #projectStatus {
     margin-top: 24px;
 }
@@ -1534,17 +1434,6 @@ body.modal-open {
 #retryProjects[hidden] {
     display: none;
 }
-
-
-
-
-
-
-
-
-
-
-/* Планшети */
 @media screen and (min-width: 789px) {
     .main-header .navbar {
         gap: 16px;
@@ -1568,8 +1457,6 @@ body.modal-open {
         white-space: nowrap;
     }
 }
-
-/* Великі екрани */
 @media screen and (min-width: 1025px) {
     .main-header .nav-menu .main-menu {
         gap: 28px;
@@ -1593,9 +1480,6 @@ body.modal-open {
     text-align: center;
 }
 
-
-/*  ТРИКУТНИК НАД ЗАГОЛОВКОМ SERVICES */
-
 .services-section .icon-play-services {
     top: 0;
     left: 0;
@@ -1613,8 +1497,6 @@ body.modal-open {
         height: 104px;
     }
 }
-
-/* ВСТУПНА АНІМАЦІЯ ЛОГОТИПУ */
 
 .logo-intro {
     position: fixed;
@@ -1650,8 +1532,6 @@ body.modal-open {
     }
 }
 
-/* ПЛАВНЕ ЗНИКНЕННЯ ЗАСТАВКИ */
-
 .logo-intro {
     opacity: 1;
     transition: opacity 450ms ease;
@@ -1667,8 +1547,6 @@ body.modal-open {
         transition: none;
     }
 }
-
-/* КЕРУВАННЯ ПОРТФОЛІО */
 
 .portfolio-section .portfolio-controls {
     display: flex;
@@ -1739,9 +1617,6 @@ body.modal-open {
         transition: none;
     }
 }
-
-
-/* ПОРТФОЛІО: ПРОГОРТАННЯ ТА БІЧНІ СТРІЛКИ */
 
 .portfolio-carousel {
     position: relative;
@@ -1814,7 +1689,7 @@ body.modal-open {
 }
 
 .portfolio-carousel .slider-btn:hover {
-    background-color: #4343B8;
+    background-color: #4343b8;
     transform: translateY(-50%) scale(1.06);
 }
 
@@ -1888,10 +1763,6 @@ body.modal-open {
         transition: none;
     }
 }
-
-/* НЕРУХОМІ СТРІЛКИ ПОРТФОЛІО */
-
-/* За замовчуванням кнопки розташовані під фотографіями. */
 .portfolio-section .portfolio-carousel {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1924,9 +1795,6 @@ body.modal-open {
 .portfolio-section .portfolio-carousel .btn-next {
     justify-self: start;
 }
-
-/* На широкому екрані є місце для кнопок збоку.
-   Контент: 1200px, кнопки: 52px, відступ від фото: 20px. */
 @media screen and (min-width: 1400px) {
     .portfolio-section .portfolio-carousel {
         display: block;
@@ -1951,12 +1819,12 @@ body.modal-open {
     }
 }
 
-html[lang="uk"] {
+html[lang='uk'] {
     --main-font: 'Manrope', 'Nunito Sans', sans-serif;
 }
-html[lang="uk"] body h1,
-html[lang="uk"] body h2,
-html[lang="uk"] body h3 {
+html[lang='uk'] body h1,
+html[lang='uk'] body h2,
+html[lang='uk'] body h3 {
     font-family: 'Manrope', sans-serif;
     font-weight: 800;
     letter-spacing: -0.025em;

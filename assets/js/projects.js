@@ -1,5 +1,3 @@
-// ТЕКСТИ ІНТЕРФЕЙСУ КАТАЛОГУ
-
 const projectLabels = {
     en: {
         challengeTitle: 'The Challenge',
@@ -23,10 +21,6 @@ const projectLabels = {
         noResults: 'Проєктів не знайдено. Спробуй інший запит або категорію.'
     }
 };
-
-
-// ЕЛЕМЕНТИ СТОРІНКИ
-
 const projectList = document.getElementById('projectList');
 const projectTemplate = document.getElementById('projectTemplate');
 const projectSearch = document.getElementById('projectSearch');
@@ -61,64 +55,53 @@ if (
         return text.trim().toLocaleLowerCase().replace(/\s+/g, ' ');
     }
 
-    // Перевіряє дані, отримані з бази
-function validateProjects(data) {
-    const fields = [
-        'title',
-        'description',
-        'challenge',
-        'approach',
-        'result',
-        'link',
-        'alt'
-    ];
+    function validateProjects(data) {
+        const fields = ['title', 'description', 'challenge', 'approach', 'result', 'link', 'alt'];
 
-    function isCompleteContent(content) {
-        return content &&
-            typeof content === 'object' &&
-            !Array.isArray(content) &&
-            fields.every(field => {
-                return typeof content[field] === 'string' &&
-                    content[field].trim().length > 0;
-            });
-    }
-
-    if (!Array.isArray(data)) {
-        throw new Error('Некоректний список проєктів.');
-    }
-
-    return data.map(project => {
-        if (
-            !project ||
-            typeof project.image_path !== 'string' ||
-            !project.categories ||
-            typeof project.categories.slug !== 'string' ||
-            typeof project.categories.name_en !== 'string' ||
-            typeof project.categories.name_uk !== 'string' ||
-            !isCompleteContent(project.content_uk)
-        ) {
-            throw new Error('Некоректна структура даних проєкту.');
+        function isCompleteContent(content) {
+            return (
+                content &&
+                typeof content === 'object' &&
+                !Array.isArray(content) &&
+                fields.every((field) => {
+                    return typeof content[field] === 'string' && content[field].trim().length > 0;
+                })
+            );
         }
 
-        const hasEnglish = isCompleteContent(project.content_en);
-        return {
-            ...project,
-            hasEnglish: hasEnglish,
-            content_en: hasEnglish ? project.content_en : project.content_uk
-        };
-    });
-}
+        if (!Array.isArray(data)) {
+            throw new Error('Некоректний список проєктів.');
+        }
 
-    // Створення однієї картки
+        return data.map((project) => {
+            if (
+                !project ||
+                typeof project.image_path !== 'string' ||
+                !project.categories ||
+                typeof project.categories.slug !== 'string' ||
+                typeof project.categories.name_en !== 'string' ||
+                typeof project.categories.name_uk !== 'string' ||
+                !isCompleteContent(project.content_uk)
+            ) {
+                throw new Error('Некоректна структура даних проєкту.');
+            }
+
+            const hasEnglish = isCompleteContent(project.content_en);
+            return {
+                ...project,
+                hasEnglish: hasEnglish,
+                content_en: hasEnglish ? project.content_en : project.content_uk
+            };
+        });
+    }
+
     function createProjectCard(project, language) {
         const fragment = projectTemplate.content.cloneNode(true);
         const card = fragment.querySelector('.project-case');
         const image = card.querySelector('img');
-
         const text = project[`content_${language}`];
         const labels = projectLabels[language];
-
-        const contentLanguage = language === 'en' && project.hasEnglish? 'en': 'uk';
+        const contentLanguage = language === 'en' && project.hasEnglish ? 'en' : 'uk';
         if (language === 'en' && !project.hasEnglish) {
             const notice = document.createElement('p');
 
@@ -134,7 +117,6 @@ function validateProjects(data) {
 
         image.src = project.image_path;
         image.alt = text.alt;
-
         const fields = {
             category: project.categories[`name_${language}`],
             title: text.title,
@@ -159,7 +141,6 @@ function validateProjects(data) {
         return fragment;
     }
 
-    // Оновлення стану та вмісту каталогу
     function renderProjects() {
         const language = getProjectLanguage();
         const labels = projectLabels[language];
@@ -177,10 +158,7 @@ function validateProjects(data) {
             button.setAttribute('aria-pressed', String(isActive));
         });
 
-        projectList.setAttribute(
-            'aria-busy',
-            String(loadState === 'loading')
-        );
+        projectList.setAttribute('aria-busy', String(loadState === 'loading'));
 
         retryProjects.textContent = labels.retry;
         retryProjects.hidden = loadState !== 'error';
@@ -191,26 +169,16 @@ function validateProjects(data) {
         if (!isReady) {
             projectList.replaceChildren();
 
-            projectStatus.textContent = loadState === 'loading'
-                ? labels.loading
-                : labels.error;
+            projectStatus.textContent = loadState === 'loading' ? labels.loading : labels.error;
 
             return;
         }
 
         const searchText = normalizeText(projectSearch.value);
-
         const visibleProjects = projects.filter((project) => {
             const text = project[`content_${language}`];
-
-            const searchableText = normalizeText(
-                `${text.title} ${text.description}`
-            );
-
-            const matchesCategory =
-                selectedCategory === 'all' ||
-                project.categories.slug === selectedCategory;
-
+            const searchableText = normalizeText(`${text.title} ${text.description}`);
+            const matchesCategory = selectedCategory === 'all' || project.categories.slug === selectedCategory;
             const matchesSearch = searchableText.includes(searchText);
 
             return matchesCategory && matchesSearch;
@@ -220,12 +188,7 @@ function validateProjects(data) {
             visibleProjects.sort((firstProject, secondProject) => {
                 const firstTitle = firstProject[`content_${language}`].title;
                 const secondTitle = secondProject[`content_${language}`].title;
-
-                const result = firstTitle.localeCompare(
-                    secondTitle,
-                    language,
-                    { sensitivity: 'base' }
-                );
+                const result = firstTitle.localeCompare(secondTitle, language, { sensitivity: 'base' });
 
                 return projectSort.value === 'az' ? result : -result;
             });
@@ -239,19 +202,13 @@ function validateProjects(data) {
 
         projectList.replaceChildren(fragment);
 
-        projectCount.textContent = siteLanguage.text(
-            'projectCount',
-            { count: visibleProjects.length }
-        );
+        projectCount.textContent = siteLanguage.text('projectCount', { count: visibleProjects.length });
 
-        projectEmpty.textContent = projects.length === 0
-            ? labels.empty
-            : labels.noResults;
+        projectEmpty.textContent = projects.length === 0 ? labels.empty : labels.noResults;
 
         projectEmpty.hidden = visibleProjects.length !== 0;
     }
 
-    // Отримання даних із Supabase
     async function loadProjects() {
         if (loadState === 'loading' && retryProjects.disabled) {
             return;
@@ -263,7 +220,6 @@ function validateProjects(data) {
 
         try {
             const data = await getDatabaseProjects();
-
             projects = validateProjects(data);
             loadState = 'ready';
         } catch (error) {
@@ -297,7 +253,6 @@ function validateProjects(data) {
     });
 
     retryProjects.addEventListener('click', loadProjects);
-
     document.addEventListener('siteLanguageChange', renderProjects);
 
     loadProjects();

@@ -1,7 +1,3 @@
-/* =========================================
-   ЗАГАЛЬНІ СТИЛІ ПІДПОРЯДКОВАНИХ СТОРІНОК
-   ========================================= */
-
 .inner-page {
     font-family: 'Nunito Sans', sans-serif;
 }
@@ -119,10 +115,6 @@
     line-height: 1.6;
 }
 
-/* =========================================
-   SERVICES
-   ========================================= */
-
 .service-details {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -158,8 +150,6 @@
 .feature-list li:last-child {
     border-bottom: none;
 }
-
-/* ЕТАПИ РОБОТИ */
 
 .process-grid {
     display: grid;
@@ -197,8 +187,6 @@
     line-height: 1.8;
 }
 
-/* ПОШИРЕНІ ЗАПИТАННЯ */
-
 .faq-list {
     max-width: 850px;
 }
@@ -220,10 +208,6 @@
     line-height: 1.8;
     margin-top: 18px;
 }
-
-/* =========================================
-   PROJECTS
-   ========================================= */
 
 .project-filters {
     display: flex;
@@ -316,10 +300,6 @@
     border-top: 1px solid #41414a;
 }
 
-/* =========================================
-   ABOUT
-   ========================================= */
-
 .about-layout {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -372,10 +352,6 @@
 .page-banner .btn {
     margin-top: 24px;
 }
-
-/* =========================================
-   CONTACT
-   ========================================= */
 
 .contact-layout {
     display: grid;
@@ -499,8 +475,6 @@
     margin-top: 20px;
 }
 
-/* ПЛАНШЕТНА ВЕРСІЯ */
-
 @media screen and (min-width: 789px) {
     .mobile-contact-link {
         display: none;
@@ -568,10 +542,6 @@
         padding: 45px;
     }
 }
-
-/* =========================================
-   ДЕСКТОПНА ВЕРСІЯ
-   ========================================= */
 
 @media screen and (min-width: 1025px) {
     .page-title {
