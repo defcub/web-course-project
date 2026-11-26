@@ -64,7 +64,9 @@
 
                             <div class="admin-field">
                                 <label for="projectCategory" data-admin-text="category">Category</label>
-                                <select id="projectCategory" name="category_id" required></select>
+                                <select id="projectCategory" name="category_id" required>
+                                    <option value="">Select a category</option>
+                                </select>
                             </div>
 
                             <div class="admin-field">
@@ -79,7 +81,7 @@
                                 <input type="file" id="projectImageFile" accept="image/jpeg,image/png,image/webp" hidden />
 
                                 <div class="image-drop-zone" id="imageDropZone" role="group" aria-labelledby="projectImageLabel">
-                                    <img id="projectImagePreview" class="admin-image-preview" alt="" hidden />
+                                    <img id="projectImagePreview" class="admin-image-preview" src="assets/images/logo-icon.png" alt="" hidden />
 
                                     <div class="image-upload-controls">
                                         <p class="image-drop-title" data-image-text="drop">Drop an image here</p>
